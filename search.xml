@@ -4,25 +4,19 @@
   
     
     <entry>
-      <title>快速排序和归并排序</title>
-      <link href="/suan-fa/kuai-su-pai-xu-he-gui-bing-pai-xu/"/>
-      <url>/suan-fa/kuai-su-pai-xu-he-gui-bing-pai-xu/</url>
+      <title>我的自拍</title>
+      <link href="/qi-ta/jia-mi-ce-shi/"/>
+      <url>/qi-ta/jia-mi-ce-shi/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h3><h4 id="1-1-快速排序"><a href="#1-1-快速排序" class="headerlink" title="1.1 快速排序"></a>1.1 快速排序</h4><ul><li>确定分界点，这里以中间点作为分界点 x=q[l+r&gt;&gt;1]</li><li>划分两个区间，左边区间 $\le x$, 右边 区间 $\ge x$ </li><li>递归处理左右两个区间</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r)&#123;    if (l &gt;&#x3D; r) return;    int i &#x3D; l - 1, j &#x3D; r + 1, x &#x3D; q[l + r &gt;&gt; 1];    while (i &lt; j)    &#123;        do i ++ ; while (q[i] &lt; x);        do j -- ; while (q[j] &gt; x);        &#x2F;&#x2F; 改为从大到小排序        &#x2F;&#x2F; do i++; while(q[i] &gt; x); &#x2F;&#x2F; 这里和下面        &#x2F;&#x2F; do j--; while(q[j] &lt; x); &#x2F;&#x2F; 这行的判断条件改一下        if (i &lt; j) swap(q[i], q[j]);    &#125;    quick_sort(q, l, j), quick_sort(q, j + 1, r);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>应用：求第k小</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int quick_sort(int l,int r,int k)&#123;    if(l&gt;&#x3D;r) return q[l];    int x&#x3D;q[r+l&gt;&gt;1],i&#x3D;l-1,j&#x3D;r+1;    while(i&lt;j)    &#123;        do i++; while(q[i]&lt;x);        do j--; while(q[j]&gt;x);        if(i&lt;j) swap(q[i],q[j]);    &#125;    if(j-l+1&gt;&#x3D;k)   return quick_sort(l,j,k);  &#x2F;&#x2F; 第k小在左边    else return quick_sort(j+1,r,k-(j-l+1));  &#x2F;&#x2F; 第k小一定在右边&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="1-2-归并排序"><a href="#1-2-归并排序" class="headerlink" title="1.2 归并排序"></a>1.2 归并排序</h4><ul><li>确定分界点,中间： l+r&gt;&gt;1</li><li>先递归排序左右两个区间</li><li>合并子问题</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r)&#123;    if(l &gt;&#x3D; r) return;     &#x2F;&#x2F;递归的终止情况    int mid &#x3D; l + r &gt;&gt; 1;  &#x2F;&#x2F;第一步：分成子问题    &#x2F;&#x2F;第二步：递归处理子问题    merge_sort(q, l, mid), merge_sort(q, mid + 1, r);    &#x2F;&#x2F;第三步：合并有序的两段，i，j为两段的起点    int k &#x3D; 0, i &#x3D; l, j &#x3D; mid + 1;    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; r)        if(q[i] &lt;&#x3D; q[j]) tmp[k++] &#x3D; q[i++];        else tmp[k++] &#x3D; q[j++];    &#x2F;&#x2F; 对当前指针到终点的赋值    while(i &lt;&#x3D; mid) tmp[k++] &#x3D; q[i++];    while(j &lt;&#x3D; r) tmp[k++] &#x3D; q[j++];&#x2F;&#x2F; 赋值回原数组    for( i &#x3D; l,k&#x3D;0; i &lt;&#x3D; r; i++, k++) q[i] &#x3D; tmp[k];&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>求逆序对数</strong>：</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">ll merge_sort(int l, int r)&#123;    if(l &gt;&#x3D; r) return 0;     &#x2F;&#x2F;递归的终止情况    int mid &#x3D; l + r &gt;&gt; 1;  &#x2F;&#x2F;第一步：分成子问题    &#x2F;&#x2F;第二步：递归处理子问题    ll res&#x3D;merge_sort(l, mid) + merge_sort(mid + 1, r);    &#x2F;&#x2F;第三步：合并有序的两段，i，j为两段的起点    int k &#x3D; 0, i &#x3D; l, j &#x3D; mid + 1;    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; r)        if(q[i] &lt;&#x3D; q[j]) tmp[k++] &#x3D; q[i++];        else tmp[k++] &#x3D; q[j++],res+&#x3D;mid-i+1;    &#x2F;&#x2F; 对当前指针到终点的赋值    while(i &lt;&#x3D; mid) tmp[k++] &#x3D; q[i++];    while(j &lt;&#x3D; r) tmp[k++] &#x3D; q[j++];&#x2F;&#x2F; 赋值回原数组    for( i &#x3D; l,k&#x3D;0; i &lt;&#x3D; r; i++, k++) q[i] &#x3D; tmp[k];    return res;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
+        <content type="html"><![CDATA[<p>自拍</p>]]></content>
       
       
       <categories>
           
-          <category> 算法 </category>
+          <category> 其他 </category>
           
       </categories>
       
-      
-        <tags>
-            
-            <tag> 基础算法 </tag>
-            
-        </tags>
       
     </entry>
     
@@ -46,6 +40,31 @@
         <tags>
             
             <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>快速排序和归并排序</title>
+      <link href="/suan-fa/kuai-su-pai-xu-he-gui-bing-pai-xu/"/>
+      <url>/suan-fa/kuai-su-pai-xu-he-gui-bing-pai-xu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h3><h4 id="1-1-快速排序"><a href="#1-1-快速排序" class="headerlink" title="1.1 快速排序"></a>1.1 快速排序</h4><ul><li>确定分界点，这里以中间点作为分界点 x=q[l+r&gt;&gt;1]</li><li>划分两个区间，左边区间 $\le x$, 右边 区间 $\ge x$ </li><li>递归处理左右两个区间</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r)&#123;    if (l &gt;&#x3D; r) return;    int i &#x3D; l - 1, j &#x3D; r + 1, x &#x3D; q[l + r &gt;&gt; 1];    while (i &lt; j)    &#123;        do i ++ ; while (q[i] &lt; x);        do j -- ; while (q[j] &gt; x);        &#x2F;&#x2F; 改为从大到小排序        &#x2F;&#x2F; do i++; while(q[i] &gt; x); &#x2F;&#x2F; 这里和下面        &#x2F;&#x2F; do j--; while(q[j] &lt; x); &#x2F;&#x2F; 这行的判断条件改一下        if (i &lt; j) swap(q[i], q[j]);    &#125;    quick_sort(q, l, j), quick_sort(q, j + 1, r);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>应用：求第k小</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int quick_sort(int l,int r,int k)&#123;    if(l&gt;&#x3D;r) return q[l];    int x&#x3D;q[r+l&gt;&gt;1],i&#x3D;l-1,j&#x3D;r+1;    while(i&lt;j)    &#123;        do i++; while(q[i]&lt;x);        do j--; while(q[j]&gt;x);        if(i&lt;j) swap(q[i],q[j]);    &#125;    if(j-l+1&gt;&#x3D;k)   return quick_sort(l,j,k);  &#x2F;&#x2F; 第k小在左边    else return quick_sort(j+1,r,k-(j-l+1));  &#x2F;&#x2F; 第k小一定在右边&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="1-2-归并排序"><a href="#1-2-归并排序" class="headerlink" title="1.2 归并排序"></a>1.2 归并排序</h4><ul><li>确定分界点,中间： l+r&gt;&gt;1</li><li>先递归排序左右两个区间</li><li>合并子问题</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r)&#123;    if(l &gt;&#x3D; r) return;     &#x2F;&#x2F;递归的终止情况    int mid &#x3D; l + r &gt;&gt; 1;  &#x2F;&#x2F;第一步：分成子问题    &#x2F;&#x2F;第二步：递归处理子问题    merge_sort(q, l, mid), merge_sort(q, mid + 1, r);    &#x2F;&#x2F;第三步：合并有序的两段，i，j为两段的起点    int k &#x3D; 0, i &#x3D; l, j &#x3D; mid + 1;    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; r)        if(q[i] &lt;&#x3D; q[j]) tmp[k++] &#x3D; q[i++];        else tmp[k++] &#x3D; q[j++];    &#x2F;&#x2F; 对当前指针到终点的赋值    while(i &lt;&#x3D; mid) tmp[k++] &#x3D; q[i++];    while(j &lt;&#x3D; r) tmp[k++] &#x3D; q[j++];&#x2F;&#x2F; 赋值回原数组    for( i &#x3D; l,k&#x3D;0; i &lt;&#x3D; r; i++, k++) q[i] &#x3D; tmp[k];&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>求逆序对数</strong>：</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">ll merge_sort(int l, int r)&#123;    if(l &gt;&#x3D; r) return 0;     &#x2F;&#x2F;递归的终止情况    int mid &#x3D; l + r &gt;&gt; 1;  &#x2F;&#x2F;第一步：分成子问题    &#x2F;&#x2F;第二步：递归处理子问题    ll res&#x3D;merge_sort(l, mid) + merge_sort(mid + 1, r);    &#x2F;&#x2F;第三步：合并有序的两段，i，j为两段的起点    int k &#x3D; 0, i &#x3D; l, j &#x3D; mid + 1;    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; r)        if(q[i] &lt;&#x3D; q[j]) tmp[k++] &#x3D; q[i++];        else tmp[k++] &#x3D; q[j++],res+&#x3D;mid-i+1;    &#x2F;&#x2F; 对当前指针到终点的赋值    while(i &lt;&#x3D; mid) tmp[k++] &#x3D; q[i++];    while(j &lt;&#x3D; r) tmp[k++] &#x3D; q[j++];&#x2F;&#x2F; 赋值回原数组    for( i &#x3D; l,k&#x3D;0; i &lt;&#x3D; r; i++, k++) q[i] &#x3D; tmp[k];    return res;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 基础算法 </tag>
             
         </tags>
       
