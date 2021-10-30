@@ -1,1 +1,4 @@
 /* Here is your custom css styles. */
+#daodream-container .daodream-powered-by span{
+  display: none;
+}
