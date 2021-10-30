@@ -29,7 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 
@@ -583,10 +585,25 @@
                 
 
                 
-
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    603
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -606,75 +623,75 @@
 <li>递归处理左右两个区间</li>
 </ul>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r)
-&#123;
-    if (l &gt;&#x3D; r) return;
-    int i &#x3D; l - 1, j &#x3D; r + 1, x &#x3D; q[l + r &gt;&gt; 1];
+{
+    if (l &gt;= r) return;
+    int i = l - 1, j = r + 1, x = q[l + r &gt;&gt; 1];
     while (i &lt; j)
-    &#123;
+    {
         do i ++ ; while (q[i] &lt; x);
         do j -- ; while (q[j] &gt; x);
-        &#x2F;&#x2F; 改为从大到小排序
-        &#x2F;&#x2F; do i++; while(q[i] &gt; x); &#x2F;&#x2F; 这里和下面
-        &#x2F;&#x2F; do j--; while(q[j] &lt; x); &#x2F;&#x2F; 这行的判断条件改一下
+        // 改为从大到小排序
+        // do i++; while(q[i] &gt; x); // 这里和下面
+        // do j--; while(q[j] &lt; x); // 这行的判断条件改一下
         if (i &lt; j) swap(q[i], q[j]);
-    &#125;
+    }
     quick_sort(q, l, j), quick_sort(q, j + 1, r);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>应用：求第k小</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int quick_sort(int l,int r,int k)
-&#123;
-    if(l&gt;&#x3D;r) return q[l];
-    int x&#x3D;q[r+l&gt;&gt;1],i&#x3D;l-1,j&#x3D;r+1;
+{
+    if(l&gt;=r) return q[l];
+    int x=q[r+l&gt;&gt;1],i=l-1,j=r+1;
     while(i&lt;j)
-    &#123;
+    {
         do i++; while(q[i]&lt;x);
         do j--; while(q[j]&gt;x);
         if(i&lt;j) swap(q[i],q[j]);
-    &#125;
-    if(j-l+1&gt;&#x3D;k)   return quick_sort(l,j,k);  &#x2F;&#x2F; 第k小在左边
-    else return quick_sort(j+1,r,k-(j-l+1));  &#x2F;&#x2F; 第k小一定在右边
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    }
+    if(j-l+1&gt;=k)   return quick_sort(l,j,k);  // 第k小在左边
+    else return quick_sort(j+1,r,k-(j-l+1));  // 第k小一定在右边
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-2-归并排序"><a href="#1-2-归并排序" class="headerlink" title="1.2 归并排序"></a>1.2 归并排序</h4><ul>
 <li>确定分界点,中间： l+r&gt;&gt;1</li>
 <li>先递归排序左右两个区间</li>
 <li>合并子问题</li>
 </ul>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r)
-&#123;
-    if(l &gt;&#x3D; r) return;     &#x2F;&#x2F;递归的终止情况
-    int mid &#x3D; l + r &gt;&gt; 1;  &#x2F;&#x2F;第一步：分成子问题
-    &#x2F;&#x2F;第二步：递归处理子问题
+{
+    if(l &gt;= r) return;     //递归的终止情况
+    int mid = l + r &gt;&gt; 1;  //第一步：分成子问题
+    //第二步：递归处理子问题
     merge_sort(q, l, mid), merge_sort(q, mid + 1, r);
-    &#x2F;&#x2F;第三步：合并有序的两段，i，j为两段的起点
-    int k &#x3D; 0, i &#x3D; l, j &#x3D; mid + 1;
-    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; r)
-        if(q[i] &lt;&#x3D; q[j]) tmp[k++] &#x3D; q[i++];
-        else tmp[k++] &#x3D; q[j++];
-    &#x2F;&#x2F; 对当前指针到终点的赋值
-    while(i &lt;&#x3D; mid) tmp[k++] &#x3D; q[i++];
-    while(j &lt;&#x3D; r) tmp[k++] &#x3D; q[j++];
-	&#x2F;&#x2F; 赋值回原数组
-    for( i &#x3D; l,k&#x3D;0; i &lt;&#x3D; r; i++, k++) q[i] &#x3D; tmp[k];
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    //第三步：合并有序的两段，i，j为两段的起点
+    int k = 0, i = l, j = mid + 1;
+    while(i &lt;= mid &amp;&amp; j &lt;= r)
+        if(q[i] &lt;= q[j]) tmp[k++] = q[i++];
+        else tmp[k++] = q[j++];
+    // 对当前指针到终点的赋值
+    while(i &lt;= mid) tmp[k++] = q[i++];
+    while(j &lt;= r) tmp[k++] = q[j++];
+	// 赋值回原数组
+    for( i = l,k=0; i &lt;= r; i++, k++) q[i] = tmp[k];
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>求逆序对数</strong>：</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">ll merge_sort(int l, int r)
-&#123;
-    if(l &gt;&#x3D; r) return 0;     &#x2F;&#x2F;递归的终止情况
-    int mid &#x3D; l + r &gt;&gt; 1;  &#x2F;&#x2F;第一步：分成子问题
-    &#x2F;&#x2F;第二步：递归处理子问题
-    ll res&#x3D;merge_sort(l, mid) + merge_sort(mid + 1, r);
-    &#x2F;&#x2F;第三步：合并有序的两段，i，j为两段的起点
-    int k &#x3D; 0, i &#x3D; l, j &#x3D; mid + 1;
-    while(i &lt;&#x3D; mid &amp;&amp; j &lt;&#x3D; r)
-        if(q[i] &lt;&#x3D; q[j]) tmp[k++] &#x3D; q[i++];
-        else tmp[k++] &#x3D; q[j++],res+&#x3D;mid-i+1;
-    &#x2F;&#x2F; 对当前指针到终点的赋值
-    while(i &lt;&#x3D; mid) tmp[k++] &#x3D; q[i++];
-    while(j &lt;&#x3D; r) tmp[k++] &#x3D; q[j++];
-	&#x2F;&#x2F; 赋值回原数组
-    for( i &#x3D; l,k&#x3D;0; i &lt;&#x3D; r; i++, k++) q[i] &#x3D; tmp[k];
+{
+    if(l &gt;= r) return 0;     //递归的终止情况
+    int mid = l + r &gt;&gt; 1;  //第一步：分成子问题
+    //第二步：递归处理子问题
+    ll res=merge_sort(l, mid) + merge_sort(mid + 1, r);
+    //第三步：合并有序的两段，i，j为两段的起点
+    int k = 0, i = l, j = mid + 1;
+    while(i &lt;= mid &amp;&amp; j &lt;= r)
+        if(q[i] &lt;= q[j]) tmp[k++] = q[i++];
+        else tmp[k++] = q[j++],res+=mid-i+1;
+    // 对当前指针到终点的赋值
+    while(i &lt;= mid) tmp[k++] = q[i++];
+    while(j &lt;= r) tmp[k++] = q[j++];
+	// 赋值回原数组
+    for( i = l,k=0; i &lt;= r; i++, k++) q[i] = tmp[k];
     return res;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>
                 
             </div>
@@ -788,6 +805,47 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/qi-ta/jia-mi-ce-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="我的自拍">
+                        
+                        <span class="card-title">我的自拍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
+                                    其他
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/suan-fa/suan-fa-bi-ji/">
                     <div class="card-image">
                         
@@ -804,9 +862,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -824,51 +882,6 @@
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/uncategorized/what-is-love/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="What is love">
-                        
-                        <span class="card-title">What is love</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            lzl
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>
@@ -1079,6 +1092,9 @@
              <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank"></a>
             
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">6.7k</span>&nbsp;字
             
             
             
