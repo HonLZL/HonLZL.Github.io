@@ -1907,15 +1907,13 @@ ax+by = gcd(a,b)=gcd(b,\ a\ \%\ b)\\
 =bx'+(a-b*\left \lfloor \frac{a}{b}  \right \rfloor )y'\\
 =ay'+b(x'-\left \lfloor \frac{a}{b}  \right \rfloor y')\\
 比较等式两边可知\ x=y'\ \ \ y=x'-\left \lfloor \frac{a}{b}  \right \rfloor y'</script><script type="math/tex; mode=display">
-\begin{flalign*}
 &通解: \begin{cases}
-  &  x=x_0+k\frac{b}{d} \\
+&  x=x_0+k\frac{b}{d} \\
   &  y=y_0-k\frac{a}{d}
-\end{cases}\\
+  \end{cases}\\
 证明: &\ \ 将其代回原式， a(x_0+k\frac{b}{d})+b(y_0-k\frac{a}{d})=m\\
 &\ \ 展开得\ \  ax_0+by_0=m ,含有\ k\ 的被消去了\\
-&\ \ 得到的式子和原式一样，证毕&
-\end{flalign*}</script></blockquote>
+&\ \ 得到的式子和原式一样，证毕&</script></blockquote>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 伴随着欧几里得算法更新 x y 的过程
 void exgcd(int a,int b,int &amp;x,int &amp;y)
 {
@@ -1942,11 +1940,11 @@ int exgcd(int a,int b,int &amp;x,int &amp;y)
 <p>Exgcd应用：求解线性同余方程 <span id="linear congruent equation"> </span>  </p>
 <script type="math/tex; mode=display">
 &ax\equiv\ b\ \ \ (mod\ \ m)\\
-\Longleftrightarrow & ax\ \%\ m=b\\
-\Longleftrightarrow & ax=my+b\\
-\Longleftrightarrow & ax-my=b \\
-\Longleftrightarrow & ax+my'=b\\
-\Longleftrightarrow & 给定a,b,m\ \  求 x\\
+ & ax\ \%\ m=b\\
+ & ax=my+b\\
+ & ax-my=b \\
+ & ax+my'=b\\
+ & 给定a,b,m\ \  求 x\\
 & 所以如果b=k·gcd(a,m)才有解\\
 & 解为 gcd(a,m)/b*x\%m</script><blockquote>
 <p>答案对 m 取模仍为答案</p>
@@ -2156,11 +2154,10 @@ int gauss()
 <p>同理证得: $(1+x)^{p^\alpha}\equiv 1+x^{p^\alpha } \ \ (mod\ \ p)$ .</p>
 <p>将 $a，b$ 转化为 p 进制数，$a=a_0+a_1p+a_2p^2+···+a_kp^k$，$b=b_0+b_1p+b_2p^2+···+b_kp^k$ </p>
 <script type="math/tex; mode=display">
-\begin{align*}
+
 (1+x)^a &= (1+x)^{a_0+a_1p+a_2p^2+···+a_kp^k}\\
 & = (1+x)^{a_0}\times((1+x)^{p_1})^{a_1}\times···\times((1+x)^{p_k})^{a_k}\\
-&\equiv(1+x)^{a_0}\times(1+x^{p^1})^{a_1}\times···\times(1+x^{p^k})^{a_k}\ \ (mod\ \ n) &
-\end{align*}</script><p>$C_a^b$ 就是 $(1+x)^a$ 展开式中 $x^b$ 的系数，即 $x^{b_0+b_1p+b_2p^2+···+b_kp^k}$ 的系数。对比左边和右边每一项 $x^b$ 的系数可知</p>
+&\equiv(1+x)^{a_0}\times(1+x^{p^1})^{a_1}\times···\times(1+x^{p^k})^{a_k}\ \ (mod\ \ n) &</script><p>$C_a^b$ 就是 $(1+x)^a$ 展开式中 $x^b$ 的系数，即 $x^{b_0+b_1p+b_2p^2+···+b_kp^k}$ 的系数。对比左边和右边每一项 $x^b$ 的系数可知</p>
 <p>$C_a^b\equiv C_{a_0}^{b_0}\times C_{a_1}^{b_1}\times ···\times C_{a_k}^{b_k}\ \ (mod\ \ n) $ </p>
 <p>$C_{a_0}^{b_0}=C_{a\%p}^{b\%p}$，因为转化为p进制的第一位就是对 p 取余得到的</p>
 <p>$C_{a/p}^{b/p}=C_{a_1}^{b_1}\times ···\times C_{a_k}^{b_k}$，p 进制下，将 a，b 右移一位相当于 /p ，和 $C_a^b$ 一样分析，证明这个式子是正确。</p>
