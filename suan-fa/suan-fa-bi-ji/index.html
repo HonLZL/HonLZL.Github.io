@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="算法笔记, ZLL">
+    <meta name="keywords" content="基础算法笔记, ZLL">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法笔记 | ZLL</title>
+    <title>基础算法笔记 | ZLL</title>
     <link rel="icon" type="image/jpeg" href="/upicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -432,12 +432,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法笔记</h1>
+                    <h1 class="description center-align post-title">基础算法笔记</h1>
                 </div>
             </div>
         </div>
@@ -553,8 +553,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">基础算法</span>
                             </a>
                         
                     </div>
@@ -578,7 +578,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-25
+                    2020-10-30
                 </div>
                 
 
@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    12.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    61 分
                 </div>
                 
 
@@ -617,7 +617,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="第一章-基础算法"><a href="#第一章-基础算法" class="headerlink" title="第一章 基础算法"></a>第一章 基础算法</h2><h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h3><h4 id="1-1-快速排序"><a href="#1-1-快速排序" class="headerlink" title="1.1 快速排序"></a>1.1 快速排序</h4><ul>
+                <h2 id="第一章-基础算法"><a href="#第一章-基础算法" class="headerlink" title="第一章 基础算法"></a>第一章 基础算法</h2><h3 id="1-1-排序"><a href="#1-1-排序" class="headerlink" title="1.1 排序"></a>1.1 排序</h3><h4 id="1-1-1-快速排序"><a href="#1-1-1-快速排序" class="headerlink" title="1.1.1 快速排序"></a>1.1.1 快速排序</h4><ul>
 <li>确定分界点，这里以中间点作为分界点 x=q[l+r&gt;&gt;1]</li>
 <li>划分两个区间，左边区间 $\le x$, 右边 区间 $\ge x$ </li>
 <li>递归处理左右两个区间</li>
@@ -651,7 +651,7 @@
     if(j-l+1&gt;=k)   return quick_sort(l,j,k);  // 第k小在左边
     else return quick_sort(j+1,r,k-(j-l+1));  // 第k小一定在右边
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-2-归并排序"><a href="#1-2-归并排序" class="headerlink" title="1.2 归并排序"></a>1.2 归并排序</h4><ul>
+<h4 id="1-1-2-归并排序"><a href="#1-1-2-归并排序" class="headerlink" title="1.1.2 归并排序"></a>1.1.2 归并排序</h4><ul>
 <li>确定分界点,中间： l+r&gt;&gt;1</li>
 <li>先递归排序左右两个区间</li>
 <li>合并子问题</li>
@@ -692,7 +692,7 @@
     for( i = l,k=0; i &lt;= r; i++, k++) q[i] = tmp[k];
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-二分"><a href="#2-二分" class="headerlink" title="2 二分"></a>2 二分</h3><p><strong>整数二分</strong>：分成两块，一左一右，low一直位于作左边，top一直位于右边，最终low在左边块最右，top在右边那块最左边。</p>
+<h3 id="1-2-二分"><a href="#1-2-二分" class="headerlink" title="1.2 二分"></a>1.2 二分</h3><p><strong>整数二分</strong>：分成两块，一左一右，low一直位于作左边，top一直位于右边，最终low在左边块最右，top在右边那块最左边。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(low+1!=top)
 {
 	int mid=low+top&gt;&gt;1;
@@ -706,7 +706,7 @@
     if(check(low)) top=mid;
     else low=mid;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-高精度"><a href="#3-高精度" class="headerlink" title="3 高精度"></a>3 高精度</h3><h4 id="3-1-大数加法"><a href="#3-1-大数加法" class="headerlink" title="3.1 大数加法"></a>3.1 大数加法</h4><p>将数存在数组里面，数组倒序储存方便计算。</p>
+<h3 id="1-3-高精度"><a href="#1-3-高精度" class="headerlink" title="1.3 高精度"></a>1.3 高精度</h3><h4 id="1-3-1-大数加法"><a href="#1-3-1-大数加法" class="headerlink" title="1.3.1 大数加法"></a>1.3.1 大数加法</h4><p>将数存在数组里面，数组倒序储存方便计算。</p>
 <p>思想是模拟。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt; big_add(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
 {
@@ -725,7 +725,7 @@
 //调用
 vector&lt;int&gt; ans=big_add(A,B);
 for(int i=ans.size()-1;i&gt;=0;i--)  cout&lt;&lt;ans[i];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-2-大数减法"><a href="#3-2-大数减法" class="headerlink" title="3.2 大数减法"></a>3.2 大数减法</h4><p>计算 A-B，默认 A&gt;B，如果 A&lt;B，则去计算 -(B-A).</p>
+<h4 id="1-3-2-大数减法"><a href="#1-3-2-大数减法" class="headerlink" title="1.3.2 大数减法"></a>1.3.2 大数减法</h4><p>计算 A-B，默认 A&gt;B，如果 A&lt;B，则去计算 -(B-A).</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt; big_sub(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
 {
     vector&lt;int&gt; res;
@@ -740,7 +740,7 @@ for(int i=ans.size()-1;i&gt;=0;i--)  cout&lt;&lt;ans[i];<span aria-hidden="true"
     while(res.size()&gt;1&amp;&amp;res.back()==0) res.pop_back(); // 去前导零
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-3-大数乘法"><a href="#3-3-大数乘法" class="headerlink" title="3.3 大数乘法"></a>3.3 大数乘法</h4><p>一般是一个大数乘一个小数。</p>
+<h4 id="1-3-3-大数乘法"><a href="#1-3-3-大数乘法" class="headerlink" title="1.3.3 大数乘法"></a>1.3.3 大数乘法</h4><p>一般是一个大数乘一个小数。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A, int b)
 {
     vector&lt;int&gt; res;
@@ -755,7 +755,7 @@ for(int i=ans.size()-1;i&gt;=0;i--)  cout&lt;&lt;ans[i];<span aria-hidden="true"
         res.pop_back();
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-4-大数除法"><a href="#3-4-大数除法" class="headerlink" title="3.4 大数除法"></a>3.4 大数除法</h4><p>一般是一个大数 ÷ 一个小数</p>
+<h4 id="1-3-4-大数除法"><a href="#1-3-4-大数除法" class="headerlink" title="1.3.4 大数除法"></a>1.3.4 大数除法</h4><p>一般是一个大数 ÷ 一个小数</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; ans;  // 商
 int y=0;   // 余数
 void div(vector&lt;int&gt; A,int b)  // A 还是倒着存
@@ -772,6 +772,82 @@ void div(vector&lt;int&gt; A,int b)  // A 还是倒着存
         ans.pop_back();
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-3-5-压位"><a href="#1-3-5-压位" class="headerlink" title="1.3.5 压位"></a>1.3.5 压位</h4><p>由于数组存的数是int类型，所以只存个位数太过浪费。所以考虑将几个数合并成一位存储。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">const int power=3,base=1000; // 需要同时改
+vector&lt;int&gt; big(string s)  // 将字符串大数转化成数组压位的大数
+{
+    vector&lt;int&gt; A;
+    reverse(s.begin(),s.end());  // 调整为个位在前
+    int i,tem=0,w=1;
+    for(i=0;i&lt;s.size();i++)
+    {
+        if(i%power==0&amp;&amp;i)
+        {
+            A.push_back(tem);  tem=0;
+            w=1;
+        }
+        tem+=w*(s[i]-'0');  w*=10;
+    }
+    if(w!=1) A.push_back(tem);
+    return A;
+}
+bool cmp(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B) // 和普通高精一样
+{
+    if(A.size()==B.size())
+    {
+        for(int i=A.size()-1;i&gt;=0;i--)
+        {
+            if(A[i]&gt;B[i]) return 1;
+            else if(A[i]&lt;B[i]) return 0;
+        }
+        return 1;
+    }
+    if(A.size()&gt;B.size()) return 1;
+    return 0;
+}
+vector&lt;int&gt; add(vector&lt;int&gt; &amp;A ,vector&lt;int&gt; &amp;B)
+{
+    vector&lt;int&gt; C;
+    int la=A.size(), lb=B.size();
+    int l=max(la,lb);
+    int t=0;
+    for(int i=0;i&lt;l;i++)
+    {
+        int tem=0;
+        if(i&lt;la) tem+=A[i];
+        if(i&lt;lb) tem+=B[i];
+        C.push_back(tem+t);
+        t = C[i]/base;     // 进位
+        C[i] %= base;
+    }
+    if(t) C.push_back(t);
+    return C;
+}
+vector&lt;int&gt; sub(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
+{
+    vector&lt;int&gt; C;
+    int t=0;  // 判断是否有借位
+    for(int i=0;i&lt;A.size();i++)  // A&gt;=B
+    {
+        int tem=A[i]-t;  t=0;
+        if(i&lt;B.size()) tem-=B[i];
+        if(tem&lt;0)
+        {
+            tem+=base; t=1;
+        }
+        C.push_back(tem);
+    }
+    while(C.size()&gt;1&amp;&amp;C.back()==0) C.pop_back(); // 去前导零
+    return C;
+}
+void print(vector&lt;int&gt; &amp;A)
+{
+    int t=A.size();
+    cout&lt;&lt;A[t-1];
+    for(int i=t-2;i&gt;=0;i--)
+        cout&lt;&lt;setw(power)&lt;&lt;setfill('0')&lt;&lt;A[i];
+    cout&lt;&lt;endl;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-前缀和与差分"><a href="#4-前缀和与差分" class="headerlink" title="4 前缀和与差分"></a>4 前缀和与差分</h3><p>前缀和与差分是相反的过程。</p>
 <h4 id="4-1-前缀和"><a href="#4-1-前缀和" class="headerlink" title="4.1 前缀和"></a>4.1 前缀和</h4><p><strong><em>可以快速求出数组某区间内的数值和</em></strong></p>
 <p>一维数组：sum[i]=sum[i-1]+a[i]</p>
@@ -1103,7 +1179,7 @@ int main()
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-7-堆"><a href="#2-7-堆" class="headerlink" title="2.7 堆"></a>2.7 堆</h3><p>堆是一棵完全二叉树，顶点取最值</p>
-<p><img src="D:\Desktop\算法\基础\堆.png" alt="堆"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%A0%86.png" alt=""></p>
 <p>由于编号位 i 的父结点的左结点为 2i，右结点为 2i+1，所以用保存堆。</p>
 <p>以小根堆为例</p>
 <p>down操作：把一个大数往下移，up操作，把小数往上移</p>
@@ -1185,6 +1261,88 @@ int main()
     }
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-8-哈希表"><a href="#2-8-哈希表" class="headerlink" title="2.8 哈希表"></a>2.8 哈希表</h3><p>储存结构：开放寻址法，拉链法。</p>
+<p><strong>拉链法</strong>：将大数取模，将相同模的组成一个链表</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void insert(int x)
+{
+    int k = (x%mod+mod)%mod; // mod 要选一个质数使得链尽可能短
+    e[idx]=x;
+    ne[idx]=h[k]; // h[k] 表示头结点
+    h[k]=idx++;
+}
+void query(int x)
+{
+    int k=(x%mod+mod)%mod;
+    for(int i=h[k];i!=-1;i=ne[i]) // 在链中寻找
+    {
+        if(e[i]==x)  return 1;
+    }
+    return;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>开放寻址法</strong>：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">const int N=1e5+5,inf=0x3f3f3f3f;
+h[2*N];    mod=200003; // mod 选小于 N 但尽量大的质数
+memset(h,0x3f,sizeof(h));
+int query(int x)
+{
+    int k=(x%mod+mod)%mod;
+    while(h[k]!=inf &amp;&amp; h[k]!=x)
+    {
+        k++;
+        if(k==N) k=0;  // 后面用完了，从起点重新找位置
+    }
+    return k;  // 存在则返回 k 的下标，不存在则返回一个空的下标
+}
+// 调用
+int k=query(x);
+if(op[0]=='I')  h[k]=x;
+else
+{
+    if(h[query(x)]!=inf) printf("Yes\n");
+    else printf("No\n");
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>字符串哈希</strong>：把一个字符串变成一个 p 进制数字，实现不同的字符串映射到不同的数字，即不同点字符串有不同的哈希值。。</p>
+<p>对形如 $ c_1c_2c_3···c_{n-1}c_n $ 的字符串，采用Ascii码乘 P 的次方来计算哈希值。映射公式为：</p>
+<script type="math/tex; mode=display">
+(A_1\times P^{n-1}+A_2\times P^{n-2}+···+A_{n-1}\times P^1+X_n\times P^0)\ \ mod\ \ Q\\
+Q=2^{64}</script><p>对一个字符串求哈希值：h[i+1]=h[i]*P+s[i]</p>
+<p>某段字符串的哈希值: h[l,r]=h[r]-h[l-1]*P^r-l+1^ </p>
+<p>区间和公式的理解: ABCDE 与 ABC 的前三个字符值是一样，只差两位，<br>乘上 P^2^ 把 ABC 变为 ABC00，再用 ABCDE - ABC00 得到 DE 的哈希值。</p>
+<p>模板题：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/843/">字符串哈希</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef unsigned long long ull;
+const int N = 1e5+5, P=131; //P 取131或13331，经验值
+
+ull h[N];  // 前i 字符串的哈希值
+ull p[N];
+int n,q;
+char s[N];
+
+ull get(int l,int r)
+{
+    return h[r]-h[l-1]*p[r-l+1];
+}
+
+int main()
+{
+	scanf("%d%d%s",&amp;n,&amp;q,s+1); // 要从 1 开始
+    p[0]=1;
+    for(int i=1;i&lt;=n;i++)
+    {
+        p[i]=p[i-1]*P;
+        h[i]=h[i-1]*P+s[i];  // 字符串变成了 P进制数
+    }
+    while(q--)
+    {
+        int l1,r1,l2,r2;
+        scanf("%d%d%d%d",&amp;l1,&amp;r1,&amp;l2,&amp;r2);
+        if(get(l1,r1)==get(l2,r2)) printf("Yes\n");
+        else printf("No\n");
+    }
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="第三章-搜索与图论"><a href="#第三章-搜索与图论" class="headerlink" title="第三章 搜索与图论"></a>第三章 搜索与图论</h2><h3 id="3-1-存图方式"><a href="#3-1-存图方式" class="headerlink" title="3.1 存图方式"></a>3.1 存图方式</h3><h4 id="3-1-1-vector存图"><a href="#3-1-1-vector存图" class="headerlink" title="3.1.1 vector存图"></a>3.1.1 vector存图</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;node&gt; G[N];
 G[u].push_back(v); // 加边
 for(int i=0;i&lt;G[x].size();i++)
@@ -1233,165 +1391,863 @@ while (q.size())
 // 初始化
 idx = 0;
 memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="提高"><a href="#提高" class="headerlink" title="提高"></a>提高</h1><h2 id="第一章-动态规划"><a href="#第一章-动态规划" class="headerlink" title="第一章 动态规划"></a>第一章 动态规划</h2><h3 id="1-数字三角形"><a href="#1-数字三角形" class="headerlink" title="1 数字三角形"></a>1 数字三角形</h3><h3 id="2-最长上升子序列"><a href="#2-最长上升子序列" class="headerlink" title="2 最长上升子序列"></a>2 最长上升子序列</h3><h3 id="3-背包模型"><a href="#3-背包模型" class="headerlink" title="3 背包模型"></a>3 背包模型</h3><h4 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h4><h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><h2 id="1-网络流"><a href="#1-网络流" class="headerlink" title="1 网络流"></a>1 网络流</h2><h3 id="1-1-网络流相关概念"><a href="#1-1-网络流相关概念" class="headerlink" title="1.1 网络流相关概念"></a>1.1 网络流相关概念</h3><p>==流网络==：</p>
-<p><img src="D:\Desktop\算法\进阶\图论\网络流.jpg" alt="网络流"> </p>
-<ul>
-<li>s: 源点</li>
-<li>t：汇点</li>
-<li>容量：边 $uv$ 能通过的最大流量，c(u,v)</li>
-<li>流量：边 $uv$ 实际通过的流量，f(u,v)</li>
-</ul>
-<p>==可行流 f== (feasible flow 不考虑反向边)</p>
-<ol>
-<li><p>须满足容量限制： $0\le f(u,v)\le c(u,v)$;</p>
-</li>
-<li><p>流量守恒,对除s、t以外的点，流入等于流出： $\forall_x \in V\setminus s\ and\ t, \sum \limits_{(v,x)\in E}f(v,x)=\sum \limits_{(x,v)\in E}f(x,v)$ </p>
-</li>
-</ol>
-<p>==净流量==：从源点流入的总流量，$|f|= \sum  \limits_{(s,v)\in E} f(s,v)-\sum \limits_{(v,s)\in E} f(v,s) $  </p>
-<p>==最大流==：流量值最大的可行流，<strong>最大可行流</strong>(Maximum Flow)。</p>
-<p>==残留网络 G~f~==：对流网络的某一条可行流来说,残留网络包括以下：</p>
-<ul>
-<li><p>点和边：$V_f=V,E_f=E\ and\ E的反向边 $</p>
-</li>
-<li><p>原始边的流量：$c’(u,v) =c(u,v)-f(u,v),\ \ (u,v)\in E $ </p>
-</li>
-<li>反向边的流量：$c’(v,u)=f(u,v),\ \ (v,u)\in E$  </li>
-</ul>
-<blockquote>
-<p><strong>定理</strong>：若f是原网络G的可行流，f’是G~f~的可行流，则f+f’是原流网络G的一个可行流。</p>
-<p>证明：</p>
-<ol>
-<li>容量限制：<ul>
-<li>对于正向边$f(u,v)$: $0\le f’(u,v)\le c’(u,v)=c(u,v)-f(u,v)$ ,然后经过移项可证</li>
-<li>对于反向边$f’(u,v)$: $0\le f’(u,v)\le c’(u,v)= f(v,u)=c(u,v)$, 所以 $f(v,u)-f’(u,v) \ge 0$ 且 $\le c(u,v)$ 得证</li>
-</ul>
-</li>
-<li>流量守恒：<ul>
-<li>$|f+f’|=|f|+|f’|$   </li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<p>==增广路径==(augmenting path)：在残留网络沿着容量大于零的边走能到达汇点的路径。</p>
-<blockquote>
-<p><strong>定理</strong>：若G~f~不存在增广路径/可行流，则 f 为 G 的最大流。</p>
-<p>证明在<a href="#max-flow min-cut theorem">最大流最小割定理</a></p>
-</blockquote>
-<p>==割==(cut)：把点集 V 分成两部分 S 和 T，($S\cup T=V\ 且 \ S\cap T=\emptyset $)，源点 $s\in S$,汇点 $t\in T$ ,划分的结果就是一个割，记作 $CUT(S,T)$，共有 2^n-2^ 种划分方式。</p>
-<ul>
-<li><p><strong>割边</strong>：如果一条弧的两个顶点一个属于顶点集S一个属于顶点集T，该弧为割 $CUT(S,T)$ 的一条割边</p>
-</li>
-<li><p><strong>正向割边</strong>：从集合 S 指向集合 T 的割边</p>
-</li>
-<li><p><strong>逆向割边</strong>：从集合 T 指向集合 S 的割边</p>
-</li>
-<li><p><strong>割的容量</strong>：所有正向割边的流量之和，$c(S,T)=\sum \limits_{u\in S} \sum \limits_{v\in T} c(u,v)$ </p>
-</li>
-<li><p><strong>割的流量</strong>：所正向割边的流量和减所有逆向割边的流量和，$f(S,T)=\sum \limits_{u \in S} \sum \limits_{v\in T}f(u,v)-\sum \limits_{u \in S} \sum \limits_{v\in T}f(v,u)$ </p>
-<blockquote>
-<p>定理：对任意一个割，$f(S,T)\le c(S,T)$ </p>
-<p>证明：利用放缩，$f(S,T)\le \sum \limits_{u \in S} \sum \limits_{v\in T}f(u,v)\le \sum \limits_{u\in S} \sum \limits_{v\in T} c(u,v)=c(S,T)$ </p>
-<p>定义 $f(X,Y)=\sum \limits_{u \in X} \sum \limits_{v\in Y}f(u,v)-\sum \limits_{u \in X} \sum \limits_{v\in Y}f(v,u)$，所以 </p>
-<ul>
-<li>$f(X,Y)=-f(Y,X)$ </li>
-<li>$f(X,X)=0$ </li>
-<li>$f(Z,X\cup Y)=f(Z,X)+f(Z,Y)\ \ \  X\cap Y=\emptyset $ </li>
-</ul>
-<p>定理：割的流量等于净流量， $f(S,T)=|f|$ </p>
-<p>证明：</p>
-<script type="math/tex; mode=display">
-\begin{align*}
-f(S,V)&=f(S,S)+f(S,T)\\
-f(S,T)&=f(S,V)-f(S,S)\\
-&= f(S,V)\\
-&= f({s},V)+f(S\setminus s,V)， \left \{S\setminus s \right \} 是没有s和t的点的集合，由于流量守恒f(S\setminus s,V)=0\\
-&=f(s,V)\\
-&=|f|
-\end{align*}</script><p>所以还可以得到 $|f|\le c(S,T)$，净流量取小于等于割的容量</p>
-</blockquote>
-</li>
-</ul>
-<p>==最大流-最小割定理==(max-flow min-cut theorem):下面三个命题是等价的</p>
-<ol>
-<li>可行流 f 是最大流</li>
-<li>可行流 f 的残留网络G~f~中不存在增广路</li>
-<li>存在一个割 $CUT(S,T)，|f|=c(S,T)$ </li>
-</ol>
-<blockquote>
-<p>1$\Longrightarrow $2  <span id="max-flow min-cut theorem"> </span> </p>
-<p>证明：反证，假设还存在一个增广路 f’，由于G~f~的能量守恒</p>
-<p>​    |f+f’|=|f|+|f’|,所以 f 不是最大流，与命题1矛盾。</p>
-<p>2$\Longrightarrow $3</p>
-<p>证明：在G~f~不存在增广路的情况下构造一个割，使之|f|=c(S,T)</p>
-<p>定义S为，从 G~f~ 的源点 s 出发，沿容量大于0的边能到达的所有点，显然不能到达汇点 t，那么 $T=V\setminus S, S\cup T=V$,所以这种划分是原网络 G 的一个割CUT(S,T)。</p>
-<p>对于这个割，正向割边流量为该边容量，逆向割边流量为0。</p>
-<script type="math/tex; mode=display">
-\begin{align*}
-|f| &=\sum \limits_{u\in S} \sum \limits_{v\in T} f(u,v)-\sum \limits_{u\in S} \sum \limits_{v\in T} f(v,u)\\
-&=\sum \limits_{u\in S} \sum \limits_{v\in T} f(u,v)\\
-&=c(S,T) \ \ \ \ 得证
-\end{align*}</script><p>3$\Longrightarrow $1</p>
-<p>证明：已知任何一个流 $|f|\le c(S,T)$，所以最大流也 $\le c(S,T)$ </p>
-<p>​    3中，$|f|=c(S,T)$ , 所以 $|f|\ge最大流$ </p>
-<p>​    又显然任何一个流都小于等于最大流, 夹逼得证，还能说明这个割是最小割，如下定理</p>
-<p>定理：最大流等于最小割</p>
-<p>证明：由3可知，最小割 $\le$ c(S,T) = |f| $\le$ 最大流，</p>
-<p>​    而最大流 $\le$ 最小割，所以最大流等于最小割</p>
-</blockquote>
-<h3 id="1-2-求最大流"><a href="#1-2-求最大流" class="headerlink" title="1.2 求最大流"></a>1.2 求最大流</h3><p>使用Ford-Fulkerson方法 即增广路方法 简称FF方法。</p>
-<p>开始，对于所有结点 $f(u,v)=f(v,u)=0,\ \ u,v\in V$，给出的初始流值为0。在每一次迭代中，将 G 的流值增加，方法就是在残留网络　G~f~ 中寻找一条增广路径（一般用 BFS 算法遍历残留网络中各个结点，以此寻找增广路径），然后在增广路径中的每条边都增加等量的流值，这个流值的大小就是增广路径上的最大残余流量，反向边减去流量。重复这一过程，直到残余网络中不再存在增广路径为止。最大流最小切割定理将说明在算法终结时，该算法获得一个最大流。</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Ford-Fulkerson(G,s,t)伪代码:
-for each edge(u,v) 属于 E（G）
-	f[u,v]=0  f[v,u]=0 // 初始化流量为 0
-// 根据最大流最小割定理，当不再有增广路径时，流 f 就是最大流
-while there exists a path p from s to t in the residual network G_f
-    cf(p)=min{cf(u,v):(u,v)is in p}  // cf(p)为该路径的残余容量
-    for each edge (u,v) in p
-    	f[u,v]=+cf(p)  //为该路径中的每条边中注入刚才找到到的残余容量
-        f[v,u]=-cf(p)   //反向边注入反向流量
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-2-1-EK算法"><a href="#1-2-1-EK算法" class="headerlink" title="1.2.1 EK算法"></a>1.2.1 EK算法</h4><p><strong>存图方式</strong>：邻接表</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 对于每个点k，开一个单链表，存储k所有可以走到的点。h[k]存储这个单链表的头结点
-int h[N], e[N], ne[N], idx;
-// 添加一条边a-&gt;b
-void add(int a, int b)
+<h3 id="3-2-DFS"><a href="#3-2-DFS" class="headerlink" title="3.2 DFS"></a>3.2 DFS</h3><p>n个数的全排列：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/844/">排列数字</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void dfs(int t)
 {
-    e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;
-}
-// 遍历方式，DFS
-int dfs(int u)
-{
-    st[u] = true; // st[u] 表示点u已经被遍历过
-
-    for (int i = h[u]; i != -1; i = ne[i])
+    if(t==n)
     {
-        int j = e[i];
-        if (!st[j]) dfs(j);
+        for(int i=1;i&lt;=n;i++) cout&lt;&lt;ans[i]&lt;&lt;" ";
+        cout&lt;&lt;endl;
+        return;
+    }
+    for(int i=1;i&lt;=n;i++)
+    {
+        if(!vis[i])
+        {
+            vis[i]=1;    ans[t+1]=i;
+            dfs(t+1);    vis[i]=0;
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-3-BFS"><a href="#3-3-BFS" class="headerlink" title="3.3 BFS"></a>3.3 BFS</h3><h3 id="3-4-拓扑排序"><a href="#3-4-拓扑排序" class="headerlink" title="3.4 拓扑排序"></a>3.4 拓扑排序</h3><p>记录入度，依次删度为0的点</p>
+<h3 id="3-5-最短路"><a href="#3-5-最短路" class="headerlink" title="3.5 最短路"></a>3.5 最短路</h3><h4 id="3-5-1-Dijkstra"><a href="#3-5-1-Dijkstra" class="headerlink" title="3.5.1 Dijkstra"></a>3.5.1 Dijkstra</h4><p>Dijkstra朴素版：时间复杂度$ O(n^2) $ </p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int g[N][N];  // 存储每条边
+int dist[N];  // 存储1号点到每个点的最短距离
+bool st[N];   // 存储每个点的最短路是否已经确定
+
+// 求1号点到n号点的最短路，如果不存在则返回-1
+int dijkstra()
+{
+    memset(dist, 0x3f, sizeof dist);
+    dist[1] = 0;
+
+    for (int i = 0; i &lt; n - 1; i ++ )
+    {
+        int t = -1;     // 在还未确定最短路的点中，寻找距离源点最小的点
+        for (int j = 1; j &lt;= n; j ++ )
+            if (!st[j] &amp;&amp; (t == -1 || dist[t] &gt; dist[j]))
+                t = j;
+
+        // 用t更新其他点的距离
+        for (int j = 1; j &lt;= n; j ++ )
+            dist[j] = min(dist[j], dist[t] + g[t][j]);
+
+        st[t] = true;
+    }
+
+    if (dist[n] == 0x3f3f3f3f) return -1;
+    return dist[n];
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>堆优化版Dijkstra</strong> </p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 结构体优先队列
+struct node
+{
+    int u,w;
+    bool operator &lt; (const node &amp;t)const // 小顶堆
+    {
+        return w &gt; t.w;
     }
 }
-// 遍历方式，BFS
-queue&lt;int&gt; q;
-st[1] = true; // 表示1号点已经被遍历过
-q.push(1);
-while (q.size())
+priority_queue&lt;node&gt; q;
+
+// pair 优先队列，先比较 first
+typedef pair&lt;int,int&gt; pii
+priority_queue&lt;pii, vector&lt;pii &gt;,greater&lt;pii &gt; &gt; q; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void add(int x,int y,int z)
 {
-    int t = q.front();
-    q.pop();
-    for (int i = h[t]; i != -1; i = ne[i])
+    e[idx]=y; w[idx]=z; ne[idx]=h[x]; h[x]=idx++;
+}
+void dijkstra()
+{
+    priority_queue&lt;node&gt; q;
+    q.push({1,0});
+    dis[1]=0;
+    while(!q.empty())
     {
-        int j = e[i];
-        if (!st[j])
+        int u=q.top().u,ww=q.top().w;  q.pop();
+        //if(st[u]) continue;   st[u]=1;
+        if(dis[u]!=ww) continue;  // 两种方法节约时间
+        for(int i=h[u];i!=-1;i=ne[i])
         {
-            st[j] = true; // 表示点j已经被遍历过
-            q.push(j);
+            int v=e[i];
+            if(dis[v]&gt;dis[u]+w[i])
+            {
+                dis[v]=dis[u]+w[i];
+                q.push({v,dis[v]});
+            }
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-5-2-Bellman-Ford"><a href="#3-5-2-Bellman-Ford" class="headerlink" title="3.5.2 Bellman-Ford"></a>3.5.2 Bellman-Ford</h4><p>求最多经过 k 条边能到达的最短路   O(nm)</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct Edge  // 结构体直接存图
+{
+    int a,b;  //a -&gt; b
+    int w;  
+}edge[N];
+int dis[N],back[N];  // back 为备份的上一次 dis 数组
+
+void bellman_ford()
+{
+    memset(dis,0x3f,sizeof(dis));
+    dis[1]=0;
+    for(int i=0;i&lt;k;i++)
+    {
+        memcpy(back,dis,sizeof(dis));
+        for(int j=0;j&lt;m;j++)
+        {
+            int a=edge[j].a,b=e[j].b,w=e[j].w;
+            dis[b]=min(dis[b],back[a]+w); // 用back更新
         }
     }
 }
-// 初始化
-idx = 0;
-memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-2-2-Dinic算法"><a href="#1-2-2-Dinic算法" class="headerlink" title="1.2.2 Dinic算法"></a>1.2.2 Dinic算法</h4><h4 id="1-2-3-ISAP算法"><a href="#1-2-3-ISAP算法" class="headerlink" title="1.2.3 ISAP算法"></a>1.2.3 ISAP算法</h4>
+if(dis[n]&gt;inf/2)   // 因为存在负权，inf可能被更新，不连通
+else cout&lt;&lt;dis[n];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-5-3-SPFA"><a href="#3-5-3-SPFA" class="headerlink" title="3.5.3 SPFA"></a>3.5.3 SPFA</h4><p>用于求带负权的最短路、求负环  O(m) 到 O(nm)</p>
+<p>对BellmanFord的优化，用队列储存是否有必要更新</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int dis[N];
+bool st[N];  // 储存是否遍历过
+void spfa()
+{
+    memset(dis,0x3f,sizeof(dis));
+    queue&lt;int&gt; q;
+    q.push(1);  dis[1]=0;
+    while(!q.empty())  // 被更新的才有机会更新别人
+    {
+        int x=q.front();  q.pop();
+        st[x]=0;   // 代表 x 曾被更新，但还能被继续更新
+        for(int i=h[x];i!=-1;i=ne[i])
+        {
+            int y=e[i];
+            if(dis[y]&gt;dis[x]+w[i])
+            {
+                dis[y]=dis[x]+w[i];
+                if(!st[y])
+                {
+                    st[y]=1;
+                    q.push(y);  // y 被更新了，所以可以用它更新其他的
+                }
+            }
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>判断是否存在<strong>负环</strong> </p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int cnt[N]; // 记录 i 的最短路边数，边数大于等于 n 说明存在负环
+bool spfa()
+{
+    queue&lt;int&gt; q;
+    for(int i=1;i&lt;=n;i++)  //有些点跟负环可能不连通，所以要全入队 
+        q.push(i),st[i]=1;   
+    while(!q.empty())
+    {
+        int x=q.front();  q.pop();
+        st[x]=0;
+        for(int i=h[x];i!=-1;i=ne[i])
+        {
+            int y=e[i];
+            if(dis[y]&gt;dis[x]+w[i])
+            {
+                dis[y]=dis[x]+w[i];
+                cnt[y]=cnt[x]+1;
+                if(cnt[y]&gt;=n) return true;  // 存在负环
+                if(!st[y])
+                {
+                    st[y]=1;   q.push(y);
+                }
+            }
+        }
+    }
+    return false;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-5-4-Floyd"><a href="#3-5-4-Floyd" class="headerlink" title="3.5.4 Floyd"></a>3.5.4 Floyd</h4><p>用于多源最短路</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int k=1;k&lt;=n;k++)   // 记得先枚举中间点
+    {
+        for(int i=1;i&lt;=n;i++)
+        {
+            for(int j=1;j&lt;=n;j++)
+            {
+                dis[i][j]=min(dis[i][j],dis[i][k]+dis[k][j]);
+            }
+        }
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-6-最小生成树-MST"><a href="#3-6-最小生成树-MST" class="headerlink" title="3.6 最小生成树 MST"></a>3.6 最小生成树 MST</h3><h4 id="3-6-1-Prim"><a href="#3-6-1-Prim" class="headerlink" title="3.6.1 Prim"></a>3.6.1 Prim</h4><p>寻找离集合最近的点 t，加入集合，然后用 t 更新其他未在集合的点离集合的距离。 时间复杂度 $O(n^2)$ </p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int dis[N];  // 距离集合最近的距离
+bool st[N];  // 标记是否在集合中
+int mp[N][N]; // 初始化为 inf
+void prim()
+{
+    int ans=0;    
+    for(int i=1;i&lt;=n;i++) dis[i]=mp[1][i]; // 设最初集合只有 1
+    st[1]=1;
+    for(int i=1;i&lt;n;i++)  // n-1 次循环
+    {
+        int t=-1;
+        for(int j=1;j&lt;=n;j++) // 寻找不在集合且距离集合最近的点
+            if(!st[j]&amp;&amp;(t==-1||dis[t]&gt;dis[j]))
+                t=j;
+        ans+=dis[t];
+        st[t]=1;   // 将点 t 加入集合
+        for(int j=1;j&lt;=n;j++)    // 更新点到集合的距离
+            dis[j]=min(dis[j],mp[t][j]);
+    }
+    if(ans&gt;inf/2) puts("impossible");
+    else  printf("%d",ans);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-6-2-Kruskal"><a href="#3-6-2-Kruskal" class="headerlink" title="3.6.2 Kruskal"></a>3.6.2 Kruskal</h4><p>先将权值边排序，选择端点不在同一集合的边并将两个端点加入集合，直到选择 $n-1$ 条边。若选不到 n-1 条边，说明没有mst</p>
+<p>时间复杂度 $O(mlogn)$ </p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct Edge
+{
+    int u,v,w;
+}edge[2*N];
+bool cmp(Edge x,Edge y)
+{
+    return x.w&lt;y.w;
+}
+void kruskal()
+{
+    sort(edge,edge+m,cmp);
+    int cnt=0,ans=0;
+    for(int i=1;i&lt;=n;i++) p[i]=i;
+    for(int i=0;i&lt;m;i++)   // 枚举边
+    {
+        int a=edge[i].u,b=edge[i].v;
+        int x=find(a),y=find(b);
+        if(x!=y)   // 用并查集判断两个点是否在同一集合
+        {
+            cnt++;
+            p[x]=y;
+            ans+=edge[i].w;
+        }
+        if(cnt==n-1) break;
+    }
+    if(cnt==n-1) printf("%d",ans);
+    else printf("impossible");
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-7-二分图"><a href="#3-7-二分图" class="headerlink" title="3.7 二分图"></a>3.7 二分图</h3><p>定义：无向图 $G=(V,E)$ 中顶点可以被分为两个不相交集合 A 和 B，并且 E 都是跨越组的形式。也就是说一条边的两个顶点不会在同一个集合。</p>
+<blockquote>
+<p>定理：一个图是二分图，当且仅当图中不含奇数环。</p>
+<p>必要性证明：设奇数环 A-&gt;B-&gt;C-&gt;A</p>
+<p>​    所以 AB，BC，CA 不在同一个集合，显然两个集合无法共存</p>
+<p>​    所以二分图不含奇数环</p>
+<p>必要性证明：可以构造出一个二分图</p>
+</blockquote>
+<p>必要性：由已知推出结论</p>
+<p>充分性：由结论推出已知</p>
+<h4 id="3-7-1-搜索染色染色法"><a href="#3-7-1-搜索染色染色法" class="headerlink" title="3.7.1 搜索染色染色法"></a>3.7.1 搜索染色染色法</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 将二分图的两个集合一个染 1，一个染 2
+bool dfs(int x,int c)  // x 染 c 色
+{
+    co[x]=c;
+    for(int i=h[x];i!=-1;i=ne[i])
+    {
+        int y=e[i];
+        if(co[y]==c) return 0;  // 变的两端颜色相同
+        if(co[y]==0)
+            if(!dfs(y,3-c))
+                return 0;
+    }
+    return 1;
+}
+int main()
+{
+    scanf("%d%d",&amp;n,&amp;m);
+    memset(h,-1,sizeof h);
+    while(m--)
+    {
+        int x,y;  scanf("%d%d",&amp;x,&amp;y);
+        add(x,y); add(y,x);  // 无向边
+    }
+    for(int i=1;i&lt;=n;i++) // 二分图不一定是连通的，所以要对每个点dfs
+    {
+        if(!co[i]&amp;&amp;!dfs(i,1))
+        {
+            cout&lt;&lt;"No"&lt;&lt;endl;
+            return 0;
+        }
+    }
+    cout&lt;&lt;"Yes"&lt;&lt;endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-7-2-匈牙利算法"><a href="#3-7-2-匈牙利算法" class="headerlink" title="3.7.2 匈牙利算法"></a>3.7.2 匈牙利算法</h4><p>求二分图的最大匹配。</p>
+<p>匈牙利时间复杂度：最坏是 $O(nm)$ ，但一般远小于。</p>
+<p>是一个寻找最长增广路的过程</p>
+<blockquote>
+<p><strong>二分图的匹配</strong>：给定一个二分图 G，在 G 的一个子图 M 中，M 的边集 {E} 中的任意两条边都不依附于同一个顶点，则称 M 是一个匹配。</p>
+<p>通俗的理解：二分图的一个集合是男生，另一个集合是女生，求能凑成最多情侣的对数。</p>
+<p><strong>完美匹配</strong>：覆盖图中所有点的匹配。全部结成对，没有剩余</p>
+<p><strong>二分图的最大匹配</strong>：所有匹配中包含边数最多的一组匹配被称为二分图的最大匹配，其边数即为最大匹配数。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/863/">二分图的最大匹配</a></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef pair&lt;int,int&gt; pii;
+const int N=505,M=100005,inf=0x3f3f3f3f;
+int n1,n2,m,ans;
+int h[M],e[M],ne[M],idx;
+int match[N];   // 右边女孩 i 已经匹配到左边的 match[i] 了
+bool st[N];
+
+void add(int a,int b)
+{
+    e[idx]=b; ne[idx]=h[a]; h[a]=idx++;
+}
+
+bool find(int x)
+{
+    for(int i=h[x];i!=-1;i=ne[i])
+    {
+        int y=e[i];
+        if(!st[y])  // 还有机会选择 y
+        {
+            st[y]=1;  // 标记已经尝试了，这次不行的话注定无缘
+            if(match[y]==0||find(match[y]))
+            {
+                match[y]=x;   // x 与 y 匹配成功
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+int main()
+{
+    scanf("%d%d%d",&amp;n1,&amp;n2,&amp;m);
+    memset(h,-1,sizeof h);
+    while(m--)
+    {
+        int x,y;  scanf("%d%d",&amp;x,&amp;y);
+        add(x,y);   // 只存一条边
+    }
+    for(int i=1;i&lt;=n1;i++)
+    {
+        memset(st,0,sizeof(st));  // 右边每个都有机会与之结对
+        if(find(i))  ans++;
+    }
+    cout&lt;&lt;ans&lt;&lt;endl;
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="第四章-数学"><a href="#第四章-数学" class="headerlink" title="第四章 数学"></a>第四章 数学</h2><h3 id="4-1-基础数学"><a href="#4-1-基础数学" class="headerlink" title="4.1 基础数学"></a>4.1 基础数学</h3><h4 id="4-1-1质数"><a href="#4-1-1质数" class="headerlink" title="4.1.1质数"></a>4.1.1质数</h4><p>只能被 1 和本身整除的数。1 不是质数</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 判断是否为质数
+bool is_prime(int x)
+{
+    if(x==1) return 0;
+    for(int i=2;i&lt;=x/i;i++)
+        if(x%i==0) return 0;
+    return 1;
+}
+// 分解质因数
+void divide(int x)
+{
+    for(int i=2;i&lt;=x/i;i++)
+    {
+        if(x%i==0)
+        {
+            int s=0;
+            while(x%i==0)
+            {
+                x/=i;  s++;
+            }
+            printf("%d %d\n",i,s);
+        }
+    }
+    if(x!=1) printf("1 %d",x);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>质数筛: 求[1,n]的质数</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 埃氏筛 nloglogn
+bool p[N]; // p[i]=1 说明不是质数
+void init()
+{
+    p[1]=1;
+    for(int i=2;i&lt;=n;i++)
+        if(!p[i]) // p[i]==0 说明 i 是质数
+            for(int j=2*i;j&lt;=n;j+=i)
+                p[j]=1;
+}
+// 线性筛, n 只会被最小质因子筛掉
+void init()
+{
+    for(int i=2;i&lt;=n;i++)
+    {
+        if(!st[i]) primes[cnt++]=i;
+        for(int j=0;primes[j]&lt;=n/i;j++)  // 从小到大枚举质数
+        {
+            st[primes[j]*i]=1;      // 只会用最小质因子去筛
+            if(i%primes[j]==0) break; 
+// 当枚举到 i 的最小质因子时退出，因为 i×p[j+t]的最小质因子是p[j]
+// i%pj == 0, pj定为i最小质因子，pj也定为pj*i最小质因子
+// i%pj != 0, pj定小于i的所有质因子，所以pj也为pj*i最小质因子
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>合数一定能被线性筛筛掉：因为合数=p*k,p 是最小质因子，当枚举质数到 i=k 时，就被筛掉了。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int j=0;primes[j]&lt;=n/i;j++)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里不能去掉等号，当去掉等号会误筛掉很多 n 附近的合数。</p>
+<h4 id="4-1-2-因数（约数）"><a href="#4-1-2-因数（约数）" class="headerlink" title="4.1.2 因数（约数）"></a>4.1.2 因数（约数）</h4><p>约数个数   约数之和</p>
+<blockquote>
+<p>约数个数定理: 对于一个大于 1 的正整数 n 可以分解质因数</p>
+<script type="math/tex; mode=display">
+n\ =\ \prod_{i=1}^{k} p_i^{a_i}=p_1^{a_1}·p_1^{a_1}····p_k^{a_k}\\
+p_1,p_2···p_k为 n 的质因子</script><p>约数的个数：$ f(n)=\sum_{i=1}^{k} (a_i+1) $  </p>
+<p>约数的和：</p>
+<script type="math/tex; mode=display">
+s(n)=\prod_{i=1}^{k} \sum_{j=0}^{a_i} p_i^j=(p_1^0+p_1^1+···+p_1^{a_1})\times ···\times (p_k^0+p_k^1+···+p_k^{a_k})</script></blockquote>
+<p>最大公约数 gcd </p>
+<p>d|a 且 d|b, 那么 d|(ax+by)</p>
+<p>整除符号: |, 若 d|a 等价于 a=kd, k 为整数</p>
+<blockquote>
+<p><strong>欧几里得算法</strong>：$gcd(a,b)=gcd(b,a\ \%\  b)$  <span id="oujilide"> </span> </p>
+<p>证明：不妨设 $a&gt;b&gt;0$，有 $a=k·b+r,\ \ k=\left \lfloor \frac{a}{b} \right \rfloor\ ,\ \ r=a\%b $ </p>
+<p>如果 $r=0$, gcd(a,b)=gcd(b,0)=b</p>
+<p>如果 $r\ne 0$, $r=a-k·b,\ \ 左右同除\ d\ ,得 \frac{r}{d}=\frac{a}{d}-\frac{k·b}{d}=m$,显然 m 是整数，所以 d|r, 即d|(a%b)。</p>
+<p>假设 d 是 （b，a%b) 的任意一个公约数，a=yd+kb，两边同除 d 得 $\frac{a}{d}=y+\frac{kb}{d}$，所以 y 为正整数，d也是（a，b）的公约数。</p>
+<p>所以 (a, b)和(b, a%b) 的公约数是一样的，自然最大公约数也一样。</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 辗转相除法
+int gcd(int a,int b)
+{
+    return b ? gcd(b, a%b) : a;  // b==0 输出
+}
+// STL函数
+c = __gcd(a,b);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-2-欧拉函数"><a href="#4-2-欧拉函数" class="headerlink" title="4.2 欧拉函数"></a>4.2 欧拉函数</h3><blockquote>
+<p>phi(n)为 [1,n] 中与 n 互质的个数</p>
+<p>n 的 质因子分解为 $ n = p_1^{a_1}p_2^{a_2}···p_k^{a_k}$ </p>
+<p>那么 $phi(n)=n\times (1-\frac{1}{p_1})(1-\frac{1}{p_2})···(1-\frac{1}{p_k})$ </p>
+<p>证明1（容斥原理）：</p>
+<script type="math/tex; mode=display">
+phi(n)=n-\frac{n}{p_1}-\frac{n}{p_2}-···-\frac{n}{p_k}+\frac{n}{p_1p_2}+\frac{n}{p_1p_3}+···\\
+(分母为奇数个p为减，偶数个p为加)\\
+=n\times (1-\frac{1}{p_1})(1-\frac{1}{p_2})···(1-\frac{1}{p_k})</script></blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 欧拉函数</span>
+<span class="token keyword">int</span> <span class="token function">phi</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> res<span class="token operator">=</span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token operator">/</span>i<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">%</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            res<span class="token operator">=</span>res<span class="token operator">/</span>i<span class="token operator">*</span><span class="token punctuation">(</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">%</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> n<span class="token operator">/=</span>i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">!=</span><span class="token number">1</span><span class="token punctuation">)</span> res<span class="token operator">=</span>res<span class="token operator">/</span>n<span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 欧拉筛</span>
+<span class="token keyword">int</span> phi<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+bool st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">phis</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    phi<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            prime<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+            phi<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;=</span>n<span class="token operator">/</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            st<span class="token punctuation">[</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">*</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        	<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                phi<span class="token punctuation">[</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">*</span>i<span class="token punctuation">]</span><span class="token operator">=</span>phi<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">*</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+             	<span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            phi<span class="token punctuation">[</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">*</span>i<span class="token punctuation">]</span><span class="token operator">=</span>phi<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>· 质数除了自己，其他都互质，所以 phi[i]=i-1;</p>
+<p>· 当 i%prime[j]==0，p~j~ 是 i 的最小质因子，所以 i 的分解质因子里有 p~j~，因为欧拉函数和质因子指数无关，改变的只是前面的系数，所以 phi[i×p~j~]=i×p~j~×phi[i]</p>
+<p>· 当 i%prime[j]!=0，i×p~j~ 比 i 的质因子多了 p~j~，所以</p>
+<p>phi[i×p~j~]=phi[i]×p~j~×(1-1/p~j~)=phi[i]×(p~j~-1)</p>
+<blockquote>
+<p><strong>欧拉定理</strong>：a 与 n 互质，则有</p>
+<script type="math/tex; mode=display">
+a^{phi(n)}\equiv 1\ (mod\ n)</script><p>证明：[1,n]中所有与 n 互质的数为 $a_1,a_2,···，a_{phi(n)}$，那么$a<em>a_1 \% n,a</em>a_2\% n,···，a*a_{phi(n)}\%n$ 也是[1,n]中与 n 互质的数</p>
+<p>所以两列数除顺序外相同，所以相乘相等 $a^{phi(n)}<em>(a_1</em>a_2<em>···</em>a_{phi(n)})\%n=a_1<em>a_2</em>···*a_{phi(n)}$</p>
+<p>化简得 $a^{phi(n)}\equiv 1(mod\ n)$ 得证</p>
+<p>a % n = b 和 a $\equiv$ b (mod n)是等价的</p>
+<p><strong>费马小定理</strong>：p 是质数且 a 与 p 互质，则有</p>
+<script type="math/tex; mode=display">
+a^{p-1}\equiv 1\ (mod\ n)</script></blockquote>
+<p>4.3 快速幂</p>
+<p>求 $a^k\ \%\ mod$ </p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int qpow(int a,int k)
+{
+    int res=1,base=a;
+    while(k)
+    {
+        if(k&amp;1) res=(ll)res*base%mod;
+        base=(ll)base*base%mod;
+        k&gt;&gt;=1;
+    }
+    return res;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>矩阵快速幂：</p>
+<h3 id="4-4-扩展欧几里得"><a href="#4-4-扩展欧几里得" class="headerlink" title="4.4 扩展欧几里得"></a>4.4 扩展欧几里得</h3><blockquote>
+<p>==裴属定理==：若 a, b 是整数, 且 gcd(a,b) = d，那么对于任意的整数 x、y, <strong>ax + by</strong> 都一定是 d 的倍数，特别地，一定存在整数 x，y，使 ax+by=d 成立，即 $ax+by=kd\ \ (k\ge 1)$ 。</p>
+<p>证明：懒得证</p>
+<p>d|a 且 d|b, 所以 d|ax 且 d|by, 所以 d|(ax+by) </p>
+<p>==推论==：</p>
+<ol>
+<li>对于方程 ax+by=1，只有当整数a,b互质时，方程才有整数解</li>
+<li>a，b互质的充要条件是 ax+by=1 有整数解 </li>
+</ol>
+<p>证明1：假设 a，b不互质，则a，b可以表示为 $a=q\times d$, $b=p\times d$ 。代入上式得</p>
+<script type="math/tex; mode=display">
+q\times d \times x+p\times d \times y=1\\
+q\times x+p\times y=\frac{1}{d}\\
+d=gcd(a,b)\ne 1\\</script><p>所以该方程右边为小数，不存在整数解。</p>
+<p>扩展欧几里得求 ax+by=d 的一组解的证明</p>
+<p>当 $b=0$，式子转化为 $ax+by=a$，所以 x=1，y=0</p>
+<p>当 $b\ne 0$，由<a href="#oujilide">欧几里得算法</a> gcd(a,b)=gcd(b,a%b)</p>
+<script type="math/tex; mode=display">
+ax+by = gcd(a,b)=gcd(b,\ a\ \%\ b)\\
+=bx'+(a\ \%\ b)y' \\
+=bx'+(a-b*\left \lfloor \frac{a}{b}  \right \rfloor )y'\\
+=ay'+b(x'-\left \lfloor \frac{a}{b}  \right \rfloor y')\\
+比较等式两边可知\ x=y'\ \ \ y=x'-\left \lfloor \frac{a}{b}  \right \rfloor y'</script><script type="math/tex; mode=display">
+\begin{flalign*}
+&通解: \begin{cases}
+  &  x=x_0+k\frac{b}{d} \\
+  &  y=y_0-k\frac{a}{d}
+\end{cases}\\
+证明: &\ \ 将其代回原式， a(x_0+k\frac{b}{d})+b(y_0-k\frac{a}{d})=m\\
+&\ \ 展开得\ \  ax_0+by_0=m ,含有\ k\ 的被消去了\\
+&\ \ 得到的式子和原式一样，证毕&
+\end{flalign*}</script></blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 伴随着欧几里得算法更新 x y 的过程
+void exgcd(int a,int b,int &amp;x,int &amp;y)
+{
+    if(!b)  x=1,y=0;
+    else
+    {
+        exgcd(b,a%b,x,y); 
+        int t=x;  x=y;
+        y=t-a/b*y;   // 对应上面的证明
+    }
+}
+// 省代码
+int exgcd(int a,int b,int &amp;x,int &amp;y)
+{
+    if(!b)
+    {
+        x=1; y=0;
+        return a;
+    }
+    int d=exgcd(b,a%b,y,x); // 调换 x y
+    y-=a/b*x;
+    return d;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Exgcd应用：求解线性同余方程 <span id="linear congruent equation"> </span>  </p>
+<script type="math/tex; mode=display">
+&ax\equiv\ b\ \ \ (mod\ \ m)\\
+\Longleftrightarrow & ax\ \%\ m=b\\
+\Longleftrightarrow & ax=my+b\\
+\Longleftrightarrow & ax-my=b \\
+\Longleftrightarrow & ax+my'=b\\
+\Longleftrightarrow & 给定a,b,m\ \  求 x\\
+& 所以如果b=k·gcd(a,m)才有解\\
+& 解为 gcd(a,m)/b*x\%m</script><blockquote>
+<p>答案对 m 取模仍为答案</p>
+<p>$ax\ \%\ m=b\Longleftrightarrow\ a·(x\ \%\ m)\ \%\ m=b$ </p>
+<p>所以对 x % m仍是个答案</p>
+</blockquote>
+<h3 id="4-5-逆元"><a href="#4-5-逆元" class="headerlink" title="4.5 逆元"></a>4.5 逆元</h3><p>$ \frac{a}{b}\equiv a\times x \%\ m $，x 就是 b 的逆元</p>
+<h5 id="4-5-1-快速幂求逆元"><a href="#4-5-1-快速幂求逆元" class="headerlink" title="4.5.1 快速幂求逆元"></a>4.5.1 快速幂求逆元</h5><p>要求模数 m 为质数。<br>b 存在乘法逆元的充要条件是 <strong>b 与模数 m 互质</strong> 。</p>
+<blockquote>
+<p>​    当 b 与 m 不互质时，因为 m 为质数，所以 b 为 m 的倍数，即b%m==0 时无解，费马小定理不成立。</p>
+<p>​    当模数 <strong>m 为质数</strong>时且 <strong>b 和 m 互质</strong>时，$b^{m−2}$ 即为 b 的乘法逆元。</p>
+<p>证明：由费马小定理 $ b^{m-1}\equiv 1\%\ m$</p>
+<p>令    $\frac{a}{b}\equiv a\times x \%\ m$</p>
+<p>所以$ \frac{a}{b}\times b^{m-1}\equiv a\times x \% \ m$ </p>
+<p><strong>因此：</strong>$ a \times b^{m-2}\equiv a\times x \% \ m$   a 与 m 互质，约去</p>
+<p><strong>所以：</strong>$x\equiv b^{m-2}  \%m$</p>
+</blockquote>
+<h5 id="4-5-2-扩展欧几里得求逆元"><a href="#4-5-2-扩展欧几里得求逆元" class="headerlink" title="4.5.2 扩展欧几里得求逆元"></a>4.5.2 扩展欧几里得求逆元</h5><p>扩展欧几里得可以求解<a href="#linear congruent equation">线性同余方程</a> $ax\equiv b\ \ (mod\ \ m)$ </p>
+<p>求模 m 意义中 a 的逆相对于求$ax\equiv1\ \ (mod\ \ m)$， ax-my=1。gcd(a,m) 不为1则说明逆元不存在,若为1，则调整结果为x=(x%mod+mod)%mod.</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int exgcd(int a,int b,int &amp;x,int &amp;y)
+{
+    if(!b)
+    {
+        x=1; y=0;
+        return a;
+    }
+    int d=exgcd(b,a%b,y,x); // 调换 x y
+    y-=a/b*x;
+    return d;
+}
+int a,m,x,y;  cin&gt;&gt;a&gt;&gt;m;
+int d=exgcd(a,m,x,y);
+if(d==1) cout&lt;&lt;x%m&lt;&lt;endl;
+else cout&lt;&lt;"No"&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-6-中国剩余定理"><a href="#4-6-中国剩余定理" class="headerlink" title="4.6 中国剩余定理"></a>4.6 中国剩余定理</h3><p>问题：整数 $m_1,m_2,···,m_n$ 两两互素，则对于任意整数$a_1,a_2,···,a_n$，方程组：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{matrix}
+  x\equiv a_1\ \ (mod\ \ m_1) \\
+  x\equiv a_2\ \ (mod\ \ m_2) \\
+ ······ \\
+  x\equiv a_n\ \ (mod\ \ m_n)
+\end{matrix}\right.\\
+令\ \ M = \prod_{i=1}^{n}m_i  \\
+则 x\equiv \sum_{i=1}^{n}a_i×\frac{M}{m_i}×[(\frac{M}{m_i})^{-1}]\ \  (mod\ \ M)</script><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/206/">扩展中国剩余定理</a></p>
+<script type="math/tex; mode=display">
+\begin{flalign*}
+&选取两个方程\ \  x~~ mod~~a_1 = m_1，x\ \ mod\ \  a_2 = m_2\\
+&可以写成\qquad \ x\ =\ k_1a_1 + m_1，x\ =\ k_2a_2 + m_2\\
+&由两式得\qquad\ k_1a_1 - k_2a_2 = m_2 - m_1\\
+&通过扩欧可以知道\  k_1,k_2\ 有解等价于\ gcd(a_1,-a_2)|(m_2-m_1) \\
+& 解出通解\ \  k_1=k_1+k\frac{a_2}{d},\ k_2=k_2+k\frac{a_1}{d},\ r为任意正整数 \\
+& 将\ k_1,k_2\ 的通解代回得\ x=(k_1+k\frac{a_2}{d})a_1+m_1=k\frac{a_1a_2}{d}+(k_1a_1+m_1)  \\
+& 两个方程合并成一个方程，然依次合并到只剩一个，这个式子的解就是答案  \\
+&注： \frac{a_1a_2}{d}就是\ a_1,a_2\ 的最小公倍数；注意取模。&
+
+\end{flalign*}</script></blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">ll a1,m1;  cin&gt;&gt;a1&gt;&gt;m1; // 第一个方程
+int f=0;
+while(--n)  // 输入第2~n个方程
+{
+    ll a2,m2,k1,k2;  cin&gt;&gt;a2&gt;&gt;m2;
+    ll d=exgcd(a1,a2,k1,k2);
+    if((m2 - m1) % d)  // 不是 d 的倍数无解
+    {
+        cout&lt;&lt;-1&lt;&lt;endl; return 0;
+    }
+    // a1k1+a2k2=d的通解为 k1=k1+k*(a2/d)，k=0， k1是正解中最小的
+    // a1k1+a2k2=m2-m1 的通解为, 所以k1要扩大 (m2-m1)/d 倍
+    k1=k1 * (m2 - m1) / d; 
+    // 但是经过乘了个 m2-m1 可能变负了
+    ll t=a2/d;   // 由通解可知模 t 也是解
+    k1=(k1 % t + t) % t;         
+    // 新的方程 x = k(a2·a1/d)+k1a1+m1
+    m1=k1 * a1 + m1;
+    a1=abs(a1 / d * a2);
+}
+// 最后一个方程是 x=m1 (mod a1), x%a1=m1, m1&lt;a1, 所以m1是一个解
+cout&lt;&lt;m1&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-7-高斯消元"><a href="#4-7-高斯消元" class="headerlink" title="4.7 高斯消元"></a>4.7 高斯消元</h3><h4 id="4-7-1-线性方程组"><a href="#4-7-1-线性方程组" class="headerlink" title="4.7.1 线性方程组"></a>4.7.1 线性方程组</h4><p>用于求解线性方程组  $ \left\{\begin{matrix}<br>a_{11}x_1+a_{12}x_2+···+a_{1n}x_n=b_1 \\<br>a_{21}x_1+a_{22}x_2+···+a_{2n}x_n=b_2 \\<br>······ \\<br>a_{n1}x_1+a_{n2}x_2+···+a_{nn}x_n=b_n<br>\end{matrix}\right.$ </p>
+<p>矩阵形式为 $Ax=B$，$A=\begin{bmatrix}<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n}\\<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n} \\<br> ··· &amp; ··· &amp; ··· &amp; ···\\<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n}<br>\end{bmatrix}$，$B=\begin{bmatrix}<br> b_1\\<br>b_2\\<br>\vdots  \\<br>b_n<br>\end{bmatrix}$ 。</p>
+<p>将增广矩阵 [AB] 初等变换为化为上三角。高斯消元就是这个过程。</p>
+<blockquote>
+<ol>
+<li>选取系数最大的那行，可以避免系数变得太大，精度较高，将r行与下面的行比较，不与第一行比</li>
+<li>若最大的是 0，此行全 0，则无需操作</li>
+<li>将含有更大的数这行与 r 行交换</li>
+<li>将 r 行同时除 a[r,c],使a[r,c]=1</li>
+<li>用新的 r 行对下面所有行的第c列消为 0，消的元素对应的每一个元素都要改变，此时 a[r,c]=1,所以j行-r行×a[i,c]即可</li>
+<li>r++，接着操作下一行，重复上述过程。</li>
+<li>根据R(A),R(AB),n的关系判断解的情况</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">double a[105][105];
+int gauss()
+{
+    int c,r;  // r 是行，计算后也代表矩阵的秩
+    for(c=0,r=0;c&lt;n;c++)  // 枚举每一列
+    {
+        int t=r;
+        // 1、最大系数可以避免系数变得太大，精度较高
+        //    将r行与下面的行比较，不与第一行比
+        for(int i=r;i&lt;n;i++)
+            if(fabs(a[i][c])&gt;fabs(a[t][c]))
+                t=i;
+        // 2、最大的是 0，此行全 0
+        if(fabs(a[t][c])&lt;eps) continue;
+        // 3、将含有更大的数这行与 r 行交换
+        for(int i=c;i&lt;=n;i++)  swap(a[t][i],a[r][i]);
+        // 4、将 r 行同时除 a[r][c],使a[r][c]=1
+        for(int i=n;i&gt;=c;i--)  a[r][i] /= a[r][c];
+        // 5、用这行对下面行的第c列消为 0
+        for(int i=r+1;i&lt;n;i++)
+            if(fabs(a[i][c])&gt;eps)
+            {
+                // 消0对应的行的每一个元素都要改变
+                // 此时 a[r][c]=1,所以j行-r行×a[i][c]即可
+                for(int j=n;j&gt;=c;j--)
+                    a[i][j]-=a[r][j]*a[i][c];
+            }
+        // 6、接着对第 r+1 行操作
+        r++;
+    }
+    // 7、判断解的情况
+    if(r&lt;n)
+    {
+        for(int i=r;i&lt;n;i++)
+            if(a[i][n]&gt;eps)
+                return 0;  // R(A)&lt;R(AB)，无解
+        return 1; // R(A)=R(AB)&lt;n 无穷解
+    }
+    // R(A)=R(AB)=n 唯一解
+    // 已经化成上三角形式,从右下角开始化成除增广B矩阵外仅正对角线形式
+    for(int c=n-1;c&gt;0;c--)  // 从左往右枚举列
+    {
+        for(int r=0;r&lt;c;r++)  // 行
+            a[r][n]-=a[r][c]*a[c][n];  // c 也代表选中的1在的列
+    }
+    return 2;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-7-2-异或方程组"><a href="#4-7-2-异或方程组" class="headerlink" title="4.7.2 异或方程组"></a>4.7.2 异或方程组</h4><p>异或可以看出不进位的加法，同样可通过系数矩阵求解，即初等变换不改变解</p>
+<p>异或方程组 $ \left\{\begin{matrix}<br>a_{11}x_1 \oplus a_{12}x_2\oplus···\oplus a_{1n}x_n=b_1 \\<br>a_{21}x_1\oplus a_{22}x_2\oplus ···\oplus a_{2n}x_n=b_2 \\<br>······ \\<br>a_{n1}x_1\oplus a_{n2}x_2\oplus ···\oplus a_{nn}x_n=b_n<br>\end{matrix}\right.$，$a_{ij}，b_{ij}=0\ \  or\ \ 1$ </p>
+<p>对矩阵增广矩阵 [AB] 操作目标和线性方程组相同，代码这样写的原因也和普通高斯消元类似。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int gauss()
+{
+    int c=0,r=0;
+    for(;c&lt;n;c++)
+    {
+        int t=r;
+        for(int i=r;i&lt;n;i++)
+            if(a[i][c])
+            {
+                t=i; break;
+            }
+        if(a[t][c]==0) continue;  // 这一列全为 0
+        for(int i=c;i&lt;=n;i++) swap(a[r][i],a[t][i]);
+        // 因为a[r][c]=1，省略化为 1 的过程
+        // 对 r 行以下的行的 c 列消0
+        for(int i=r+1;i&lt;n;i++)
+        {
+            if(a[i][c]==0) continue;
+            for(int j=c;j&lt;=n;j++)  // 都是1，直接两行对应位置异或
+                a[i][j]^=a[r][j];
+        }
+        r++;
+    }
+    if(r&lt;n)
+    {
+        for(int i=r;i&lt;n;i++)
+            if(a[i][n]==1) return 0;
+        return 1;
+    }
+    for(int c=n-1;c&gt;0;c--)
+    {
+        for(int r=0;r&lt;c;r++)
+        {
+            if(a[r][c]==0) continue;
+            a[r][n]^=a[c][n];
+        }
+    }
+    return 2;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-8-组合数"><a href="#4-8-组合数" class="headerlink" title="4.8 组合数"></a>4.8 组合数</h3><blockquote>
+<p>组合数公式：</p>
+<ol>
+<li><p>$C_a^b=C_{a-1}^b+C_{a-1}^{b-1}$ 用于递推、预处理</p>
+</li>
+<li><p>$C_a^b=C_{a}^{a-b}=\frac{a!}{b!(a-b)!}$ 用于直接求，需要求逆元</p>
+</li>
+<li><p>$ C_n^0+C_n^1+C_n^2+···+C_n^n=2^n $</p>
+<p>证明：想一下，从 n 个物品取，求取法，左边是从0个，1个···到n个的取法，它们的和就是总取法，右边可以表示一个商品有两种状态，取或者不取，由乘法原理可知是$2^n$。</p>
+<p>严谨的数学归纳法：n=1,显然成立。</p>
+<p>假设 n=k 时公式成立 $\sum_{i=0}^{k}C_k^i=2^n$，那么当 n=k+1 时</p>
+<p>$ C_{k+1}^{0}+C_{k+1}^{1}+···+C_{k+1}^{k}+C_{k+1}^{k+1} = 2 $，由公式 1. 可以将$C_{k+1}^{i}$ 拆成两部分，发现正好等于 2倍的 $\sum_{i=0}^{k}C_k^i$，即 2*2^k^=2^k+1^。</p>
+</li>
+<li><p>==二项式系数==：$(a+b)^n=C_{n}^{0}b^n+C_{n}^{1}ab^{n-1}+···+C_{n}^{i}a^ib^{n-i}+···+C_{n}^{n}a^n $ </p>
+<p>证明：数学归纳···</p>
+</li>
+<li><p>==卢卡斯定理==：C_a^b\equiv C_{a\%p}^{b\%p}·C_{a/p}^{b/p}\ \ (mod\ \ p)$ 用于求a、b较大的情况</p>
+<p>另一种形式$C_a^b=C_{a_0}^{b_0}+C_{a_1}^{b_1}+···+C_{a_k}^{b_k}\ \ \ (mod\ \ p)$，其中</p>
+<p>$a=a_0+a_1p+a_2p^2+···+a_kp^k$，$b=b_0+b_1p+b_2p^2+···+b_kp^k$ </p>
+</li>
+</ol>
+<p>证明：</p>
+<p>首先证明   $(1+x)^p \equiv 1+x^p\ \ (mod\ \ p)$ </p>
+<p>$左边=C_p^01+C_p^1x+C_p^2x^2+···+C_p^px^p$，因为$C_p^i=\frac{p!}{(p-i)!·i!}$，p为质数，所以当 $0&lt;i&lt;p$ 时，$C_p^ix^i$ 被 p 取模消去，所以只留下两端，得证。</p>
+<p>同理证得: $(1+x)^{p^\alpha}\equiv 1+x^{p^\alpha } \ \ (mod\ \ p)$ .</p>
+<p>将 $a，b$ 转化为 p 进制数，$a=a_0+a_1p+a_2p^2+···+a_kp^k$，$b=b_0+b_1p+b_2p^2+···+b_kp^k$ </p>
+<script type="math/tex; mode=display">
+\begin{align*}
+(1+x)^a &= (1+x)^{a_0+a_1p+a_2p^2+···+a_kp^k}\\
+& = (1+x)^{a_0}\times((1+x)^{p_1})^{a_1}\times···\times((1+x)^{p_k})^{a_k}\\
+&\equiv(1+x)^{a_0}\times(1+x^{p^1})^{a_1}\times···\times(1+x^{p^k})^{a_k}\ \ (mod\ \ n) &
+\end{align*}</script><p>$C_a^b$ 就是 $(1+x)^a$ 展开式中 $x^b$ 的系数，即 $x^{b_0+b_1p+b_2p^2+···+b_kp^k}$ 的系数。对比左边和右边每一项 $x^b$ 的系数可知</p>
+<p>$C_a^b\equiv C_{a_0}^{b_0}\times C_{a_1}^{b_1}\times ···\times C_{a_k}^{b_k}\ \ (mod\ \ n) $ </p>
+<p>$C_{a_0}^{b_0}=C_{a\%p}^{b\%p}$，因为转化为p进制的第一位就是对 p 取余得到的</p>
+<p>$C_{a/p}^{b/p}=C_{a_1}^{b_1}\times ···\times C_{a_k}^{b_k}$，p 进制下，将 a，b 右移一位相当于 /p ，和 $C_a^b$ 一样分析，证明这个式子是正确。</p>
+</blockquote>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int c[N][N];
+void init
+{
+    for(int i=0;i&lt;N;i++)  // i 代表总的，j 代表 被选的
+        for(int j=0;j&lt;=i;j++)
+            if(!j) c[i][j]=0;
+    		else  c[i][j]=c[i-1][j]+c[i-1][j-1]%mod;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int c(int a,int b)
+{
+    int m=jc[a],z=(ll)jc[b]*jc[a-b]%mod;// 预处理的阶乘数组
+    return (ll)m*kpow(z,mod-2)%mod;  // 快速幂求逆元
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int lucas(ll a,ll b,int p)
+{
+    if(a&lt;p &amp;&amp; b&lt;p)  return c(a,b,p);
+    return (ll)c(a%p, b%p, p) * lucas(a/p, b/p, p) % p;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不取模的组合数，高精度+质因子分解</p>
+<p>将阶乘分式约分，消去分母，再将分母质因子分解，答案就是这些质因子的乘积。</p>
+<p>求 n！质因子个数: $num = \frac{n}{p}+\frac{n}{p}+···+\frac{n}{p^k}$ </p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 求质因子及其个数的过程 
+int get(int n,int p)
+{
+    int res=0;
+    while(n)  // num=n/p+n/p^2+···
+    {
+        res+=n/p;
+        n/=p;
+    }
+    return res;
+}
+for(int i=0;i&lt;cnt;i++)   // C(a,b)
+ {
+    int p=primes[i]; 
+    sum[i]=get(a,p)-get(a-b,p)-get(b,p); // 统计个数
+ }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-9-博弈论"><a href="#4-9-博弈论" class="headerlink" title="4.9 博弈论"></a>4.9 博弈论</h4><p>若一个游戏满足：</p>
+<ol>
+<li>由两名玩家交替行动</li>
+<li>游戏进行的任意时刻，可以执行的合法行动与轮到哪位玩家无关</li>
+<li>不能行动的玩家判负</li>
+<li>则称该游戏为一个公平组合游戏</li>
+</ol>
+<p>==必胜状态==：先手进行某一个操作，留给后手是一个必败状态时，对于先手来说是一个必胜状态。可以走到某一个必败状态。</p>
+<p>==必败状态==：先手无论如何操作，留给后手都是一个必胜状态时，对于先手来说是一个必败状态。走不到任何一个必败状态。</p>
+<h5 id="4-9-1-Nim游戏"><a href="#4-9-1-Nim游戏" class="headerlink" title="4.9.1 Nim游戏"></a>4.9.1 Nim游戏</h5><p>给定 n 堆石子，两位玩家轮流操作，每次操作可以从任意一堆石子中拿走任意数量的石子（可以拿完，但不能不拿），最后无法进行操作的人视为失败。问如果两人都采用最优策略，先手是否必胜。</p>
+<blockquote>
+<p>结论：取石子到最后阶段时，每堆石子的个数都是 0 ，所以异或值也是 0</p>
+<p>​    假设 n 堆石子，石子数目分别是 $a_1,a_2,…,a_n$ 如果$a_1⊕a_2⊕…⊕a_n=x≠0$，先手必胜；否则先手必败。</p>
+<p>​    证明：设 x 的二进制表示中最高的一位 1 在第 k 位</p>
+<p>​    $a_1 - a_n$ 必然存在一个数 $a_i$ 的第 k 位是 1，且 $a_i\oplus x&lt;a_i$，然后从第 i 堆石子拿出 $a_i-a_i\oplus x$，第 i 堆还剩 $a_i\oplus x$ 个,这时有：$a_1⊕a_2⊕…\oplus a_i\oplus x\oplus…⊕a_n= 0$ </p>
+</blockquote>
+<h4 id="4-10-容斥原理"><a href="#4-10-容斥原理" class="headerlink" title="4.10 容斥原理"></a>4.10 容斥原理</h4><p>图图</p>
+<p>证明：假设元素 x 在 k 个集合中出现，则被计算的次数为</p>
+<p>$C_k^1 - C_k^2+C_k^3+···+(-1)^{k-1}C_k^k $ ，由二次项展开可知，该式等于 $-(1-1)^k+1=C_k^0=1 $，因此一个元素只被计算一次。</p>
+<p>常常与二进制枚举配合使用</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i=1;i&lt;(1&lt;&lt;m);i++) // 1~1111, 共有 2^n-1种选法
+{
+    int cnt=0;
+    for(int j=0;j&lt;m;j++)  // 数组从 0 开始
+    {
+        // i&gt;&gt;j &amp; 1
+        if(i&amp;(1&lt;&lt;j))   // 判断i低j位是否为1，若为1 则选择这个
+        {
+            cnt++;  // 选择个数+1，
+            // 对这个数进行某种操作
+        }
+    }
+    // 对选择的进行计算，比如奇数个 加，偶数个 减。
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-11-卡特兰数"><a href="#4-11-卡特兰数" class="headerlink" title="4.11 卡特兰数"></a>4.11 卡特兰数</h4><p><strong>卡特兰数</strong>：$C_{2n}^n - C_{2n}^{n-1}=\frac{C_{2n}^n}{n+1}$  </p>
+<p>应用：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/891/">构造01序列</a>，<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/132/">火车进出栈</a>，</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int res=1;
+for(int i=n+1;i&lt;=2*n;i++) res=(ll)res*i%mod;
+int x,y;
+for(int i=1;i&lt;=n+1;i++)
+{
+    exgcd(i,mod,x,y);
+    x=(x%mod+mod)%mod;
+    res=(ll)res*x%mod;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -1408,7 +2264,7 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">lzl</a>
+                    <a href="/about" rel="external nofollow noreferrer">ZLL</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -1431,7 +2287,7 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">lzl</a>
+                    <a href="/about" target="_blank">ZLL</a>
                     !
                 </span>
             </div>
@@ -1457,8 +2313,8 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">基础算法</span>
                                 </a>
                             
                         </div>
@@ -1508,55 +2364,6 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/suan-fa/kuai-su-pai-xu-he-gui-bing-pai-xu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="快速排序和归并排序">
-                        
-                        <span class="card-title">快速排序和归并排序</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">基础算法</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/uncategorized/what-is-love/">
                     <div class="card-image">
                         
@@ -1573,9 +2380,9 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1589,6 +2396,56 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
                     
                     <a href="/tags/%E9%9A%8F%E7%AC%94/">
                         <span class="chip bg-color">随笔</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/suan-fa/suan-fa-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="基础算法笔记">
+                        
+                        <span class="card-title">基础算法笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">基础算法</span>
                     </a>
                     
                 </div>
@@ -1801,7 +2658,7 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.7k</span>&nbsp;字
+                class="white-color">14.1k</span>&nbsp;字
             
             
             
