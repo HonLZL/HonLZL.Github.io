@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="快速排序和归并排序, ZLL">
+    <meta name="keywords" content="Acwing竞赛题解, ZLL">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>快速排序和归并排序 | ZLL</title>
+    <title>Acwing竞赛题解 | ZLL</title>
     <link rel="icon" type="image/jpeg" href="/upicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -432,12 +432,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">快速排序和归并排序</h1>
+                    <h1 class="description center-align post-title">Acwing竞赛题解</h1>
                 </div>
             </div>
         </div>
@@ -553,8 +553,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">基础算法</span>
+                            <a href="/tags/%E7%AB%9E%E8%B5%9B-%E9%A2%98%E8%A7%A3/">
+                                <span class="chip bg-color">-竞赛 -题解</span>
                             </a>
                         
                     </div>
@@ -565,8 +565,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                题解
                             </a>
                         
                     </div>
@@ -578,7 +578,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-25
+                    2021-11-22
                 </div>
                 
 
@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    603
+                    159
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -617,82 +617,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h3><h4 id="1-1-快速排序"><a href="#1-1-快速排序" class="headerlink" title="1.1 快速排序"></a>1.1 快速排序</h4><ul>
-<li>确定分界点，这里以中间点作为分界点 x=q[l+r&gt;&gt;1]</li>
-<li>划分两个区间，左边区间 $\le x$, 右边 区间 $\ge x$ </li>
-<li>递归处理左右两个区间</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r)
-{
-    if (l &gt;= r) return;
-    int i = l - 1, j = r + 1, x = q[l + r &gt;&gt; 1];
-    while (i &lt; j)
-    {
-        do i ++ ; while (q[i] &lt; x);
-        do j -- ; while (q[j] &gt; x);
-        // 改为从大到小排序
-        // do i++; while(q[i] &gt; x); // 这里和下面
-        // do j--; while(q[j] &lt; x); // 这行的判断条件改一下
-        if (i &lt; j) swap(q[i], q[j]);
-    }
-    quick_sort(q, l, j), quick_sort(q, j + 1, r);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>应用：求第k小</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int quick_sort(int l,int r,int k)
-{
-    if(l&gt;=r) return q[l];
-    int x=q[r+l&gt;&gt;1],i=l-1,j=r+1;
-    while(i&lt;j)
-    {
-        do i++; while(q[i]&lt;x);
-        do j--; while(q[j]&gt;x);
-        if(i&lt;j) swap(q[i],q[j]);
-    }
-    if(j-l+1&gt;=k)   return quick_sort(l,j,k);  // 第k小在左边
-    else return quick_sort(j+1,r,k-(j-l+1));  // 第k小一定在右边
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-2-归并排序"><a href="#1-2-归并排序" class="headerlink" title="1.2 归并排序"></a>1.2 归并排序</h4><ul>
-<li>确定分界点,中间： l+r&gt;&gt;1</li>
-<li>先递归排序左右两个区间</li>
-<li>合并子问题</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r)
-{
-    if(l &gt;= r) return;     //递归的终止情况
-    int mid = l + r &gt;&gt; 1;  //第一步：分成子问题
-    //第二步：递归处理子问题
-    merge_sort(q, l, mid), merge_sort(q, mid + 1, r);
-    //第三步：合并有序的两段，i，j为两段的起点
-    int k = 0, i = l, j = mid + 1;
-    while(i &lt;= mid &amp;&amp; j &lt;= r)
-        if(q[i] &lt;= q[j]) tmp[k++] = q[i++];
-        else tmp[k++] = q[j++];
-    // 对当前指针到终点的赋值
-    while(i &lt;= mid) tmp[k++] = q[i++];
-    while(j &lt;= r) tmp[k++] = q[j++];
-	// 赋值回原数组
-    for( i = l,k=0; i &lt;= r; i++, k++) q[i] = tmp[k];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>求逆序对数</strong>：</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">ll merge_sort(int l, int r)
-{
-    if(l &gt;= r) return 0;     //递归的终止情况
-    int mid = l + r &gt;&gt; 1;  //第一步：分成子问题
-    //第二步：递归处理子问题
-    ll res=merge_sort(l, mid) + merge_sort(mid + 1, r);
-    //第三步：合并有序的两段，i，j为两段的起点
-    int k = 0, i = l, j = mid + 1;
-    while(i &lt;= mid &amp;&amp; j &lt;= r)
-        if(q[i] &lt;= q[j]) tmp[k++] = q[i++];
-        else tmp[k++] = q[j++],res+=mid-i+1;
-    // 对当前指针到终点的赋值
-    while(i &lt;= mid) tmp[k++] = q[i++];
-    while(j &lt;= r) tmp[k++] = q[j++];
-	// 赋值回原数组
-    for( i = l,k=0; i &lt;= r; i++, k++) q[i] = tmp[k];
-    return res;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>
+                <h3 id="4078-01串"><a href="#4078-01串" class="headerlink" title="4078.01串"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/4081/">4078.01串</a></h3><p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/4078_01%E4%B8%B2.png" alt="image-20211122072829201"></p>
+<p>上述题目可以转化为长度在 [l,r] 范围内连续 1 个数都为 $k$ 的数量。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/202111220826779.png" alt="img"></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">100005</span><span class="token punctuation">,</span>mod<span class="token operator">=</span><span class="token number">1e9</span><span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">;</span>
+ll f<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> T<span class="token punctuation">,</span>k<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&gt;=</span>k<span class="token punctuation">)</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">%</span>mod<span class="token punctuation">;</span>
+        <span class="token keyword">else</span>  f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">%</span>mod<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cin<span class="token operator">&gt;&gt;</span>T<span class="token operator">&gt;&gt;</span>k<span class="token punctuation">;</span>
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>T<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>  cin<span class="token operator">&gt;&gt;</span>x<span class="token operator">&gt;&gt;</span>y<span class="token punctuation">;</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">-</span>s<span class="token punctuation">[</span>x<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>mod<span class="token punctuation">)</span><span class="token operator">%</span>mod<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment">// 相减后可能为负，因此要加模取模</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -709,7 +665,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">lzl</a>
+                    <a href="/about" rel="external nofollow noreferrer">ZLL</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -719,7 +675,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://fory.xyz/suan-fa/kuai-su-pai-xu-he-gui-bing-pai-xu/">http://fory.xyz/suan-fa/kuai-su-pai-xu-he-gui-bing-pai-xu/</a>
+                    <a href="http://fory.xyz/ti-jie/acwing-jing-sai-ti-jie/">http://fory.xyz/ti-jie/acwing-jing-sai-ti-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -732,7 +688,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">lzl</a>
+                    <a href="/about" target="_blank">ZLL</a>
                     !
                 </span>
             </div>
@@ -758,8 +714,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">基础算法</span>
+                                <a href="/tags/%E7%AB%9E%E8%B5%9B-%E9%A2%98%E8%A7%A3/">
+                                    <span class="chip bg-color">-竞赛 -题解</span>
                                 </a>
                             
                         </div>
@@ -805,40 +761,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/qi-ta/jia-mi-ce-shi/">
+                <a href="/ti-jie/acwing-jing-sai-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="我的自拍">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Acwing竞赛题解">
                         
-                        <span class="card-title">我的自拍</span>
+                        <span class="card-title">Acwing竞赛题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Acwing周赛写不出来的题
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
-                                    其他
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    题解
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AB%9E%E8%B5%9B-%E9%A2%98%E8%A7%A3/">
+                        <span class="chip bg-color">-竞赛 -题解</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -850,29 +816,33 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/uncategorized/what-is-love/">
+                <a href="/suan-fa/suan-fa-bi-ji-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="What is love">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="算法笔记-基础">
                         
-                        <span class="card-title">What is love</span>
+                        <span class="card-title">算法笔记-基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                             
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            lzl
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -880,8 +850,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">基础算法</span>
                     </a>
                     
                 </div>
