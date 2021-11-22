@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="基础算法笔记, ZLL">
+    <meta name="keywords" content="算法笔记-基础, ZLL">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>基础算法笔记 | ZLL</title>
+    <title>算法笔记-基础 | ZLL</title>
     <link rel="icon" type="image/jpeg" href="/upicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -432,12 +432,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">基础算法笔记</h1>
+                    <h1 class="description center-align post-title">算法笔记-基础</h1>
                 </div>
             </div>
         </div>
@@ -578,7 +578,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-30
+                    2021-11-20
                 </div>
                 
 
@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12.5k
+                    17.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    61 分
+                    81 分
                 </div>
                 
 
@@ -617,11 +617,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第一章-基础算法"><a href="#第一章-基础算法" class="headerlink" title="第一章 基础算法"></a>第一章 基础算法</h2><h3 id="1-1-排序"><a href="#1-1-排序" class="headerlink" title="1.1 排序"></a>1.1 排序</h3><h4 id="1-1-1-快速排序"><a href="#1-1-1-快速排序" class="headerlink" title="1.1.1 快速排序"></a>1.1.1 快速排序</h4><ul>
+                <h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h2 id="第一章-基础算法"><a href="#第一章-基础算法" class="headerlink" title="第一章 基础算法"></a>第一章 基础算法</h2><h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h3><h4 id="1-1-快速排序"><a href="#1-1-快速排序" class="headerlink" title="1.1 快速排序"></a>1.1 快速排序</h4><ul>
 <li>确定分界点，这里以中间点作为分界点 x=q[l+r&gt;&gt;1]</li>
 <li>划分两个区间，左边区间 $\le x$, 右边 区间 $\ge x$ </li>
 <li>递归处理左右两个区间</li>
 </ul>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.jpg" alt="img"></p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r)
 {
     if (l &gt;= r) return;
@@ -638,6 +639,7 @@
     quick_sort(q, l, j), quick_sort(q, j + 1, r);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>应用：求第k小</p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E7%AC%ACk%E5%B0%8F.jpg" alt="img"></p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int quick_sort(int l,int r,int k)
 {
     if(l&gt;=r) return q[l];
@@ -651,11 +653,12 @@
     if(j-l+1&gt;=k)   return quick_sort(l,j,k);  // 第k小在左边
     else return quick_sort(j+1,r,k-(j-l+1));  // 第k小一定在右边
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-1-2-归并排序"><a href="#1-1-2-归并排序" class="headerlink" title="1.1.2 归并排序"></a>1.1.2 归并排序</h4><ul>
+<h4 id="1-2-归并排序"><a href="#1-2-归并排序" class="headerlink" title="1.2 归并排序"></a>1.2 归并排序</h4><ul>
 <li>确定分界点,中间： l+r&gt;&gt;1</li>
 <li>先递归排序左右两个区间</li>
 <li>合并子问题</li>
 </ul>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.jpg" alt="img"></p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r)
 {
     if(l &gt;= r) return;     //递归的终止情况
@@ -692,7 +695,7 @@
     for( i = l,k=0; i &lt;= r; i++, k++) q[i] = tmp[k];
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-2-二分"><a href="#1-2-二分" class="headerlink" title="1.2 二分"></a>1.2 二分</h3><p><strong>整数二分</strong>：分成两块，一左一右，low一直位于作左边，top一直位于右边，最终low在左边块最右，top在右边那块最左边。</p>
+<h3 id="2-二分"><a href="#2-二分" class="headerlink" title="2 二分"></a>2 二分</h3><p><strong>整数二分</strong>：分成两块，一左一右，low一直位于作左边，top一直位于右边，最终low在左边块最右，top在右边那块最左边。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(low+1!=top)
 {
 	int mid=low+top&gt;&gt;1;
@@ -706,7 +709,7 @@
     if(check(low)) top=mid;
     else low=mid;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-3-高精度"><a href="#1-3-高精度" class="headerlink" title="1.3 高精度"></a>1.3 高精度</h3><h4 id="1-3-1-大数加法"><a href="#1-3-1-大数加法" class="headerlink" title="1.3.1 大数加法"></a>1.3.1 大数加法</h4><p>将数存在数组里面，数组倒序储存方便计算。</p>
+<h3 id="3-高精度"><a href="#3-高精度" class="headerlink" title="3 高精度"></a>3 高精度</h3><h4 id="3-1-大数加法"><a href="#3-1-大数加法" class="headerlink" title="3.1 大数加法"></a>3.1 大数加法</h4><p>将数存在数组里面，数组倒序储存方便计算。</p>
 <p>思想是模拟。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt; big_add(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
 {
@@ -725,7 +728,7 @@
 //调用
 vector&lt;int&gt; ans=big_add(A,B);
 for(int i=ans.size()-1;i&gt;=0;i--)  cout&lt;&lt;ans[i];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-3-2-大数减法"><a href="#1-3-2-大数减法" class="headerlink" title="1.3.2 大数减法"></a>1.3.2 大数减法</h4><p>计算 A-B，默认 A&gt;B，如果 A&lt;B，则去计算 -(B-A).</p>
+<h4 id="3-2-大数减法"><a href="#3-2-大数减法" class="headerlink" title="3.2 大数减法"></a>3.2 大数减法</h4><p>计算 A-B，默认 A&gt;B，如果 A&lt;B，则去计算 -(B-A).</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt; big_sub(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
 {
     vector&lt;int&gt; res;
@@ -740,7 +743,7 @@ for(int i=ans.size()-1;i&gt;=0;i--)  cout&lt;&lt;ans[i];<span aria-hidden="true"
     while(res.size()&gt;1&amp;&amp;res.back()==0) res.pop_back(); // 去前导零
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-3-3-大数乘法"><a href="#1-3-3-大数乘法" class="headerlink" title="1.3.3 大数乘法"></a>1.3.3 大数乘法</h4><p>一般是一个大数乘一个小数。</p>
+<h4 id="3-3-大数乘法"><a href="#3-3-大数乘法" class="headerlink" title="3.3 大数乘法"></a>3.3 大数乘法</h4><p>一般是一个大数乘一个小数。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A, int b)
 {
     vector&lt;int&gt; res;
@@ -755,7 +758,7 @@ for(int i=ans.size()-1;i&gt;=0;i--)  cout&lt;&lt;ans[i];<span aria-hidden="true"
         res.pop_back();
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-3-4-大数除法"><a href="#1-3-4-大数除法" class="headerlink" title="1.3.4 大数除法"></a>1.3.4 大数除法</h4><p>一般是一个大数 ÷ 一个小数</p>
+<h4 id="3-4-大数除法"><a href="#3-4-大数除法" class="headerlink" title="3.4 大数除法"></a>3.4 大数除法</h4><p>一般是一个大数 ÷ 一个小数</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; ans;  // 商
 int y=0;   // 余数
 void div(vector&lt;int&gt; A,int b)  // A 还是倒着存
@@ -772,7 +775,7 @@ void div(vector&lt;int&gt; A,int b)  // A 还是倒着存
         ans.pop_back();
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-3-5-压位"><a href="#1-3-5-压位" class="headerlink" title="1.3.5 压位"></a>1.3.5 压位</h4><p>由于数组存的数是int类型，所以只存个位数太过浪费。所以考虑将几个数合并成一位存储。</p>
+<h4 id="3-5-压位"><a href="#3-5-压位" class="headerlink" title="3.5 压位"></a>3.5 压位</h4><p>由于数组存的数是int类型，所以只存个位数太过浪费。所以考虑将几个数合并成一位存储。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">const int power=3,base=1000; // 需要同时改
 vector&lt;int&gt; big(string s)  // 将字符串大数转化成数组压位的大数
 {
@@ -868,7 +871,7 @@ void print(vector&lt;int&gt; &amp;A)
 <h3 id="5-离散化"><a href="#5-离散化" class="headerlink" title="5 离散化"></a>5 离散化</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">sort(dif,dif+cnt);    // 排序
 int m=unique(dif,dif+cnt)-dif;   // 去重，m 返回不重复的数
 int p=lower_bound(dif,dif+m,x)-dif;  // 二分取离散化后 x 映射的位置，后面就用这个位置代表 x 了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="第二章-数据结构"><a href="#第二章-数据结构" class="headerlink" title="第二章 数据结构"></a>第二章 数据结构</h2><h3 id="2-1-链表"><a href="#2-1-链表" class="headerlink" title="2.1 链表"></a>2.1 链表</h3><p><strong>单链表</strong></p>
+<h2 id="第二章-数据结构"><a href="#第二章-数据结构" class="headerlink" title="第二章 数据结构"></a>第二章 数据结构</h2><h3 id="1-链表"><a href="#1-链表" class="headerlink" title="1 链表"></a>1 链表</h3><p><strong>单链表</strong></p>
 <p>结构体形式：</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct node
 {
@@ -929,7 +932,7 @@ void remove(int k)  // 删去下表为 k 的点
     l[r[k]]=l[k];
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-2-模拟栈和队列"><a href="#2-2-模拟栈和队列" class="headerlink" title="2.2 模拟栈和队列"></a>2.2 模拟栈和队列</h3><p>先进后出</p>
+<h3 id="2-模拟栈和队列"><a href="#2-模拟栈和队列" class="headerlink" title="2 模拟栈和队列"></a>2 模拟栈和队列</h3><p>先进后出</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int stk[N],tt=0;
 stk[++tt]=x;  // 插入
 tt--;  //弹出
@@ -1000,7 +1003,7 @@ hh++;  // 弹出
 hh&lt;=tt  // 不空 否则是空的
 q[hh]  // 队头
 q[tt]  // 队尾<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-3-单调栈和单调队列"><a href="#2-3-单调栈和单调队列" class="headerlink" title="2.3 单调栈和单调队列"></a>2.3 单调栈和单调队列</h3><p><strong>单调栈</strong>：栈内的元素是具有单调性的</p>
+<h3 id="3-单调栈和单调队列"><a href="#3-单调栈和单调队列" class="headerlink" title="3 单调栈和单调队列"></a>3 单调栈和单调队列</h3><p><strong>单调栈</strong>：栈内的元素是具有单调性的</p>
 <p>应用于：找数组中一个数的左边或者右边第一个比它大或者小的数</p>
 <p>例题：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/832/">单调栈</a> 给定N 的整数数列，输出每个数左边第一个比它小的数，如果不存在则输出 −1。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
@@ -1034,7 +1037,7 @@ while(x&lt;=a[q[tt1]]&amp;&amp;hh&lt;=tt) tt--;
 if(i-q[hh]&gt;=k&amp;&amp;hh&lt;=tt) hh++;
 q[++tt]=i;  // 将该元素入队
 if(i&gt;=k-1)  ans[cnt++]=q[hh];  // 存入答案<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-4-KMP"><a href="#2-4-KMP" class="headerlink" title="2.4 KMP"></a>2.4 KMP</h3><p>next[i]: 含义是以 i 为终点的最长后缀，从下标 0 开始，next[0]=-1，next[1]=0</p>
+<h3 id="4-KMP"><a href="#4-KMP" class="headerlink" title="4 KMP"></a>4 KMP</h3><p>next[i]: 含义是以 i 为终点的最长后缀，从下标 0 开始，next[0]=-1，next[1]=0</p>
 <p>字符串 p 的 next 值跟当前位无关，所以第 i 位匹配相等时 next[i+1]=j+1, 简写位 next[++i]=++j </p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int nxt[N];   // p 要回退的位置
 void get_next(string p)  // 求模式串next
@@ -1063,10 +1066,10 @@ void kmp(string s,string p)
 // 调用
 get_next(p);
 kmp(s,p);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-5-Trie树"><a href="#2-5-Trie树" class="headerlink" title="2.5 Trie树"></a>2.5 Trie树</h3><p>是一个能高效地存储和查找字符串集合的数据结构</p>
+<h3 id="5-Trie树"><a href="#5-Trie树" class="headerlink" title="5 Trie树"></a>5 Trie树</h3><p>是一个能高效地存储和查找字符串集合的数据结构</p>
 <p>建立树，就是向一个集合添加字符串的过程</p>
 <p>查找字符串的数量和建立树类似</p>
-<p>图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/Trie%E6%A0%91.jpg" alt="img"></p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/837/">模板题</a></p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int son[N][26];  // 当前结点的儿子，儿子最多有26个，因为小写字母只有26个
 int cnt[N];    // 打标记，以第 i 字母结尾的字符串的个数
@@ -1097,7 +1100,8 @@ int query(char s[])
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Trie 另一个应用：存储二进制数</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/145/">最大异或对</a></p>
-<h3 id="2-6-并查集"><a href="#2-6-并查集" class="headerlink" title="2.6 并查集"></a>2.6 并查集</h3><p>将两个集合合并； 询问两个元素是否在同一个集合中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/202111151404479.jpg" alt="img"></p>
+<h3 id="6-并查集"><a href="#6-并查集" class="headerlink" title="6 并查集"></a>6 并查集</h3><p>将两个集合合并； 询问两个元素是否在同一个集合中</p>
 <p>基础并查集：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/838/">模题合并集合</a></p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i=1;i&lt;=n;i++) 
     p[i]=i;   // 初始化 p 数组，自成一派
@@ -1178,11 +1182,14 @@ int main()
     printf("%d",ans);
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-7-堆"><a href="#2-7-堆" class="headerlink" title="2.7 堆"></a>2.7 堆</h3><p>堆是一棵完全二叉树，顶点取最值</p>
+<h3 id="7-堆"><a href="#7-堆" class="headerlink" title="7 堆"></a>7 堆</h3><p>堆是一棵完全二叉树，顶点取最值</p>
 <p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%A0%86.png" alt=""></p>
-<p>由于编号位 i 的父结点的左结点为 2i，右结点为 2i+1，所以用保存堆。</p>
+<p>由于编号为 i 的父结点的左结点为 2i，右结点为 2i+1，所以用保存堆。</p>
 <p>以小根堆为例</p>
-<p>down操作：把一个大数往下移，up操作，把小数往上移</p>
+<p><strong>down操作</strong>：把一个大数往下移</p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/202111151426489.jpg" alt="img"></p>
+<p><strong>UP操作</strong>：把一个较小的数往上移</p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/202111151431092.jpg" alt="img"></p>
 <blockquote>
 <p>维护一个数组集合, heap[size]表示最后一个，heap[1]表示第一个即堆顶</p>
 <ul>
@@ -1261,7 +1268,7 @@ int main()
     }
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-8-哈希表"><a href="#2-8-哈希表" class="headerlink" title="2.8 哈希表"></a>2.8 哈希表</h3><p>储存结构：开放寻址法，拉链法。</p>
+<h3 id="8-哈希表"><a href="#8-哈希表" class="headerlink" title="8 哈希表"></a>8 哈希表</h3><p>储存结构：开放寻址法，拉链法。</p>
 <p><strong>拉链法</strong>：将大数取模，将相同模的组成一个链表</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void insert(int x)
 {
@@ -1343,13 +1350,13 @@ int main()
     }
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="第三章-搜索与图论"><a href="#第三章-搜索与图论" class="headerlink" title="第三章 搜索与图论"></a>第三章 搜索与图论</h2><h3 id="3-1-存图方式"><a href="#3-1-存图方式" class="headerlink" title="3.1 存图方式"></a>3.1 存图方式</h3><h4 id="3-1-1-vector存图"><a href="#3-1-1-vector存图" class="headerlink" title="3.1.1 vector存图"></a>3.1.1 vector存图</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;node&gt; G[N];
+<h2 id="第三章-搜索与图论"><a href="#第三章-搜索与图论" class="headerlink" title="第三章 搜索与图论"></a>第三章 搜索与图论</h2><h3 id="1-存图方式"><a href="#1-存图方式" class="headerlink" title="1 存图方式"></a>1 存图方式</h3><h4 id="1-1-vector存图"><a href="#1-1-vector存图" class="headerlink" title="1.1 vector存图"></a>1.1 vector存图</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;node&gt; G[N];
 G[u].push_back(v); // 加边
 for(int i=0;i&lt;G[x].size();i++)
 {
     int y=G[x][i]; // 遍历边 x-&gt;y
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-1-2-邻接表"><a href="#3-1-2-邻接表" class="headerlink" title="3.1.2 邻接表"></a>3.1.2 邻接表</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 对于每个点k，开一个单链表，存储k所有可以走到的点
+<h4 id="1-2-邻接表"><a href="#1-2-邻接表" class="headerlink" title="1.2 邻接表"></a>1.2 邻接表</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 对于每个点k，开一个单链表，存储k所有可以走到的点
 // h[k] 存储这个单链表的头结点
 // e[k] 一条边的终点
 // w[k] 存储边的权值
@@ -1391,7 +1398,7 @@ while (q.size())
 // 初始化
 idx = 0;
 memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-2-DFS"><a href="#3-2-DFS" class="headerlink" title="3.2 DFS"></a>3.2 DFS</h3><p>n个数的全排列：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/844/">排列数字</a></p>
+<h3 id="2-DFS"><a href="#2-DFS" class="headerlink" title="2 DFS"></a>2 DFS</h3><p>n个数的全排列：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/844/">排列数字</a></p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void dfs(int t)
 {
     if(t==n)
@@ -1409,8 +1416,8 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
         }
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-3-BFS"><a href="#3-3-BFS" class="headerlink" title="3.3 BFS"></a>3.3 BFS</h3><h3 id="3-4-拓扑排序"><a href="#3-4-拓扑排序" class="headerlink" title="3.4 拓扑排序"></a>3.4 拓扑排序</h3><p>记录入度，依次删度为0的点</p>
-<h3 id="3-5-最短路"><a href="#3-5-最短路" class="headerlink" title="3.5 最短路"></a>3.5 最短路</h3><h4 id="3-5-1-Dijkstra"><a href="#3-5-1-Dijkstra" class="headerlink" title="3.5.1 Dijkstra"></a>3.5.1 Dijkstra</h4><p>Dijkstra朴素版：时间复杂度$ O(n^2) $ </p>
+<h3 id="3-BFS"><a href="#3-BFS" class="headerlink" title="3 BFS"></a>3 BFS</h3><h3 id="4-拓扑排序"><a href="#4-拓扑排序" class="headerlink" title="4 拓扑排序"></a>4 拓扑排序</h3><p>记录入度，依次删度为0的点</p>
+<h3 id="5-最短路"><a href="#5-最短路" class="headerlink" title="5 最短路"></a>5 最短路</h3><h4 id="5-1-Dijkstra"><a href="#5-1-Dijkstra" class="headerlink" title="5.1 Dijkstra"></a>5.1 Dijkstra</h4><p>Dijkstra朴素版：时间复杂度$ O(n^2) $ </p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int g[N][N];  // 存储每条边
 int dist[N];  // 存储1号点到每个点的最短距离
 bool st[N];   // 存储每个点的最短路是否已经确定
@@ -1478,7 +1485,7 @@ void dijkstra()
         }
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-5-2-Bellman-Ford"><a href="#3-5-2-Bellman-Ford" class="headerlink" title="3.5.2 Bellman-Ford"></a>3.5.2 Bellman-Ford</h4><p>求最多经过 k 条边能到达的最短路   O(nm)</p>
+<h4 id="5-2-Bellman-Ford"><a href="#5-2-Bellman-Ford" class="headerlink" title="5.2 Bellman-Ford"></a>5.2 Bellman-Ford</h4><p>求最多经过 k 条边能到达的最短路   O(nm)</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct Edge  // 结构体直接存图
 {
     int a,b;  //a -&gt; b
@@ -1502,7 +1509,7 @@ void bellman_ford()
 }
 if(dis[n]&gt;inf/2)   // 因为存在负权，inf可能被更新，不连通
 else cout&lt;&lt;dis[n];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-5-3-SPFA"><a href="#3-5-3-SPFA" class="headerlink" title="3.5.3 SPFA"></a>3.5.3 SPFA</h4><p>用于求带负权的最短路、求负环  O(m) 到 O(nm)</p>
+<h4 id="5-3-SPFA"><a href="#5-3-SPFA" class="headerlink" title="5.3 SPFA"></a>5.3 SPFA</h4><p>用于求带负权的最短路、求负环  O(m) 到 O(nm)</p>
 <p>对BellmanFord的优化，用队列储存是否有必要更新</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int dis[N];
 bool st[N];  // 储存是否遍历过
@@ -1558,7 +1565,7 @@ bool spfa()
     }
     return false;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-5-4-Floyd"><a href="#3-5-4-Floyd" class="headerlink" title="3.5.4 Floyd"></a>3.5.4 Floyd</h4><p>用于多源最短路</p>
+<h4 id="5-4-Floyd"><a href="#5-4-Floyd" class="headerlink" title="5.4 Floyd"></a>5.4 Floyd</h4><p>用于多源最短路</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int k=1;k&lt;=n;k++)   // 记得先枚举中间点
     {
         for(int i=1;i&lt;=n;i++)
@@ -1569,7 +1576,7 @@ bool spfa()
             }
         }
     }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-6-最小生成树-MST"><a href="#3-6-最小生成树-MST" class="headerlink" title="3.6 最小生成树 MST"></a>3.6 最小生成树 MST</h3><h4 id="3-6-1-Prim"><a href="#3-6-1-Prim" class="headerlink" title="3.6.1 Prim"></a>3.6.1 Prim</h4><p>寻找离集合最近的点 t，加入集合，然后用 t 更新其他未在集合的点离集合的距离。 时间复杂度 $O(n^2)$ </p>
+<h3 id="6-最小生成树-MST"><a href="#6-最小生成树-MST" class="headerlink" title="6 最小生成树 MST"></a>6 最小生成树 MST</h3><h4 id="6-1-Prim"><a href="#6-1-Prim" class="headerlink" title="6.1 Prim"></a>6.1 Prim</h4><p>寻找离集合最近的点 t，加入集合，然后用 t 更新其他未在集合的点离集合的距离。 时间复杂度 $O(n^2)$ </p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int dis[N];  // 距离集合最近的距离
 bool st[N];  // 标记是否在集合中
 int mp[N][N]; // 初始化为 inf
@@ -1592,7 +1599,7 @@ void prim()
     if(ans&gt;inf/2) puts("impossible");
     else  printf("%d",ans);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-6-2-Kruskal"><a href="#3-6-2-Kruskal" class="headerlink" title="3.6.2 Kruskal"></a>3.6.2 Kruskal</h4><p>先将权值边排序，选择端点不在同一集合的边并将两个端点加入集合，直到选择 $n-1$ 条边。若选不到 n-1 条边，说明没有mst</p>
+<h4 id="6-2-Kruskal"><a href="#6-2-Kruskal" class="headerlink" title="6.2 Kruskal"></a>6.2 Kruskal</h4><p>先将权值边排序，选择端点不在同一集合的边并将两个端点加入集合，直到选择 $n-1$ 条边。若选不到 n-1 条边，说明没有mst</p>
 <p>时间复杂度 $O(mlogn)$ </p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct Edge
 {
@@ -1622,7 +1629,7 @@ void kruskal()
     if(cnt==n-1) printf("%d",ans);
     else printf("impossible");
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-7-二分图"><a href="#3-7-二分图" class="headerlink" title="3.7 二分图"></a>3.7 二分图</h3><p>定义：无向图 $G=(V,E)$ 中顶点可以被分为两个不相交集合 A 和 B，并且 E 都是跨越组的形式。也就是说一条边的两个顶点不会在同一个集合。</p>
+<h3 id="7-二分图"><a href="#7-二分图" class="headerlink" title="7 二分图"></a>7 二分图</h3><p>定义：无向图 $G=(V,E)$ 中顶点可以被分为两个不相交集合 A 和 B，并且 E 都是跨越组的形式。也就是说一条边的两个顶点不会在同一个集合。</p>
 <blockquote>
 <p>定理：一个图是二分图，当且仅当图中不含奇数环。</p>
 <p>必要性证明：设奇数环 A-&gt;B-&gt;C-&gt;A</p>
@@ -1632,7 +1639,7 @@ void kruskal()
 </blockquote>
 <p>必要性：由已知推出结论</p>
 <p>充分性：由结论推出已知</p>
-<h4 id="3-7-1-搜索染色染色法"><a href="#3-7-1-搜索染色染色法" class="headerlink" title="3.7.1 搜索染色染色法"></a>3.7.1 搜索染色染色法</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 将二分图的两个集合一个染 1，一个染 2
+<h4 id="7-1-搜索染色染色法"><a href="#7-1-搜索染色染色法" class="headerlink" title="7.1 搜索染色染色法"></a>7.1 搜索染色染色法</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 将二分图的两个集合一个染 1，一个染 2
 bool dfs(int x,int c)  // x 染 c 色
 {
     co[x]=c;
@@ -1666,7 +1673,7 @@ int main()
     cout&lt;&lt;"Yes"&lt;&lt;endl;
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-7-2-匈牙利算法"><a href="#3-7-2-匈牙利算法" class="headerlink" title="3.7.2 匈牙利算法"></a>3.7.2 匈牙利算法</h4><p>求二分图的最大匹配。</p>
+<h4 id="7-2-匈牙利算法"><a href="#7-2-匈牙利算法" class="headerlink" title="7.2 匈牙利算法"></a>7.2 匈牙利算法</h4><p>求二分图的最大匹配。</p>
 <p>匈牙利时间复杂度：最坏是 $O(nm)$ ，但一般远小于。</p>
 <p>是一个寻找最长增广路的过程</p>
 <blockquote>
@@ -1724,7 +1731,7 @@ int main()
     cout&lt;&lt;ans&lt;&lt;endl;
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="第四章-数学"><a href="#第四章-数学" class="headerlink" title="第四章 数学"></a>第四章 数学</h2><h3 id="4-1-基础数学"><a href="#4-1-基础数学" class="headerlink" title="4.1 基础数学"></a>4.1 基础数学</h3><h4 id="4-1-1质数"><a href="#4-1-1质数" class="headerlink" title="4.1.1质数"></a>4.1.1质数</h4><p>只能被 1 和本身整除的数。1 不是质数</p>
+<h2 id="第四章-数学"><a href="#第四章-数学" class="headerlink" title="第四章 数学"></a>第四章 数学</h2><h3 id="1-基础数学"><a href="#1-基础数学" class="headerlink" title="1 基础数学"></a>1 基础数学</h3><h4 id="1-1质数"><a href="#1-1质数" class="headerlink" title="1.1质数"></a>1.1质数</h4><p>只能被 1 和本身整除的数。1 不是质数</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 判断是否为质数
 bool is_prime(int x)
 {
@@ -1780,16 +1787,16 @@ void init()
 <p>合数一定能被线性筛筛掉：因为合数=p*k,p 是最小质因子，当枚举质数到 i=k 时，就被筛掉了。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int j=0;primes[j]&lt;=n/i;j++)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这里不能去掉等号，当去掉等号会误筛掉很多 n 附近的合数。</p>
-<h4 id="4-1-2-因数（约数）"><a href="#4-1-2-因数（约数）" class="headerlink" title="4.1.2 因数（约数）"></a>4.1.2 因数（约数）</h4><p>约数个数   约数之和</p>
+<h4 id="1-2-因数（约数）"><a href="#1-2-因数（约数）" class="headerlink" title="1.2 因数（约数）"></a>1.2 因数（约数）</h4><p>==约数个数==   ==约数之和== </p>
 <blockquote>
 <p>约数个数定理: 对于一个大于 1 的正整数 n 可以分解质因数</p>
 <script type="math/tex; mode=display">
 n\ =\ \prod_{i=1}^{k} p_i^{a_i}=p_1^{a_1}·p_1^{a_1}····p_k^{a_k}\\
-p_1,p_2···p_k为 n 的质因子</script><p>约数的个数：$ f(n)=\sum_{i=1}^{k} (a_i+1) $  </p>
+p_1,p_2···p_k为 n 的质因子</script><p>约数的个数：$ f(n)=\prod_{i=1}^{k} (a_i+1) $  </p>
 <p>约数的和：</p>
 <script type="math/tex; mode=display">
 s(n)=\prod_{i=1}^{k} \sum_{j=0}^{a_i} p_i^j=(p_1^0+p_1^1+···+p_1^{a_1})\times ···\times (p_k^0+p_k^1+···+p_k^{a_k})</script></blockquote>
-<p>最大公约数 gcd </p>
+<p>==最大公约数 gcd== </p>
 <p>d|a 且 d|b, 那么 d|(ax+by)</p>
 <p>整除符号: |, 若 d|a 等价于 a=kd, k 为整数</p>
 <blockquote>
@@ -1807,7 +1814,33 @@ int gcd(int a,int b)
 }
 // STL函数
 c = __gcd(a,b);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-2-欧拉函数"><a href="#4-2-欧拉函数" class="headerlink" title="4.2 欧拉函数"></a>4.2 欧拉函数</h3><blockquote>
+<p>==求 n 以内的含有最多因子的数== （$n\le10^{18}$） </p>
+<p>一个数的因子可以由多个质数相乘得到，由于 n 的范围。</p>
+<blockquote>
+<p>两个个数有相同数量的质因子，当最大质因子越大，因子数不会变多</p>
+<p>证明：设两个数位为 $n$ 和 $m$，最大质因子为 $p_{nk}$&gt;$p_{nk}$。</p>
+<p>质因子分解： $ n = p_1^{a_1}p_2^{a_2}···p_k^{a_k}$  </p>
+<p>因数个数 $ f(n)=\prod_{i=1}^{k} (a_i+1) $   </p>
+<p>所以，质因子应该越小越好。所以选取前 k 个质数，且质数乘积小于等于 n。</p>
+</blockquote>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 选取前 15 个质数就够了，前 16 个质数乘积大于 1e18</span>
+<span class="token keyword">int</span> p<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span><span class="token number">17</span><span class="token punctuation">,</span><span class="token number">19</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span><span class="token number">29</span><span class="token punctuation">,</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">37</span><span class="token punctuation">,</span><span class="token number">41</span><span class="token punctuation">,</span><span class="token number">43</span><span class="token punctuation">,</span><span class="token number">47</span><span class="token punctuation">,</span><span class="token number">51</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// sum 表数当前乘积，res表示当前因数个数，last表示前一个质数的指数</span>
+<span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> now<span class="token punctuation">,</span>ll sum<span class="token punctuation">,</span><span class="token keyword">int</span> res<span class="token punctuation">,</span><span class="token keyword">int</span> last<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>now<span class="token operator">&gt;=</span><span class="token number">15</span><span class="token punctuation">)</span>    <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token comment">// 不选择当前质数就更不可能选后面的质数，结束搜索</span>
+    <span class="token comment">// 选 i 次 p[now]。选择的个数要小于上一个质数选择的个数</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>last<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sum<span class="token operator">&gt;</span>n<span class="token operator">/</span>p<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment">// 不能写成 sum*p[now]，会超精度</span>
+        sum<span class="token operator">*=</span>p<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> t<span class="token operator">=</span>res<span class="token operator">*</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span>now<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>sum<span class="token punctuation">,</span>t<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-欧拉函数"><a href="#2-欧拉函数" class="headerlink" title="2 欧拉函数"></a>2 欧拉函数</h3><blockquote>
 <p>phi(n)为 [1,n] 中与 n 互质的个数</p>
 <p>n 的 质因子分解为 $ n = p_1^{a_1}p_2^{a_2}···p_k^{a_k}$ </p>
 <p>那么 $phi(n)=n\times (1-\frac{1}{p_1})(1-\frac{1}{p_2})···(1-\frac{1}{p_k})$ </p>
@@ -1870,8 +1903,7 @@ a^{phi(n)}\equiv 1\ (mod\ n)</script><p>证明：[1,n]中所有与 n 互质的�
 <p><strong>费马小定理</strong>：p 是质数且 a 与 p 互质，则有</p>
 <script type="math/tex; mode=display">
 a^{p-1}\equiv 1\ (mod\ n)</script></blockquote>
-<p>4.3 快速幂</p>
-<p>求 $a^k\ \%\ mod$ </p>
+<h3 id="3-快速幂"><a href="#3-快速幂" class="headerlink" title="3 快速幂"></a>3 快速幂</h3><p>求 $a^k\ \%\ mod$ </p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int qpow(int a,int k)
 {
     int res=1,base=a;
@@ -1884,7 +1916,7 @@ a^{p-1}\equiv 1\ (mod\ n)</script></blockquote>
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>矩阵快速幂：</p>
-<h3 id="4-4-扩展欧几里得"><a href="#4-4-扩展欧几里得" class="headerlink" title="4.4 扩展欧几里得"></a>4.4 扩展欧几里得</h3><blockquote>
+<h3 id="4-扩展欧几里得"><a href="#4-扩展欧几里得" class="headerlink" title="4 扩展欧几里得"></a>4 扩展欧几里得</h3><blockquote>
 <p>==裴属定理==：若 a, b 是整数, 且 gcd(a,b) = d，那么对于任意的整数 x、y, <strong>ax + by</strong> 都一定是 d 的倍数，特别地，一定存在整数 x，y，使 ax+by=d 成立，即 $ax+by=kd\ \ (k\ge 1)$ 。</p>
 <p>证明：懒得证</p>
 <p>d|a 且 d|b, 所以 d|ax 且 d|by, 所以 d|(ax+by) </p>
@@ -1907,13 +1939,15 @@ ax+by = gcd(a,b)=gcd(b,\ a\ \%\ b)\\
 =bx'+(a-b*\left \lfloor \frac{a}{b}  \right \rfloor )y'\\
 =ay'+b(x'-\left \lfloor \frac{a}{b}  \right \rfloor y')\\
 比较等式两边可知\ x=y'\ \ \ y=x'-\left \lfloor \frac{a}{b}  \right \rfloor y'</script><script type="math/tex; mode=display">
+\begin{flalign*}
 &通解: \begin{cases}
-&  x=x_0+k\frac{b}{d} \\
+  &  x=x_0+k\frac{b}{d} \\
   &  y=y_0-k\frac{a}{d}
-  \end{cases}\\
+\end{cases}\\
 证明: &\ \ 将其代回原式， a(x_0+k\frac{b}{d})+b(y_0-k\frac{a}{d})=m\\
 &\ \ 展开得\ \  ax_0+by_0=m ,含有\ k\ 的被消去了\\
-&\ \ 得到的式子和原式一样，证毕&</script></blockquote>
+&\ \ 得到的式子和原式一样，证毕&
+\end{flalign*}</script></blockquote>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 伴随着欧几里得算法更新 x y 的过程
 void exgcd(int a,int b,int &amp;x,int &amp;y)
 {
@@ -1940,19 +1974,19 @@ int exgcd(int a,int b,int &amp;x,int &amp;y)
 <p>Exgcd应用：求解线性同余方程 <span id="linear congruent equation"> </span>  </p>
 <script type="math/tex; mode=display">
 &ax\equiv\ b\ \ \ (mod\ \ m)\\
- & ax\ \%\ m=b\\
- & ax=my+b\\
- & ax-my=b \\
- & ax+my'=b\\
- & 给定a,b,m\ \  求 x\\
+\Longleftrightarrow & ax\ \%\ m=b\\
+\Longleftrightarrow & ax=my+b\\
+\Longleftrightarrow & ax-my=b \\
+\Longleftrightarrow & ax+my'=b\\
+\Longleftrightarrow & 给定a,b,m\ \  求 x\\
 & 所以如果b=k·gcd(a,m)才有解\\
 & 解为 gcd(a,m)/b*x\%m</script><blockquote>
 <p>答案对 m 取模仍为答案</p>
 <p>$ax\ \%\ m=b\Longleftrightarrow\ a·(x\ \%\ m)\ \%\ m=b$ </p>
 <p>所以对 x % m仍是个答案</p>
 </blockquote>
-<h3 id="4-5-逆元"><a href="#4-5-逆元" class="headerlink" title="4.5 逆元"></a>4.5 逆元</h3><p>$ \frac{a}{b}\equiv a\times x \%\ m $，x 就是 b 的逆元</p>
-<h5 id="4-5-1-快速幂求逆元"><a href="#4-5-1-快速幂求逆元" class="headerlink" title="4.5.1 快速幂求逆元"></a>4.5.1 快速幂求逆元</h5><p>要求模数 m 为质数。<br>b 存在乘法逆元的充要条件是 <strong>b 与模数 m 互质</strong> 。</p>
+<h3 id="5-逆元"><a href="#5-逆元" class="headerlink" title="5 逆元"></a>5 逆元</h3><p>$ \frac{a}{b}\equiv a\times x \%\ m $，x 就是 b 的逆元</p>
+<h5 id="5-1-快速幂求逆元"><a href="#5-1-快速幂求逆元" class="headerlink" title="5.1 快速幂求逆元"></a>5.1 快速幂求逆元</h5><p>要求模数 m 为质数。<br>b 存在乘法逆元的充要条件是 <strong>b 与模数 m 互质</strong> 。</p>
 <blockquote>
 <p>​    当 b 与 m 不互质时，因为 m 为质数，所以 b 为 m 的倍数，即b%m==0 时无解，费马小定理不成立。</p>
 <p>​    当模数 <strong>m 为质数</strong>时且 <strong>b 和 m 互质</strong>时，$b^{m−2}$ 即为 b 的乘法逆元。</p>
@@ -1962,7 +1996,7 @@ int exgcd(int a,int b,int &amp;x,int &amp;y)
 <p><strong>因此：</strong>$ a \times b^{m-2}\equiv a\times x \% \ m$   a 与 m 互质，约去</p>
 <p><strong>所以：</strong>$x\equiv b^{m-2}  \%m$</p>
 </blockquote>
-<h5 id="4-5-2-扩展欧几里得求逆元"><a href="#4-5-2-扩展欧几里得求逆元" class="headerlink" title="4.5.2 扩展欧几里得求逆元"></a>4.5.2 扩展欧几里得求逆元</h5><p>扩展欧几里得可以求解<a href="#linear congruent equation">线性同余方程</a> $ax\equiv b\ \ (mod\ \ m)$ </p>
+<h5 id="5-2-扩展欧几里得求逆元"><a href="#5-2-扩展欧几里得求逆元" class="headerlink" title="5.2 扩展欧几里得求逆元"></a>5.2 扩展欧几里得求逆元</h5><p>扩展欧几里得可以求解<a href="#linear congruent equation">线性同余方程</a> $ax\equiv b\ \ (mod\ \ m)$ </p>
 <p>求模 m 意义中 a 的逆相对于求$ax\equiv1\ \ (mod\ \ m)$， ax-my=1。gcd(a,m) 不为1则说明逆元不存在,若为1，则调整结果为x=(x%mod+mod)%mod.</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int exgcd(int a,int b,int &amp;x,int &amp;y)
 {
@@ -1979,7 +2013,7 @@ int a,m,x,y;  cin&gt;&gt;a&gt;&gt;m;
 int d=exgcd(a,m,x,y);
 if(d==1) cout&lt;&lt;x%m&lt;&lt;endl;
 else cout&lt;&lt;"No"&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-6-中国剩余定理"><a href="#4-6-中国剩余定理" class="headerlink" title="4.6 中国剩余定理"></a>4.6 中国剩余定理</h3><p>问题：整数 $m_1,m_2,···,m_n$ 两两互素，则对于任意整数$a_1,a_2,···,a_n$，方程组：</p>
+<h3 id="6-中国剩余定理"><a href="#6-中国剩余定理" class="headerlink" title="6 中国剩余定理"></a>6 中国剩余定理</h3><p>问题：整数 $m_1,m_2,···,m_n$ 两两互素，则对于任意整数$a_1,a_2,···,a_n$，方程组：</p>
 <script type="math/tex; mode=display">
 \left\{\begin{matrix}
   x\equiv a_1\ \ (mod\ \ m_1) \\
@@ -2024,7 +2058,7 @@ while(--n)  // 输入第2~n个方程
 }
 // 最后一个方程是 x=m1 (mod a1), x%a1=m1, m1&lt;a1, 所以m1是一个解
 cout&lt;&lt;m1&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-7-高斯消元"><a href="#4-7-高斯消元" class="headerlink" title="4.7 高斯消元"></a>4.7 高斯消元</h3><h4 id="4-7-1-线性方程组"><a href="#4-7-1-线性方程组" class="headerlink" title="4.7.1 线性方程组"></a>4.7.1 线性方程组</h4><p>用于求解线性方程组  $ \left\{\begin{matrix}<br>a_{11}x_1+a_{12}x_2+···+a_{1n}x_n=b_1 \\<br>a_{21}x_1+a_{22}x_2+···+a_{2n}x_n=b_2 \\<br>······ \\<br>a_{n1}x_1+a_{n2}x_2+···+a_{nn}x_n=b_n<br>\end{matrix}\right.$ </p>
+<h3 id="7-高斯消元"><a href="#7-高斯消元" class="headerlink" title="7 高斯消元"></a>7 高斯消元</h3><h4 id="7-1-线性方程组"><a href="#7-1-线性方程组" class="headerlink" title="7.1 线性方程组"></a>7.1 线性方程组</h4><p>用于求解线性方程组  $ \left\{\begin{matrix}<br>a_{11}x_1+a_{12}x_2+···+a_{1n}x_n=b_1 \\<br>a_{21}x_1+a_{22}x_2+···+a_{2n}x_n=b_2 \\<br>······ \\<br>a_{n1}x_1+a_{n2}x_2+···+a_{nn}x_n=b_n<br>\end{matrix}\right.$ </p>
 <p>矩阵形式为 $Ax=B$，$A=\begin{bmatrix}<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n}\\<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n} \\<br> ··· &amp; ··· &amp; ··· &amp; ···\\<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n}<br>\end{bmatrix}$，$B=\begin{bmatrix}<br> b_1\\<br>b_2\\<br>\vdots  \\<br>b_n<br>\end{bmatrix}$ 。</p>
 <p>将增广矩阵 [AB] 初等变换为化为上三角。高斯消元就是这个过程。</p>
 <blockquote>
@@ -2085,7 +2119,7 @@ int gauss()
     }
     return 2;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="4-7-2-异或方程组"><a href="#4-7-2-异或方程组" class="headerlink" title="4.7.2 异或方程组"></a>4.7.2 异或方程组</h4><p>异或可以看出不进位的加法，同样可通过系数矩阵求解，即初等变换不改变解</p>
+<h4 id="7-2-异或方程组"><a href="#7-2-异或方程组" class="headerlink" title="7.2 异或方程组"></a>7.2 异或方程组</h4><p>异或可以看出不进位的加法，同样可通过系数矩阵求解，即初等变换不改变解</p>
 <p>异或方程组 $ \left\{\begin{matrix}<br>a_{11}x_1 \oplus a_{12}x_2\oplus···\oplus a_{1n}x_n=b_1 \\<br>a_{21}x_1\oplus a_{22}x_2\oplus ···\oplus a_{2n}x_n=b_2 \\<br>······ \\<br>a_{n1}x_1\oplus a_{n2}x_2\oplus ···\oplus a_{nn}x_n=b_n<br>\end{matrix}\right.$，$a_{ij}，b_{ij}=0\ \  or\ \ 1$ </p>
 <p>对矩阵增广矩阵 [AB] 操作目标和线性方程组相同，代码这样写的原因也和普通高斯消元类似。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int gauss()
@@ -2127,7 +2161,7 @@ int gauss()
     }
     return 2;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-8-组合数"><a href="#4-8-组合数" class="headerlink" title="4.8 组合数"></a>4.8 组合数</h3><blockquote>
+<h3 id="8-组合数"><a href="#8-组合数" class="headerlink" title="8 组合数"></a>8 组合数</h3><blockquote>
 <p>组合数公式：</p>
 <ol>
 <li><p>$C_a^b=C_{a-1}^b+C_{a-1}^{b-1}$ 用于递推、预处理</p>
@@ -2143,7 +2177,7 @@ int gauss()
 <li><p>==二项式系数==：$(a+b)^n=C_{n}^{0}b^n+C_{n}^{1}ab^{n-1}+···+C_{n}^{i}a^ib^{n-i}+···+C_{n}^{n}a^n $ </p>
 <p>证明：数学归纳···</p>
 </li>
-<li><p>==卢卡斯定理==：C_a^b\equiv C_{a\%p}^{b\%p}·C_{a/p}^{b/p}\ \ (mod\ \ p)$ 用于求a、b较大的情况</p>
+<li><p>==卢卡斯定理==：$C_a^b\equiv C_{a\%p}^{b\%p}·C_{a/p}^{b/p}\ \ (mod\ \ p)$ 用于求a、b较大的情况</p>
 <p>另一种形式$C_a^b=C_{a_0}^{b_0}+C_{a_1}^{b_1}+···+C_{a_k}^{b_k}\ \ \ (mod\ \ p)$，其中</p>
 <p>$a=a_0+a_1p+a_2p^2+···+a_kp^k$，$b=b_0+b_1p+b_2p^2+···+b_kp^k$ </p>
 </li>
@@ -2154,10 +2188,11 @@ int gauss()
 <p>同理证得: $(1+x)^{p^\alpha}\equiv 1+x^{p^\alpha } \ \ (mod\ \ p)$ .</p>
 <p>将 $a，b$ 转化为 p 进制数，$a=a_0+a_1p+a_2p^2+···+a_kp^k$，$b=b_0+b_1p+b_2p^2+···+b_kp^k$ </p>
 <script type="math/tex; mode=display">
-
+\begin{align*}
 (1+x)^a &= (1+x)^{a_0+a_1p+a_2p^2+···+a_kp^k}\\
 & = (1+x)^{a_0}\times((1+x)^{p_1})^{a_1}\times···\times((1+x)^{p_k})^{a_k}\\
-&\equiv(1+x)^{a_0}\times(1+x^{p^1})^{a_1}\times···\times(1+x^{p^k})^{a_k}\ \ (mod\ \ n) &</script><p>$C_a^b$ 就是 $(1+x)^a$ 展开式中 $x^b$ 的系数，即 $x^{b_0+b_1p+b_2p^2+···+b_kp^k}$ 的系数。对比左边和右边每一项 $x^b$ 的系数可知</p>
+&\equiv(1+x)^{a_0}\times(1+x^{p^1})^{a_1}\times···\times(1+x^{p^k})^{a_k}\ \ (mod\ \ n) &
+\end{align*}</script><p>$C_a^b$ 就是 $(1+x)^a$ 展开式中 $x^b$ 的系数，即 $x^{b_0+b_1p+b_2p^2+···+b_kp^k}$ 的系数。对比左边和右边每一项 $x^b$ 的系数可知</p>
 <p>$C_a^b\equiv C_{a_0}^{b_0}\times C_{a_1}^{b_1}\times ···\times C_{a_k}^{b_k}\ \ (mod\ \ n) $ </p>
 <p>$C_{a_0}^{b_0}=C_{a\%p}^{b\%p}$，因为转化为p进制的第一位就是对 p 取余得到的</p>
 <p>$C_{a/p}^{b/p}=C_{a_1}^{b_1}\times ···\times C_{a_k}^{b_k}$，p 进制下，将 a，b 右移一位相当于 /p ，和 $C_a^b$ 一样分析，证明这个式子是正确。</p>
@@ -2199,7 +2234,7 @@ for(int i=0;i&lt;cnt;i++)   // C(a,b)
     int p=primes[i]; 
     sum[i]=get(a,p)-get(a-b,p)-get(b,p); // 统计个数
  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="4-9-博弈论"><a href="#4-9-博弈论" class="headerlink" title="4.9 博弈论"></a>4.9 博弈论</h4><p>若一个游戏满足：</p>
+<h3 id="9-博弈论"><a href="#9-博弈论" class="headerlink" title="9 博弈论"></a>9 博弈论</h3><p>若一个游戏满足：</p>
 <ol>
 <li>由两名玩家交替行动</li>
 <li>游戏进行的任意时刻，可以执行的合法行动与轮到哪位玩家无关</li>
@@ -2208,14 +2243,77 @@ for(int i=0;i&lt;cnt;i++)   // C(a,b)
 </ol>
 <p>==必胜状态==：先手进行某一个操作，留给后手是一个必败状态时，对于先手来说是一个必胜状态。可以走到某一个必败状态。</p>
 <p>==必败状态==：先手无论如何操作，留给后手都是一个必胜状态时，对于先手来说是一个必败状态。走不到任何一个必败状态。</p>
-<h5 id="4-9-1-Nim游戏"><a href="#4-9-1-Nim游戏" class="headerlink" title="4.9.1 Nim游戏"></a>4.9.1 Nim游戏</h5><p>给定 n 堆石子，两位玩家轮流操作，每次操作可以从任意一堆石子中拿走任意数量的石子（可以拿完，但不能不拿），最后无法进行操作的人视为失败。问如果两人都采用最优策略，先手是否必胜。</p>
+<h5 id="9-1-Nim游戏"><a href="#9-1-Nim游戏" class="headerlink" title="9.1 Nim游戏"></a>9.1 Nim游戏</h5><p>给定 n 堆石子，两位玩家轮流操作，每次操作可以从任意一堆石子中拿走任意数量的石子（可以拿完，但不能不拿），最后无法进行操作的人视为失败。问如果两人都采用最优策略，先手是否必胜。</p>
 <blockquote>
-<p>结论：取石子到最后阶段时，每堆石子的个数都是 0 ，所以异或值也是 0</p>
-<p>​    假设 n 堆石子，石子数目分别是 $a_1,a_2,…,a_n$ 如果$a_1⊕a_2⊕…⊕a_n=x≠0$，先手必胜；否则先手必败。</p>
-<p>​    证明：设 x 的二进制表示中最高的一位 1 在第 k 位</p>
-<p>​    $a_1 - a_n$ 必然存在一个数 $a_i$ 的第 k 位是 1，且 $a_i\oplus x&lt;a_i$，然后从第 i 堆石子拿出 $a_i-a_i\oplus x$，第 i 堆还剩 $a_i\oplus x$ 个,这时有：$a_1⊕a_2⊕…\oplus a_i\oplus x\oplus…⊕a_n= 0$ </p>
+<p>结论：有 n 堆石子，石子数目分别是 $a_1,a_2,…,a_n$ 如果$a_1⊕a_2⊕…⊕a_n=x≠0$，先手必胜；否则先手必败。</p>
+<p>（1）在操作过程中，如果 $a_1⊕a_2⊕…⊕a_n=x≠0$。那么玩家必然可以通过拿走某一堆若干个石子将异或结果变为0。</p>
+<p>证明：设 x 的二进制表示中最高的一位 1 在第 k ，那么 $a_1 \sim a_n$ 必然存在一个数 $a_i$ 的第 k 位是 1，且 $a_i\oplus x&lt;a_i$，然后从第 i 堆石子拿出 $a_i-a_i\oplus x$，第 i 堆还剩 $a_i\oplus x$ 个,这时有：$a_1⊕a_2⊕…\oplus a_i\oplus x\oplus…⊕a_n= 0$ </p>
+<p>（2）在操作中，若 $a_1⊕a_2⊕…⊕a_n=0$，那么无论玩家怎么取，最终异或和都不为0。</p>
+<p>证明（反证法）：假设玩家从第 $i$ 堆石子拿走若干个，异或和结果仍是 0。设剩下的石子为 $a’$，所以必然有 $0\le a’&lt;a_i$，且 $a_1⊕a_2⊕……⊕a’⊕…⊕a_n=0$，所以联立原式和取后的式子，$(a_1⊕a_2⊕…⊕a_i⊕…a_n)⊕(a_1⊕a_2⊕…⊕a′⊕…⊕a_n)=a_i⊕a′=0$，这个式子说明 $a_i=a’$，与假设矛盾，因此得证。</p>
+<p>由(1)，(2)可知：</p>
+<ol>
+<li><p>如果先手面对的局面是 $a_1⊕a_2⊕…⊕a_n≠0$，那么先手总可以通过拿走某一堆若干个石子，将局面变成 $a_1⊕a_2⊕…⊕a_n=0$。如此重复，最后一定是后手面临最终没有石子可拿的状态。先手必胜。</p>
+</li>
+<li><p>如果先手面对的局面是 $a_1⊕a_2⊕…⊕a_n=0，那么无论先手怎么拿，都会将局面变成 $$a_1⊕a_2⊕…⊕a_n≠0$，那么后手总可以通过拿走某一堆若干个石子，将局面变成 $a1⊕a2⊕…⊕an=0$。如此重复，最后一定是先手面临最终没有石子可拿的状态。先手必败。</p>
+</li>
+</ol>
 </blockquote>
-<h4 id="4-10-容斥原理"><a href="#4-10-容斥原理" class="headerlink" title="4.10 容斥原理"></a>4.10 容斥原理</h4><p>图图</p>
+<p>==台阶-Nim游戏==：现在，有一个 n 级台阶的楼梯，每级台阶上都有若干个石子，其中第 i 级台阶上有 $a_i$ 个石子(i≥1)。两位玩家轮流操作，每次操作可以从任意一级台阶上拿若干个石子放到下一级台阶中（不能不拿）。已经拿到地面上的石子不能再拿，最后无法进行操作的人视为失败。</p>
+<p>问如果两人都采用最优策略，先手是否必胜?</p>
+<blockquote>
+<p>结论：<strong>奇数楼梯</strong>石子数异或和为 不为 0，先手必胜，否则先手必败</p>
+<p>证明：游戏的终点是所有楼梯上的石子全为 0。</p>
+<p>（1）在操作过程中，初始 $a_1\oplus a_3\oplus…=x\ne0$ ，那么最佳策略是从某奇数楼梯若干个取石子，可使奇数楼梯异或和为 0。</p>
+<p>证明：设 x 的二进制表示中最高的一位 1 在第 k ，那么 $a_1 、a_3、a_5…$ 必然存在一个数 $a_i$ 的第 k 位是 1，且 $a_i\oplus x&lt;a_i$，然后从第 i 堆石子拿出 $a_i-a_i\oplus x$，第 i 堆还剩 $a_i\oplus x$ 个,这时有：$a_1⊕a_3⊕…\oplus a_i\oplus x\oplus…= 0$ 。</p>
+<p>（2）在操作中，若 $a_1⊕a_3⊕a_5\oplus……=0$，那么无论玩家怎么取，最终异或和都不为0。</p>
+<p>证明：</p>
+<ul>
+<li>从偶数拿下去，偶数必不可能直接拿到地面。不妨设拿了 x 个石子到下一阶奇数楼梯，那么 $a_1⊕a_3⊕a_5\oplus…\oplus x=0\oplus x=x\ne0$，所以这种情况不为0。</li>
+<li>从奇数楼梯拿下去。（反证法）：假设玩家从奇数第 $i$ 堆石子往下拿若干个，异或和结果仍是 0。设剩下的石子为 $a’$，所以必然有 $0\le a’&lt;a_i$，且 $a_1⊕a_2⊕……⊕a’⊕…=0$，所以联立原式和取后的式子，$(a_1⊕a_2⊕…⊕a_i⊕…a_n)⊕(a_1⊕a_2⊕…⊕a′⊕…⊕a_n)=a_i⊕a′=0$，这个式子说明 $a_i=a’$，与假设矛盾，因此得证。</li>
+<li>由上述两个证明可知，当 $a_1⊕a_3⊕a_5\oplus……=0$ 时，先手无论怎么 拿，后手都能使下一次先手遇到未奇数异或和为0。而游戏结束时奇数异或和是0，所以先手先遇到无法操作的情况。而 $a_1⊕a_3⊕a_5\oplus……\ne 0$ 时，先手可以选择拿走奇数堆若干个使奇数堆偶数和为0，让后手先遇到无法操作的情况。得证。</li>
+</ul>
+</blockquote>
+<h5 id="9-2-SG-函数"><a href="#9-2-SG-函数" class="headerlink" title="9.2 SG 函数"></a>9.2 SG 函数</h5><p>==Mex运算==：设S表示一个非负整数集合.定义 mex(S) 为求出不属于集合S的最小非负整数运算, 即: mes(S)=min{x}。</p>
+<p>​    例如:S={0,1,2,4}, 那么 mex(S)=3</p>
+<p>==有向图游戏==：给定一个有向无环图，图中有一个<strong>唯一的起点</strong>，在起点上放有一枚棋子。两名玩家<strong>交替</strong>地把这枚棋子沿有向边进行移动，每次可以移动一步，无法移动者判负。该游戏被称为有向图游戏。</p>
+<p>==公平组合游戏==：</p>
+<p>（1）有两个玩家，游戏规则对两个玩家公平</p>
+<p>（2）游戏状态有限，能走的步数也是有限的</p>
+<p>（3）轮流走，当一个玩家不能走时游戏结束</p>
+<p>（4）游戏的局势不能区分玩家的身份，例如黑白棋就是不行的</p>
+<p>（5）给定初始局势，指定先手玩家，如果双方都采取最优策略，那么<strong>获胜者已经确定</strong>了，也就是说ICG问题存在必胜策略</p>
+<p>​    任何一个<strong>公平组合游戏</strong>都可以转化为有向图游戏。具体方法是，把每个局面看成图中的一个节点，并且从每个局面向沿着合法行动能够到达的下一个局面连有向边。</p>
+<p>==SG函数==：在有向图游戏中,对于每个节点 $x$，设从 $x$ 出发共有 $k$ 条有向边,分别到达节点 $y_1,y_2,····y_k$，定义 $SG(x)$ 的后记节点 $y_1,y_2,····<br>y_k$ 的SG函数值构成的集合在执行 <strong>mex运算</strong> 的结果,即:<br>$SG(x)=mex(\{SG(y_1),SG(y_2)····SG(y_k)\})$<br>特别地,整个有向图游戏 G 的SG函数值被定义为有向图游戏起点 s 的SG函数值,即 SG(G)=SG(s).</p>
+<p>==有向图游戏和==：设 $G_1，G_2,····,G_m$ 是 m 个有向图游戏.定义有向图游戏G,他的行动规则是任选某个有向图游戏 $ G_i$，并在 $G_i$ 上行动一步.G被称为有向图游戏 $G_1,G_2,·····,G_m$ 的和.<br>有向图游戏的和的SG函数值等于它包含的各个子游戏SG函数的异或和,即:<br>$SG(G)=SG(G_1)\oplus SG(G_2)\oplus···\oplus SG(G_m)$ 。</p>
+<p>若 SG(G)=0，则先手必败，否则先手必胜，证明同Nim游戏 </p>
+<p>求SG函数异或和，一般用记忆化搜索的方式：</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/895/">集合-Nim游戏</a>：看成多个有向图，一个数可以变为其他，返回递归求的这个数的SG值</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int sg(int x)
+{
+    if(g[x]!=-1) return g[x];
+    unordered_set&lt;int&gt; se;
+    for(int i=0;i&lt;k;i++)
+    {
+        if(x&gt;=s[i])  se.insert(sg(x-s[i]));
+        else break;
+    }
+    for(int i=0;;i++)
+    {
+        if(!se.count(i)) return g[x]=i;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/896/">拆分-Nim游戏</a>：一堆分成多堆，一个图变成两个图，那么SG(G)=SG(G~1~)^SG(G~2~)。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int sg(int x)
+{
+    if(g[x]!=-1) return g[x];
+    unordered_set&lt;int &gt; se;
+    for(int i=0;i&lt;x;i++)
+        for(j=0;j&lt;i;j++)
+            se.insert(sg(i)^sg(j)); // 将两个图的SG异或起来就得到了
+    for(int i=0;;i++)
+        if(!se.count(i)) return g[x]=i;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="10-容斥原理"><a href="#10-容斥原理" class="headerlink" title="10 容斥原理"></a>10 容斥原理</h3><p>图图</p>
 <p>证明：假设元素 x 在 k 个集合中出现，则被计算的次数为</p>
 <p>$C_k^1 - C_k^2+C_k^3+···+(-1)^{k-1}C_k^k $ ，由二次项展开可知，该式等于 $-(1-1)^k+1=C_k^0=1 $，因此一个元素只被计算一次。</p>
 <p>常常与二进制枚举配合使用</p>
@@ -2233,7 +2331,7 @@ for(int i=0;i&lt;cnt;i++)   // C(a,b)
     }
     // 对选择的进行计算，比如奇数个 加，偶数个 减。
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="4-11-卡特兰数"><a href="#4-11-卡特兰数" class="headerlink" title="4.11 卡特兰数"></a>4.11 卡特兰数</h4><p><strong>卡特兰数</strong>：$C_{2n}^n - C_{2n}^{n-1}=\frac{C_{2n}^n}{n+1}$  </p>
+<h3 id="11-卡特兰数"><a href="#11-卡特兰数" class="headerlink" title="11 卡特兰数"></a>11 卡特兰数</h3><p><strong>卡特兰数</strong>：$C_{2n}^n - C_{2n}^{n-1}=\frac{C_{2n}^n}{n+1}$  </p>
 <p>应用：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/891/">构造01序列</a>，<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/132/">火车进出栈</a>，</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int res=1;
 for(int i=n+1;i&lt;=2*n;i++) res=(ll)res*i%mod;
@@ -2244,6 +2342,247 @@ for(int i=1;i&lt;=n+1;i++)
     x=(x%mod+mod)%mod;
     res=(ll)res*x%mod;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="第五章-动态规划"><a href="#第五章-动态规划" class="headerlink" title="第五章 动态规划"></a>第五章 动态规划</h2><h3 id="1-背包问题"><a href="#1-背包问题" class="headerlink" title="1 背包问题"></a>1 背包问题</h3><h4 id="1-1-01背包"><a href="#1-1-01背包" class="headerlink" title="1.1 01背包"></a>1.1 01背包</h4><p>有 $N$ 件物品和一个容量是 $V$ 的背包。每件物品只能<strong>使用一次</strong>。第 $i$ 件物品的体积是 $v_i$，价值是 $w_i$。</p>
+<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，</p>
+<p>且总价值最大。输出最大价值。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 二维形式
+for(int i=1;i&lt;=N;i++)
+{
+	for(int j=0;j&lt;=V;j++)
+    {
+        f[i][j]=f[i-1][j];
+        if(j&gt;=v[i])	
+            f[i][j]=max(f[i-1][j],f[i-1][j-v[i]]+w[i]);
+    }
+}
+// 一维优化
+for(int i=1;i&lt;=N;i++)
+    for(int j=V;j&gt;=v[i];j--)
+        f[j]=max(f[j],f[j-v[i]]+w[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-2-完全背包"><a href="#1-2-完全背包" class="headerlink" title="1.2 完全背包"></a>1.2 完全背包</h4><p>有 $N$ 种物品和一个容量是 $V$ 的背包，每种物品都有<strong>无限件可用</strong>。第 $i$ 种物品的体积是 $v_i$，价值是 $w_i$。</p>
+<p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">\\三重循环：
+for(int k = 0 ; k*v[i]&lt;=j ; k++)
+    f[i，j] = max(f[i,j], f[i-1,j-k*v[i]]+k*w[i]);
+\* 优化至二重循环
+f[i,j]=max(f[i-1,j],f[i-1,j-v]+w,f[i-1,j-2*v]+2*w,f[i-1,j-3*v]+3*w,……)
+f[i,j-v]=max(       f[i-1,j-v],  f[i-1,j-2*v]+w,  f[i-1,j-3*v]+2*w,……)
+由上两式，可得出如下递推关系： 
+f[i][j]=max(f[i-1][j], f[i][j-v]+w)
+该递推式和01背包递推式只有 f[i][j-v] 不一样
+完全背包用的是当前循环的值，所以从小到大循环
+*/
+for(int i=1;i&lt;=N;i++)
+{
+    for(int j=0;j&lt;=V;j++)
+    {
+        f[i][j]=f[i-1][j];
+        if(j&gt;=v[i])
+        	f[i][j]=max(f[i-1][j],f[i][j-v[i]]+w[i]);
+    }
+}
+
+// 优化至一维
+for(int i=1;i&lt;=N;i++)
+    for(int j=v[i];j&lt;=V;j++)
+        f[j]=max(f[j],f[j-v[i]]+w[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>完全背包变形</strong>：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/902/">整数划分</a></p>
+<p>一个正整数 $n$ 可以表示成若干个正整数之和，形如：$n=n_1+n_2+…+n_k$，其中 $n_1≥n_2≥…≥n_k,k≥1$。我们将这样的一种表示称为正整数 $n$ 的一种划分。现在给定一个正整数 $n$，请你求出 $n$ 共有多少种不同的划分方法。</p>
+<p>将 a[]= {1，2，3，···，n} 看成 n 种物品，每种物品可以用无限次，体积为 $a_i$。</p>
+<p>f[i,j] 代表选择前 i 个和为 j 的方案数。</p>
+<p>任何一种选法都代表着一种划分。</p>
+<p>那么递推式推导和完全背包递推式推导一样</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 选 i = 不选 i 且体积为 j-k*i 的情况之和</span>
+f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>i<span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span>i<span class="token punctuation">]</span><span class="token operator">+</span>···<span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>i<span class="token operator">*</span>s<span class="token punctuation">]</span>
+f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>i<span class="token punctuation">]</span><span class="token operator">=</span>        f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>i<span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">2</span><span class="token operator">*</span>i<span class="token punctuation">]</span><span class="token operator">+</span>···<span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>i<span class="token operator">*</span>s<span class="token punctuation">]</span>
+所以 f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>i<span class="token punctuation">]</span>
+<span class="token comment">// 所以二维做法是</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&gt;=</span>i<span class="token punctuation">)</span>  f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>i<span class="token punctuation">]</span> <span class="token operator">%</span> mod<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// Amezing!
+for (int i = 1; i &lt;= n; i ++)
+	for (int j = i; j &lt;= n; j ++)
+    	f[j] = f[j] + f[j - i] % mod;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-3-多重背包"><a href="#1-3-多重背包" class="headerlink" title="1.3 多重背包"></a>1.3 多重背包</h4><p>有 $N$ 种物品和一个容量是 $V$ 的背包。</p>
+<p>第 $i$ 种物品<strong>最多有 $s_i$ 件</strong>，每件体积是 $v_i$，价值是 $w_i$。</p>
+<p>求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。输出最大价值。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">\\ 朴素多重背包，循环 s 次这个物品 O(NVS)
+for(int i=1;i&lt;=N;i++)
+    for(int k=1;k&lt;=s[i];k++)
+	    for(int j=V;j&gt;=v[i];j--)
+    	    f[j]=max(f[j],f[j-v[i]]+w[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>二进制优化它选某种物品的方法 O(NVlogS)<br>将物品拆分成 1，2，4，8，……，然后进行01背包</p>
+<blockquote>
+<p>在多重背包转化01背包中，将 s 件物品分成 1，2，4，……，2^k，sum 是正确的</p>
+<p>证明：s 可以表示成二进制形式，枚举二进制形式的 1 ，有两种选择方式，选或者不选，通过这两种状态，物品选择范围可以到 0~s 。</p>
+<p>例如 s=9=1001，被拆分为 1，10，100，即 1 2 4 9-7=2。通过这些物品的组合可以凑出选择 s 的所有情况。</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">for(int i=1;i&lt;=N;i++)
+{
+    int num=min(s[i],V/v[i]); // 能选择 i 的最大数量
+    for(int k=1;num&gt;0;k&lt;&lt;=1)  // 划分为 1 2 4 ···
+    {
+        if(k&gt;num) k=num;  // 2^n要大于剩余的
+        num-=k;
+        for(int j=V;j&gt;=k*v[i];j--)
+        {
+            f[j]=max(f[j],f[j-k*v[i]]+k*w[i]);
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-4-分组背包"><a href="#1-4-分组背包" class="headerlink" title="1.4 分组背包"></a>1.4 分组背包</h4><p>有 $N$ 组物品和一个容量是 $V$ 的背包。</p>
+<p>每组物品有 $s_i$ 种，<strong>同一组内的物品最多只能选一个</strong>。每件物品的体积是 $v_{ij}$，价值是 $w_{ij}$，其中 $i$ 是组号，$j$ 是组内编号。</p>
+<p>求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。</p>
+<p>枚举组，从组中选一个就行。01背包倒序枚举V，每次使用的都是上组的f，因此保证了每组只选了一个，且这一个整体来看是最划算的。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>V<span class="token punctuation">;</span>j<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>k<span class="token operator">&lt;=</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&gt;=</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span>  
+                f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-线性DP"><a href="#2-线性DP" class="headerlink" title="2 线性DP"></a>2 线性DP</h3><h4 id="2-1-最长上升子序列"><a href="#2-1-最长上升子序列" class="headerlink" title="2.1 最长上升子序列"></a>2.1 最长上升子序列</h4><p>给定一个长度为 $N$ 的数列，求数值严格单调递增的子序列的长度最长是多少。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 朴素做法</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&gt;</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>单调栈优化</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> stk<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>tt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 栈是递增的</span>
+stk<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span>inf<span class="token punctuation">;</span> <span class="token comment">// 栈底置为无穷小</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&gt;</span>stk<span class="token punctuation">[</span>tt<span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token comment">// 直接加后面</span>
+    	stk<span class="token punctuation">[</span><span class="token operator">++</span>tt<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>  
+    <span class="token keyword">else</span>   <span class="token comment">// 找一个大于等于 a[i] 的替换掉，栈仍然单调</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> p<span class="token operator">=</span><span class="token function">lower_bound</span><span class="token punctuation">(</span>stk<span class="token punctuation">,</span>stk<span class="token operator">+</span>tt<span class="token punctuation">,</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span>stk<span class="token punctuation">;</span>
+        stk<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+tt 即为最大长度，stk 为选的数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-2-最长公共子序列"><a href="#2-2-最长公共子序列" class="headerlink" title="2.2 最长公共子序列"></a>2.2 最长公共子序列</h4><p>给定两个长度分别为 $N$ 和 $M$ 的字符串 $A$ 和 $B$，求既是 $A$ 的子序列又是 $B$ 的子序列的字符串长度最长是多少。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i=1;i&lt;=n;i++)
+        for(int j=1;j&lt;=m;j++)
+            if(a[i]==b[j]) 
+                f[i][j]=max(f[i][j],f[i-1][j-1]+1);
+            else
+                f[i][j]=max(f[i-1][j],f[i][j-1]);
+cout&lt;&lt;f[n][m]&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-编辑距离"><a href="#3-编辑距离" class="headerlink" title="3 编辑距离"></a>3 编辑距离</h3><p>一下操作将字符串 A 变为距离为 1 的其他字符串</p>
+<ol>
+<li><strong>删除</strong>–将字符串 A 中的某个字符删除。</li>
+<li><strong>插入</strong>–在字符串 A 的某个位置插入某个字符。</li>
+<li><strong>替换</strong>–将字符串 A 中的某个字符替换为另一个字符。</li>
+</ol>
+<p>现在请你求出，将 A 变为 B 至少需要进行多少次操作。</p>
+<p>A → B 的方式：删，增，改，不变</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// f(i,j) 表示 a 前 i，变成 b 前 j 的距离
+int f[N][N];  
+for(int i=1;i&lt;=n;i++) f[i][0]=i;
+for(int i=1;i&lt;=m;i++) f[0][i]=i;
+for(int i=1;i&lt;=n;i++)
+{
+    for(int j=1;j&lt;=m;j++)
+    {
+        f[i][j]=min(f[i-1][j]+1,f[i][j-1]+1);
+        if(a[i]!=b[j])
+            f[i][j]=min(f[i][j],f[i-1][j-1]+1);
+        else f[i][j]=f[i-1][j-1];
+    }
+}
+cout&lt;&lt;f[n][m]&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-区间DP"><a href="#4-区间DP" class="headerlink" title="4 区间DP"></a>4 区间DP</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/284/">合并石子</a> </p>
+<p>先枚举区间长度，在枚举可行的左端点，对应算出右端点，然后枚举中间点，状态整合。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">memset(f,0x3f,sizeof(f));
+for(int i=1;i&lt;=n;i++) f[i][i]=0;
+for(int len=2;len&lt;=n;len++)      // 枚举区间的长度
+{
+    for(int i=1;i+len-1&lt;=n;i++)  // 左端点
+    {
+        int j=i+len-1;           // 右端点
+        for(int k=i;k&lt;j;k++)
+            f[i][j]=min(f[i][j],f[i][k]+f[k+1][j]+sum[j]-sum[i-1]);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-数位DP"><a href="#5-数位DP" class="headerlink" title="5 数位DP"></a>5 数位DP</h3><h3 id="6-状态压缩DP"><a href="#6-状态压缩DP" class="headerlink" title="6 状态压缩DP"></a>6 状态压缩DP</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/293/">蒙德里安的梦想</a> </p>
+<p>当放完横向的方格时，竖向的小方格放置情况就唯一且确定了，所以问题转化为只放横向的小方格的方案数量。</p>
+<p>f(i,j) 表示前 i-1 列已摆好，且从 i-1 列伸出到的第 i 列的状态是 j 的所有方案数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E7%8A%B6%E5%8E%8BDP" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/93/">路径最短Hamilton</a> </p>
+<p>用二进制数表示走了哪几个点。</p>
+<p>f(i,j)表示所有从 0 走到 j 的，路过点的情况是 i 的所有路径的花费最小值。</p>
+<p>例如：i=0100110 表示经过了 点1、4、5，没经过0、2、3、6。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">memset</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span><span class="token number">0x3f</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+f<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">// 到起点的花费为 0 </span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token operator">&lt;&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token comment">// 遍历所有路径情况</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&gt;&gt;</span>j<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">//  j 点在路径 i 中</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span>  <span class="token comment">// 从 k 点转移到 j</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&gt;&gt;</span>k<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment">// 需确保 k 在路径 i 中</span>
+                    f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>j<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ans<span class="token operator">=</span>f<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>n<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 经过所有点，到达 n-1 点</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="7-树形DP"><a href="#7-树形DP" class="headerlink" title="7 树形DP"></a>7 树形DP</h3><p>在一颗树上进行动态规划。</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/287/">没有直接上司的舞会</a> </p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">f[x][1]  // 表示选了 x 点
+f[x][0]  // 表示没选 x 点
+void dp(int x)
+{
+    f[x][1]=w[x];  // 不放在下面加是因为叶子结点不会进入下面的循环
+    for(int i=h[x];i!=-1;i=ne[i])
+    {
+        int y=e[i];
+        dp(y);
+        f[x][1]+=f[y][0];
+        f[x][0]+=max(f[y][0],f[y][1]);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-记忆化搜索"><a href="#8-记忆化搜索" class="headerlink" title="8 记忆化搜索"></a>8 记忆化搜索</h3><p>记下dfs的返回值</p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/903/">滑雪</a> </p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>st<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token keyword">return</span> s<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    st<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ma<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">4</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> a<span class="token operator">=</span>x<span class="token operator">+</span>dx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>b<span class="token operator">=</span>y<span class="token operator">+</span>dy<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token operator">&amp;&amp;</span>a<span class="token operator">&lt;=</span>r<span class="token operator">&amp;&amp;</span>b<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token operator">&amp;&amp;</span>b<span class="token operator">&lt;=</span>c<span class="token operator">&amp;&amp;</span>mp<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token operator">&lt;</span>mp<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            s<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">dfs</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ma<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>ma<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> s<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span>ma<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="第六章-贪心"><a href="#第六章-贪心" class="headerlink" title="第六章 贪心"></a>第六章 贪心</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/908/">区间分组</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/127/">耍杂技的牛</a></p>
+<p>题解：拿出相邻的两头牛上面的编号为 i，下面的编号为 i+1。</p>
+<p>两头牛的体重和强壮度有什么关系，i 在上能使 i 头牛和 i+1 头牛的风险度最大值最小。</p>
+<p>当前情况：</p>
+<p>第 i 头牛的风险为：$R_i=\sum_{j=1}^{i-1}W_j-S_i$</p>
+<p>第 i+1 头牛的风险为：$ R_{i+1}=\sum_{j=1}^{i-1}W_j+W_i-S_{i+1}$ </p>
+<p>交换 i 与 i+1，风险度变为：</p>
+<p>第 i 头牛的风险为：$R_i=\sum_{j=1}^{i-1}W_j+W_{i+1}-S_i$ </p>
+<p>第 i+1 头牛的风险为：$ R_{i+1}=\sum_{j=1}^{i-1}W_j-S_{i+1}$ </p>
+<p>去掉相同部分，若交换前风险度最大值是最小的需要保证 $MAX(-S_i,W_i-S_{i+1})\le MAX(W_{i+1}-S_i,-S_{i+1})$。</p>
+<p>显然 $-S_i\le W_{i+1}\ 和\ W_i-S_{i+1}&gt;-S_{i+1}$，因此只需保证 $W_i-S_{i+1}\le W_{i+1}-S_i$，移项得$ W_i+S_i\le W_{i+1}+S_{i+1}$。</p>
+<p>所以该题目按照 W+S 排序即可。。</p>
 
                 
             </div>
@@ -2271,7 +2610,7 @@ for(int i=1;i&lt;=n+1;i++)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://fory.xyz/suan-fa/suan-fa-bi-ji/">http://fory.xyz/suan-fa/suan-fa-bi-ji/</a>
+                    <a href="http://fory.xyz/suan-fa/suan-fa-bi-ji-ji-chu/">http://fory.xyz/suan-fa/suan-fa-bi-ji-ji-chu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -2357,62 +2696,18 @@ for(int i=1;i&lt;=n+1;i++)
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/uncategorized/what-is-love/">
+                <a href="/suan-fa/suan-fa-bi-ji-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="What is love">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="算法笔记-基础">
                         
-                        <span class="card-title">What is love</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            lzl
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/suan-fa/suan-fa-bi-ji/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="基础算法笔记">
-                        
-                        <span class="card-title">基础算法笔记</span>
+                        <span class="card-title">算法笔记-基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -2423,7 +2718,7 @@ for(int i=1;i&lt;=n+1;i++)
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-20
                             </span>
                         <span class="publish-author">
                             
@@ -2443,6 +2738,51 @@ for(int i=1;i&lt;=n+1;i++)
                     
                     <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">基础算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/uncategorized/shi-bu-shi-xin-jian-yi-ge-wen-jian-cai-neng-push/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="是不是新建一个文件才能push">
+                        
+                        <span class="card-title">是不是新建一个文件才能push</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Typora语法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            lzl
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%B6%E4%BB%96/">
+                        <span class="chip bg-color">其他</span>
                     </a>
                     
                 </div>
@@ -2655,7 +2995,7 @@ for(int i=1;i&lt;=n+1;i++)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.1k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             
