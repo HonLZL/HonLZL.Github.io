@@ -587,14 +587,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.2k
+                    17.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    81 分
+                    82 分
                 </div>
                 
 
@@ -617,12 +617,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h2 id="第一章-基础算法"><a href="#第一章-基础算法" class="headerlink" title="第一章 基础算法"></a>第一章 基础算法</h2><h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h3><h4 id="1-1-快速排序"><a href="#1-1-快速排序" class="headerlink" title="1.1 快速排序"></a>1.1 快速排序</h4><ul>
+                <h2 id="第一章-基础算法"><a href="#第一章-基础算法" class="headerlink" title="第一章 基础算法"></a>第一章 基础算法</h2><h3 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h3><h4 id="1-1-快速排序"><a href="#1-1-快速排序" class="headerlink" title="1.1 快速排序"></a>1.1 快速排序</h4><ul>
 <li>确定分界点，这里以中间点作为分界点 x=q[l+r&gt;&gt;1]</li>
 <li>划分两个区间，左边区间 $\le x$, 右边 区间 $\ge x$ </li>
 <li>递归处理左右两个区间</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/快速排序.jpg" alt="img"></p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r)
 {
     if (l &gt;= r) return;
@@ -639,7 +639,7 @@
     quick_sort(q, l, j), quick_sort(q, j + 1, r);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>应用：求第k小</p>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E7%AC%ACk%E5%B0%8F.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/第k小.jpg" alt="img"></p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int quick_sort(int l,int r,int k)
 {
     if(l&gt;=r) return q[l];
@@ -658,7 +658,7 @@
 <li>先递归排序左右两个区间</li>
 <li>合并子问题</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/归并排序.jpg" alt="img"></p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r)
 {
     if(l &gt;= r) return;     //递归的终止情况
@@ -696,6 +696,7 @@
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-二分"><a href="#2-二分" class="headerlink" title="2 二分"></a>2 二分</h3><p><strong>整数二分</strong>：分成两块，一左一右，low一直位于作左边，top一直位于右边，最终low在左边块最右，top在右边那块最左边。</p>
+<p>注：首先要确保 $low$ 和 $top$ 处于不同的区域，当在同一区域或者只存在一个区域时要特判，特判很简单，什么时候会处于同一个区域呢，当然是只有一个解的时候。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(low+1!=top)
 {
 	int mid=low+top&gt;&gt;1;
@@ -870,7 +871,7 @@ void print(vector&lt;int&gt; &amp;A)
 <p>最后通过二维数组前缀和求出改变后的数组</p>
 <h3 id="5-离散化"><a href="#5-离散化" class="headerlink" title="5 离散化"></a>5 离散化</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">sort(dif,dif+cnt);    // 排序
 int m=unique(dif,dif+cnt)-dif;   // 去重，m 返回不重复的数
-int p=lower_bound(dif,dif+m,x)-dif;  // 二分取离散化后 x 映射的位置，后面就用这个位置代表 x 了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+int p=lower_bound(dif,dif+m,x)-dif;  // 二分取离散化后 x 映射的位置，后面就用这个位置 p 代表 x 了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="第二章-数据结构"><a href="#第二章-数据结构" class="headerlink" title="第二章 数据结构"></a>第二章 数据结构</h2><h3 id="1-链表"><a href="#1-链表" class="headerlink" title="1 链表"></a>1 链表</h3><p><strong>单链表</strong></p>
 <p>结构体形式：</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct node
@@ -1069,7 +1070,7 @@ kmp(s,p);<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <h3 id="5-Trie树"><a href="#5-Trie树" class="headerlink" title="5 Trie树"></a>5 Trie树</h3><p>是一个能高效地存储和查找字符串集合的数据结构</p>
 <p>建立树，就是向一个集合添加字符串的过程</p>
 <p>查找字符串的数量和建立树类似</p>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/Trie%E6%A0%91.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/Trie树.jpg" alt="img"></p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/837/">模板题</a></p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int son[N][26];  // 当前结点的儿子，儿子最多有26个，因为小写字母只有26个
 int cnt[N];    // 打标记，以第 i 字母结尾的字符串的个数
@@ -1183,7 +1184,7 @@ int main()
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="7-堆"><a href="#7-堆" class="headerlink" title="7 堆"></a>7 堆</h3><p>堆是一棵完全二叉树，顶点取最值</p>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%A0%86.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/堆.png" alt=""></p>
 <p>由于编号为 i 的父结点的左结点为 2i，右结点为 2i+1，所以用保存堆。</p>
 <p>以小根堆为例</p>
 <p><strong>down操作</strong>：把一个大数往下移</p>
@@ -1941,8 +1942,8 @@ ax+by = gcd(a,b)=gcd(b,\ a\ \%\ b)\\
 比较等式两边可知\ x=y'\ \ \ y=x'-\left \lfloor \frac{a}{b}  \right \rfloor y'</script><script type="math/tex; mode=display">
 \begin{flalign*}
 &通解: \begin{cases}
-  &  x=x_0+k\frac{b}{d} \\
-  &  y=y_0-k\frac{a}{d}
+&  x=x_0+k\frac{b}{d} \\
+&  y=y_0-k\frac{a}{d}
 \end{cases}\\
 证明: &\ \ 将其代回原式， a(x_0+k\frac{b}{d})+b(y_0-k\frac{a}{d})=m\\
 &\ \ 展开得\ \  ax_0+by_0=m ,含有\ k\ 的被消去了\\
@@ -2522,7 +2523,7 @@ for(int len=2;len&lt;=n;len++)      // 枚举区间的长度
 <h3 id="5-数位DP"><a href="#5-数位DP" class="headerlink" title="5 数位DP"></a>5 数位DP</h3><h3 id="6-状态压缩DP"><a href="#6-状态压缩DP" class="headerlink" title="6 状态压缩DP"></a>6 状态压缩DP</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/293/">蒙德里安的梦想</a> </p>
 <p>当放完横向的方格时，竖向的小方格放置情况就唯一且确定了，所以问题转化为只放横向的小方格的方案数量。</p>
 <p>f(i,j) 表示前 i-1 列已摆好，且从 i-1 列伸出到的第 i 列的状态是 j 的所有方案数。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E7%8A%B6%E5%8E%8BDP" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/状压DP" alt="img"></p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/93/">路径最短Hamilton</a> </p>
 <p>用二进制数表示走了哪几个点。</p>
 <p>f(i,j)表示所有从 0 走到 j 的，路过点的情况是 i 的所有路径的花费最小值。</p>
@@ -2700,19 +2701,19 @@ void dp(int x)
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/ti-jie/acwing-jing-sai-ti-jie/">
+                <a href="/ti-jie/niu-ke-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Acwing竞赛题解">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="牛客竞赛题解">
                         
-                        <span class="card-title">Acwing竞赛题解</span>
+                        <span class="card-title">牛客竞赛题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Acwing周赛写不出来的题
+                            Newcoder写不出来的题
                         
                     </div>
                     <div class="publish-info">
@@ -2749,36 +2750,44 @@ void dp(int x)
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/qi-ta/jia-mi-ce-shi/">
+                <a href="/suan-fa/suan-fa-bi-ji-ti-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="我的自拍">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="算法笔记-基础">
                         
-                        <span class="card-title">我的自拍</span>
+                        <span class="card-title">算法笔记-基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                             
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
-                                    其他
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">基础算法</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -2989,7 +2998,7 @@ void dp(int x)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18k</span>&nbsp;字
+                class="white-color">23k</span>&nbsp;字
             
             
             
