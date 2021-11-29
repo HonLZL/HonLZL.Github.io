@@ -653,7 +653,7 @@ ll f<span class="token punctuation">[</span>N<span class="token punctuation">]</
 <p>步骤1：给定一个数 $x$ ，判断能否知道它处于第几个位置。</p>
 <p>是可以的，枚举每一行，当在第 $i$ 行时，这行不大于它的数有 $j$ 个，$j$ 满足 $i*j\le x，j\le \left \lfloor \frac{x}{i}\right \rfloor $。所以 $n×m$ 矩阵中不大于 $x$ 的有 $\sum_{i=1}^{n} \le min(\left \lfloor \frac{x}{i}\right \rfloor,\ \ m)$。</p>
 <p>步骤二：$x$ 最大能到 n×m，所以枚举 $x$ 是显然不行的，但是可以发现假设 $x$ 就是答案，那么小于 $x$ 的数必然小于 $k$，和大于 $x$ 的数必然大于 $k$，因此可以使用二分。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">bool check(ll x)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool check(ll x)
 {
     ll sum=0;
     for(int i=1;i&lt;=n;i++)

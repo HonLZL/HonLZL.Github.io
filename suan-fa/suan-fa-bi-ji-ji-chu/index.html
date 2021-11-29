@@ -622,25 +622,25 @@
 <li>划分两个区间，左边区间 $\le x$, 右边 区间 $\ge x$ </li>
 <li>递归处理左右两个区间</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/快速排序.jpg" alt="img"></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r)
-{
-    if (l &gt;= r) return;
-    int i = l - 1, j = r + 1, x = q[l + r &gt;&gt; 1];
-    while (i &lt; j)
-    {
-        do i ++ ; while (q[i] &lt; x);
-        do j -- ; while (q[j] &gt; x);
-        // 改为从大到小排序
-        // do i++; while(q[i] &gt; x); // 这里和下面
-        // do j--; while(q[j] &lt; x); // 这行的判断条件改一下
-        if (i &lt; j) swap(q[i], q[j]);
-    }
-    quick_sort(q, l, j), quick_sort(q, j + 1, r);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.jpg" alt="img"></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">quick_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>l <span class="token operator">&gt;=</span> r<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> l <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> j <span class="token operator">=</span> r <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> x <span class="token operator">=</span> q<span class="token punctuation">[</span>l <span class="token operator">+</span> r <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> j<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">do</span> i <span class="token operator">++</span> <span class="token punctuation">;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>q<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">do</span> j <span class="token operator">--</span> <span class="token punctuation">;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>q<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 改为从大到小排序</span>
+        <span class="token comment">// do i++; while(q[i] &gt; x); // 这里和下面</span>
+        <span class="token comment">// do j--; while(q[j] &lt; x); // 这行的判断条件改一下</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> j<span class="token punctuation">)</span> <span class="token function">swap</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> q<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">quick_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> l<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">quick_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>应用：求第k小</p>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/第k小.jpg" alt="img"></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int quick_sort(int l,int r,int k)
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E7%AC%ACk%E5%B0%8F.jpg" alt="img"></p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int quick_sort(int l,int r,int k)
 {
     if(l&gt;=r) return q[l];
     int x=q[r+l&gt;&gt;1],i=l-1,j=r+1;
@@ -658,26 +658,26 @@
 <li>先递归排序左右两个区间</li>
 <li>合并子问题</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/归并排序.jpg" alt="img"></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r)
-{
-    if(l &gt;= r) return;     //递归的终止情况
-    int mid = l + r &gt;&gt; 1;  //第一步：分成子问题
-    //第二步：递归处理子问题
-    merge_sort(q, l, mid), merge_sort(q, mid + 1, r);
-    //第三步：合并有序的两段，i，j为两段的起点
-    int k = 0, i = l, j = mid + 1;
-    while(i &lt;= mid &amp;&amp; j &lt;= r)
-        if(q[i] &lt;= q[j]) tmp[k++] = q[i++];
-        else tmp[k++] = q[j++];
-    // 对当前指针到终点的赋值
-    while(i &lt;= mid) tmp[k++] = q[i++];
-    while(j &lt;= r) tmp[k++] = q[j++];
-	// 赋值回原数组
-    for( i = l,k=0; i &lt;= r; i++, k++) q[i] = tmp[k];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.jpg" alt="img"></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>l <span class="token operator">&gt;=</span> r<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>     <span class="token comment">//递归的终止情况</span>
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> l <span class="token operator">+</span> r <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">//第一步：分成子问题</span>
+    <span class="token comment">//第二步：递归处理子问题</span>
+    <span class="token function">merge_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> l<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//第三步：合并有序的两段，i，j为两段的起点</span>
+    <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i <span class="token operator">=</span> l<span class="token punctuation">,</span> j <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> mid <span class="token operator">&amp;&amp;</span> j <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> q<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> tmp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> tmp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// 对当前指针到终点的赋值</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span> tmp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>j <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span> tmp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> q<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token comment">// 赋值回原数组</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span> i <span class="token operator">=</span> l<span class="token punctuation">,</span>k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> r<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">,</span> k<span class="token operator">++</span><span class="token punctuation">)</span> q<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>求逆序对数</strong>：</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">ll merge_sort(int l, int r)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">ll merge_sort(int l, int r)
 {
     if(l &gt;= r) return 0;     //递归的终止情况
     int mid = l + r &gt;&gt; 1;  //第一步：分成子问题
@@ -697,14 +697,14 @@
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-二分"><a href="#2-二分" class="headerlink" title="2 二分"></a>2 二分</h3><p><strong>整数二分</strong>：分成两块，一左一右，low一直位于作左边，top一直位于右边，最终low在左边块最右，top在右边那块最左边。</p>
 <p>注：首先要确保 $low$ 和 $top$ 处于不同的区域，当在同一区域或者只存在一个区域时要特判，特判很简单，什么时候会处于同一个区域呢，当然是只有一个解的时候。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(low+1!=top)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">while(low+1!=top)
 {
 	int mid=low+top&gt;&gt;1;
     if(check(mid)) low=mid;  // low始终在ok的一块
     else top=mid;     // top始终在不符合的那块
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>小数二分</strong>：</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(top-low&gt;exp)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">while(top-low&gt;exp)
 {
     double mid=(low+top)/2;
     if(check(low)) top=mid;
@@ -712,7 +712,7 @@
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-高精度"><a href="#3-高精度" class="headerlink" title="3 高精度"></a>3 高精度</h3><h4 id="3-1-大数加法"><a href="#3-1-大数加法" class="headerlink" title="3.1 大数加法"></a>3.1 大数加法</h4><p>将数存在数组里面，数组倒序储存方便计算。</p>
 <p>思想是模拟。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt; big_add(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">vector&lt;int&gt; big_add(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
 {
     vector&lt;int&gt; res;
     int t=0;
@@ -730,7 +730,7 @@
 vector&lt;int&gt; ans=big_add(A,B);
 for(int i=ans.size()-1;i&gt;=0;i--)  cout&lt;&lt;ans[i];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="3-2-大数减法"><a href="#3-2-大数减法" class="headerlink" title="3.2 大数减法"></a>3.2 大数减法</h4><p>计算 A-B，默认 A&gt;B，如果 A&lt;B，则去计算 -(B-A).</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt; big_sub(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">vector&lt;int&gt; big_sub(vector&lt;int&gt; &amp;A,vector&lt;int&gt; &amp;B)
 {
     vector&lt;int&gt; res;
     int t=0;
@@ -745,39 +745,39 @@ for(int i=ans.size()-1;i&gt;=0;i--)  cout&lt;&lt;ans[i];<span aria-hidden="true"
     return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="3-3-大数乘法"><a href="#3-3-大数乘法" class="headerlink" title="3.3 大数乘法"></a>3.3 大数乘法</h4><p>一般是一个大数乘一个小数。</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A, int b)
-{
-    vector&lt;int&gt; res;
-    int t=0;
-    for(int i=0;i&lt;A.size()||t;i++)
-    {
-        if(i&lt;A.size())  t+=A[i]*b;
-        res.push_back(t%10);
-        t/=10;
-    }
-    while(res.size()&gt;1&amp;&amp;res.back()==0)   // 去前导零
-        res.pop_back();
-    return res;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">mul</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>A<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> res<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> t<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>A<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">||</span>t<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>A<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  t<span class="token operator">+=</span>A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">*</span>b<span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>t<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        t<span class="token operator">/=</span><span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">1</span><span class="token operator">&amp;&amp;</span>res<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>   <span class="token comment">// 去前导零</span>
+        res<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="3-4-大数除法"><a href="#3-4-大数除法" class="headerlink" title="3.4 大数除法"></a>3.4 大数除法</h4><p>一般是一个大数 ÷ 一个小数</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; ans;  // 商
-int y=0;   // 余数
-void div(vector&lt;int&gt; A,int b)  // A 还是倒着存
-{
-    y=0;
-	for(int i=A.size()-1;i&gt;=0;i--)
-    {
-        y=y*10+A[i];
-        res.push_back(y/b);
-        y%=b;
-    }
-    reverse(ans.begin(),ans.end());
-    while(ans.size()&gt;0&amp;&amp;ans.back()==0) 
-        ans.pop_back();
-}
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> ans<span class="token punctuation">;</span>  <span class="token comment">// 商</span>
+<span class="token keyword">int</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">// 余数</span>
+<span class="token keyword">void</span> <span class="token function">div</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> A<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span>  <span class="token comment">// A 还是倒着存</span>
+<span class="token punctuation">{</span>
+    y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>A<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        y<span class="token operator">=</span>y<span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>y<span class="token operator">/</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        y<span class="token operator">%=</span>b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">reverse</span><span class="token punctuation">(</span>ans<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ans<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>ans<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>ans<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> 
+        ans<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="3-5-压位"><a href="#3-5-压位" class="headerlink" title="3.5 压位"></a>3.5 压位</h4><p>由于数组存的数是int类型，所以只存个位数太过浪费。所以考虑将几个数合并成一位存储。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">const int power=3,base=1000; // 需要同时改
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">const int power=3,base=1000; // 需要同时改
 vector&lt;int&gt; big(string s)  // 将字符串大数转化成数组压位的大数
 {
     vector&lt;int&gt; A;
@@ -869,12 +869,12 @@ void print(vector&lt;int&gt; &amp;A)
 <p>对差分数组操作：b[x~1~,y~1~]+=c, b[x~1~+1,y~2~+1]+=c, b[x~1~,y~2~+1]-=c, b[x~2~+1,y~1~]+=c</p>
 <p>(后续补图)</p>
 <p>最后通过二维数组前缀和求出改变后的数组</p>
-<h3 id="5-离散化"><a href="#5-离散化" class="headerlink" title="5 离散化"></a>5 离散化</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">sort(dif,dif+cnt);    // 排序
-int m=unique(dif,dif+cnt)-dif;   // 去重，m 返回不重复的数
-int p=lower_bound(dif,dif+m,x)-dif;  // 二分取离散化后 x 映射的位置，后面就用这个位置 p 代表 x 了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-离散化"><a href="#5-离散化" class="headerlink" title="5 离散化"></a>5 离散化</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">sort</span><span class="token punctuation">(</span>dif<span class="token punctuation">,</span>dif<span class="token operator">+</span>cnt<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 排序</span>
+<span class="token keyword">int</span> m<span class="token operator">=</span><span class="token function">unique</span><span class="token punctuation">(</span>dif<span class="token punctuation">,</span>dif<span class="token operator">+</span>cnt<span class="token punctuation">)</span><span class="token operator">-</span>dif<span class="token punctuation">;</span>   <span class="token comment">// 去重，m 返回不重复的数</span>
+<span class="token keyword">int</span> p<span class="token operator">=</span><span class="token function">lower_bound</span><span class="token punctuation">(</span>dif<span class="token punctuation">,</span>dif<span class="token operator">+</span>m<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token operator">-</span>dif<span class="token punctuation">;</span>  <span class="token comment">// 二分取离散化后 x 映射的位置，后面就用这个位置 p 代表 x 了</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="第二章-数据结构"><a href="#第二章-数据结构" class="headerlink" title="第二章 数据结构"></a>第二章 数据结构</h2><h3 id="1-链表"><a href="#1-链表" class="headerlink" title="1 链表"></a>1 链表</h3><p><strong>单链表</strong></p>
 <p>结构体形式：</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct node
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct node
 {
 	int val;
 	node *next;
@@ -890,7 +890,7 @@ int p=lower_bound(dif,dif+m,x)-dif;  // 二分取离散化后 x 映射的位置�
 <li><p>idx：下表索引，第 idx 个插入链表的</p>
 </li>
 </ul>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int head=-1,e[N],ne[N],idx;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int head=-1,e[N],ne[N],idx;
 void add(int x) // 添加值为 x 的结点,头插法
 {
     e[idx]=x;
@@ -909,7 +909,7 @@ void dele_k(int k,int x) // 将下标为k的后面那个点删去
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>双链表</strong></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct node
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct node
 {
     int val;
     node *nextL,*nextR;
@@ -917,7 +917,7 @@ void dele_k(int k,int x) // 将下标为k的后面那个点删去
 <p>数组模拟双链表</p>
 <p>l[i],r[i] 表示 结点 i 的左右指针</p>
 <p>0 表示左端点，1 表示右端点</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int e[N],l[N],r[N],idx;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int e[N],l[N],r[N],idx;
 r[0]=1; l[1]=0;  idx=2;  // 初始化，互相指
 void add(int k,int x) // 下表是 k 的右边插入 x
 {
@@ -934,13 +934,13 @@ void remove(int k)  // 删去下表为 k 的点
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-模拟栈和队列"><a href="#2-模拟栈和队列" class="headerlink" title="2 模拟栈和队列"></a>2 模拟栈和队列</h3><p>先进后出</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int stk[N],tt=0;
-stk[++tt]=x;  // 插入
-tt--;  //弹出
-tt&gt;0   //不空,否则是空的
-stk[tt]  // 是栈顶<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> stk<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span>tt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+stk<span class="token punctuation">[</span><span class="token operator">++</span>tt<span class="token punctuation">]</span><span class="token operator">=</span>x<span class="token punctuation">;</span>  <span class="token comment">// 插入</span>
+tt<span class="token operator">--</span><span class="token punctuation">;</span>  <span class="token comment">//弹出</span>
+tt<span class="token operator">&gt;</span><span class="token number">0</span>   <span class="token comment">//不空,否则是空的</span>
+stk<span class="token punctuation">[</span>tt<span class="token punctuation">]</span>  <span class="token comment">// 是栈顶</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>栈的应用：表达式求值</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 typedef long long ll;
 const int N=1000005;
@@ -998,7 +998,7 @@ int main()
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>先进先出  $\gets $hh <em> </em> <em> </em> tt$\gets$，从 tt 处加，从 hh 处出</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int q[N],hh,tt=-1;  // hh 是队头，tt是队尾
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int q[N],hh,tt=-1;  // hh 是队头，tt是队尾
 q[++tt]=x;  // 插入队列
 hh++;  // 弹出
 hh&lt;=tt  // 不空 否则是空的
@@ -1007,7 +1007,7 @@ q[tt]  // 队尾<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <h3 id="3-单调栈和单调队列"><a href="#3-单调栈和单调队列" class="headerlink" title="3 单调栈和单调队列"></a>3 单调栈和单调队列</h3><p><strong>单调栈</strong>：栈内的元素是具有单调性的</p>
 <p>应用于：找数组中一个数的左边或者右边第一个比它大或者小的数</p>
 <p>例题：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/832/">单调栈</a> 给定N 的整数数列，输出每个数左边第一个比它小的数，如果不存在则输出 −1。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 const int N=100005;
 int a[N],stk[N],tt;
@@ -1029,7 +1029,7 @@ int main()
 <p>应用于<strong>滑动窗口</strong>求最值</p>
 <p>例：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/156/">滑动窗口</a>，求窗口大小为 k 的最大和最小值</p>
 <p>维护两个单调队列</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 求最小值模板
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">// 求最小值模板
 int q[N],hh,tt=-1; // 队列保存下标
 int ans[N],cnt;
 // 维护单调性，将队列里后面的大于当前数的删去，去尾
@@ -1040,7 +1040,7 @@ q[++tt]=i;  // 将该元素入队
 if(i&gt;=k-1)  ans[cnt++]=q[hh];  // 存入答案<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-KMP"><a href="#4-KMP" class="headerlink" title="4 KMP"></a>4 KMP</h3><p>next[i]: 含义是以 i 为终点的最长后缀，从下标 0 开始，next[0]=-1，next[1]=0</p>
 <p>字符串 p 的 next 值跟当前位无关，所以第 i 位匹配相等时 next[i+1]=j+1, 简写位 next[++i]=++j </p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int nxt[N];   // p 要回退的位置
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int nxt[N];   // p 要回退的位置
 void get_next(string p)  // 求模式串next
 {
     nxt[0]=-1;
@@ -1070,9 +1070,9 @@ kmp(s,p);<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <h3 id="5-Trie树"><a href="#5-Trie树" class="headerlink" title="5 Trie树"></a>5 Trie树</h3><p>是一个能高效地存储和查找字符串集合的数据结构</p>
 <p>建立树，就是向一个集合添加字符串的过程</p>
 <p>查找字符串的数量和建立树类似</p>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/Trie树.jpg" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/Trie%E6%A0%91.jpg" alt="img"></p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/837/">模板题</a></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int son[N][26];  // 当前结点的儿子，儿子最多有26个，因为小写字母只有26个
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int son[N][26];  // 当前结点的儿子，儿子最多有26个，因为小写字母只有26个
 int cnt[N];    // 打标记，以第 i 字母结尾的字符串的个数
 int idx;       // 初始化为0，根结点是0
 
@@ -1104,7 +1104,7 @@ int query(char s[])
 <p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/202111151404479.jpg" alt="img"></p>
 <h3 id="6-并查集"><a href="#6-并查集" class="headerlink" title="6 并查集"></a>6 并查集</h3><p>将两个集合合并； 询问两个元素是否在同一个集合中</p>
 <p>基础并查集：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/838/">模题合并集合</a></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i=1;i&lt;=n;i++) 
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">for(int i=1;i&lt;=n;i++) 
     p[i]=i;   // 初始化 p 数组，自成一派
 int find(int x)  // 返回 x 祖宗结点并路径压缩
 {
@@ -1118,7 +1118,7 @@ void merge(int x,int y) // 合并集合
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>拓展应用：</strong> 维护并查集附加信息</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/839/">连通块数量</a></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 实时查询某元素所在集合中元素的数量
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">// 实时查询某元素所在集合中元素的数量
 // 在合并时记录，只维护根结点对应的 cnt
 void merge(int x,int y)
 {
@@ -1131,7 +1131,7 @@ void merge(int x,int y)
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>拓展应用：维护当前点到根结点的距离</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/242/">食物链</a></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 const int N=50005;
 int p[N],ans,dis[N];
@@ -1184,7 +1184,7 @@ int main()
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="7-堆"><a href="#7-堆" class="headerlink" title="7 堆"></a>7 堆</h3><p>堆是一棵完全二叉树，顶点取最值</p>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/堆.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E5%A0%86.png" alt=""></p>
 <p>由于编号为 i 的父结点的左结点为 2i，右结点为 2i+1，所以用保存堆。</p>
 <p>以小根堆为例</p>
 <p><strong>down操作</strong>：把一个大数往下移</p>
@@ -1201,7 +1201,7 @@ int main()
 <li>修改任意一个元素    heap[k]=x; down(k); up(k);</li>
 </ul>
 </blockquote>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1
 // ph[k]存储第k个插入的点在堆中的位置
 // hp[k]存储堆中下标是k的点是第几个插入的
 // ph[k]=j, hp[j]=k, 二者是相反的
@@ -1240,7 +1240,7 @@ void up(int u)
 // 最后一层不用down
 for(int i=n/2; i; i--)  down(i);  // 建堆 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>堆的应用：<strong>堆排序</strong> </p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 const int N=100005;
 int h[N],idx;
@@ -1271,7 +1271,7 @@ int main()
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="8-哈希表"><a href="#8-哈希表" class="headerlink" title="8 哈希表"></a>8 哈希表</h3><p>储存结构：开放寻址法，拉链法。</p>
 <p><strong>拉链法</strong>：将大数取模，将相同模的组成一个链表</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void insert(int x)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void insert(int x)
 {
     int k = (x%mod+mod)%mod; // mod 要选一个质数使得链尽可能短
     e[idx]=x;
@@ -1288,7 +1288,7 @@ void query(int x)
     return;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>开放寻址法</strong>：</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">const int N=1e5+5,inf=0x3f3f3f3f;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">const int N=1e5+5,inf=0x3f3f3f3f;
 h[2*N];    mod=200003; // mod 选小于 N 但尽量大的质数
 memset(h,0x3f,sizeof(h));
 int query(int x)
@@ -1318,7 +1318,7 @@ Q=2^{64}</script><p>对一个字符串求哈希值：h[i+1]=h[i]*P+s[i]</p>
 <p>某段字符串的哈希值: h[l,r]=h[r]-h[l-1]*P^r-l+1^ </p>
 <p>区间和公式的理解: ABCDE 与 ABC 的前三个字符值是一样，只差两位，<br>乘上 P^2^ 把 ABC 变为 ABC00，再用 ABCDE - ABC00 得到 DE 的哈希值。</p>
 <p>模板题：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/843/">字符串哈希</a></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;bits/stdc++.h&gt;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 typedef unsigned long long ull;
 const int N = 1e5+5, P=131; //P 取131或13331，经验值
@@ -1351,13 +1351,13 @@ int main()
     }
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="第三章-搜索与图论"><a href="#第三章-搜索与图论" class="headerlink" title="第三章 搜索与图论"></a>第三章 搜索与图论</h2><h3 id="1-存图方式"><a href="#1-存图方式" class="headerlink" title="1 存图方式"></a>1 存图方式</h3><h4 id="1-1-vector存图"><a href="#1-1-vector存图" class="headerlink" title="1.1 vector存图"></a>1.1 vector存图</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;node&gt; G[N];
+<h2 id="第三章-搜索与图论"><a href="#第三章-搜索与图论" class="headerlink" title="第三章 搜索与图论"></a>第三章 搜索与图论</h2><h3 id="1-存图方式"><a href="#1-存图方式" class="headerlink" title="1 存图方式"></a>1 存图方式</h3><h4 id="1-1-vector存图"><a href="#1-1-vector存图" class="headerlink" title="1.1 vector存图"></a>1.1 vector存图</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">vector&lt;node&gt; G[N];
 G[u].push_back(v); // 加边
 for(int i=0;i&lt;G[x].size();i++)
 {
     int y=G[x][i]; // 遍历边 x-&gt;y
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-2-邻接表"><a href="#1-2-邻接表" class="headerlink" title="1.2 邻接表"></a>1.2 邻接表</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 对于每个点k，开一个单链表，存储k所有可以走到的点
+<h4 id="1-2-邻接表"><a href="#1-2-邻接表" class="headerlink" title="1.2 邻接表"></a>1.2 邻接表</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">// 对于每个点k，开一个单链表，存储k所有可以走到的点
 // h[k] 存储这个单链表的头结点
 // e[k] 一条边的终点
 // w[k] 存储边的权值
@@ -1400,7 +1400,7 @@ while (q.size())
 idx = 0;
 memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-DFS"><a href="#2-DFS" class="headerlink" title="2 DFS"></a>2 DFS</h3><p>n个数的全排列：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/844/">排列数字</a></p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void dfs(int t)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void dfs(int t)
 {
     if(t==n)
     {
@@ -1419,7 +1419,7 @@ memset(h, -1, sizeof h);<span aria-hidden="true" class="line-numbers-rows"><span
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-BFS"><a href="#3-BFS" class="headerlink" title="3 BFS"></a>3 BFS</h3><h3 id="4-拓扑排序"><a href="#4-拓扑排序" class="headerlink" title="4 拓扑排序"></a>4 拓扑排序</h3><p>记录入度，依次删度为0的点</p>
 <h3 id="5-最短路"><a href="#5-最短路" class="headerlink" title="5 最短路"></a>5 最短路</h3><h4 id="5-1-Dijkstra"><a href="#5-1-Dijkstra" class="headerlink" title="5.1 Dijkstra"></a>5.1 Dijkstra</h4><p>Dijkstra朴素版：时间复杂度$ O(n^2) $ </p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int g[N][N];  // 存储每条边
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int g[N][N];  // 存储每条边
 int dist[N];  // 存储1号点到每个点的最短距离
 bool st[N];   // 存储每个点的最短路是否已经确定
 
@@ -1447,7 +1447,7 @@ int dijkstra()
     return dist[n];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>堆优化版Dijkstra</strong> </p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 结构体优先队列
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">// 结构体优先队列
 struct node
 {
     int u,w;
@@ -1461,7 +1461,7 @@ priority_queue&lt;node&gt; q;
 // pair 优先队列，先比较 first
 typedef pair&lt;int,int&gt; pii
 priority_queue&lt;pii, vector&lt;pii &gt;,greater&lt;pii &gt; &gt; q; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void add(int x,int y,int z)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void add(int x,int y,int z)
 {
     e[idx]=y; w[idx]=z; ne[idx]=h[x]; h[x]=idx++;
 }
@@ -1487,7 +1487,7 @@ void dijkstra()
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="5-2-Bellman-Ford"><a href="#5-2-Bellman-Ford" class="headerlink" title="5.2 Bellman-Ford"></a>5.2 Bellman-Ford</h4><p>求最多经过 k 条边能到达的最短路   O(nm)</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct Edge  // 结构体直接存图
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Edge  // 结构体直接存图
 {
     int a,b;  //a -&gt; b
     int w;  
@@ -1512,7 +1512,7 @@ if(dis[n]&gt;inf/2)   // 因为存在负权，inf可能被更新，不连通
 else cout&lt;&lt;dis[n];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="5-3-SPFA"><a href="#5-3-SPFA" class="headerlink" title="5.3 SPFA"></a>5.3 SPFA</h4><p>用于求带负权的最短路、求负环  O(m) 到 O(nm)</p>
 <p>对BellmanFord的优化，用队列储存是否有必要更新</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int dis[N];
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int dis[N];
 bool st[N];  // 储存是否遍历过
 void spfa()
 {
@@ -1539,7 +1539,7 @@ void spfa()
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>判断是否存在<strong>负环</strong> </p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int cnt[N]; // 记录 i 的最短路边数，边数大于等于 n 说明存在负环
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int cnt[N]; // 记录 i 的最短路边数，边数大于等于 n 说明存在负环
 bool spfa()
 {
     queue&lt;int&gt; q;
@@ -1567,7 +1567,7 @@ bool spfa()
     return false;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="5-4-Floyd"><a href="#5-4-Floyd" class="headerlink" title="5.4 Floyd"></a>5.4 Floyd</h4><p>用于多源最短路</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int k=1;k&lt;=n;k++)   // 记得先枚举中间点
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">for(int k=1;k&lt;=n;k++)   // 记得先枚举中间点
     {
         for(int i=1;i&lt;=n;i++)
         {
@@ -1578,31 +1578,31 @@ bool spfa()
         }
     }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="6-最小生成树-MST"><a href="#6-最小生成树-MST" class="headerlink" title="6 最小生成树 MST"></a>6 最小生成树 MST</h3><h4 id="6-1-Prim"><a href="#6-1-Prim" class="headerlink" title="6.1 Prim"></a>6.1 Prim</h4><p>寻找离集合最近的点 t，加入集合，然后用 t 更新其他未在集合的点离集合的距离。 时间复杂度 $O(n^2)$ </p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int dis[N];  // 距离集合最近的距离
-bool st[N];  // 标记是否在集合中
-int mp[N][N]; // 初始化为 inf
-void prim()
-{
-    int ans=0;    
-    for(int i=1;i&lt;=n;i++) dis[i]=mp[1][i]; // 设最初集合只有 1
-    st[1]=1;
-    for(int i=1;i&lt;n;i++)  // n-1 次循环
-    {
-        int t=-1;
-        for(int j=1;j&lt;=n;j++) // 寻找不在集合且距离集合最近的点
-            if(!st[j]&amp;&amp;(t==-1||dis[t]&gt;dis[j]))
-                t=j;
-        ans+=dis[t];
-        st[t]=1;   // 将点 t 加入集合
-        for(int j=1;j&lt;=n;j++)    // 更新点到集合的距离
-            dis[j]=min(dis[j],mp[t][j]);
-    }
-    if(ans&gt;inf/2) puts("impossible");
-    else  printf("%d",ans);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> dis<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 距离集合最近的距离</span>
+bool st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 标记是否在集合中</span>
+<span class="token keyword">int</span> mp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 初始化为 inf</span>
+<span class="token keyword">void</span> <span class="token function">prim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>    
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>mp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 设最初集合只有 1</span>
+    st<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>  <span class="token comment">// n-1 次循环</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> t<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token comment">// 寻找不在集合且距离集合最近的点</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span><span class="token punctuation">(</span>t<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">||</span>dis<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token operator">&gt;</span>dis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                t<span class="token operator">=</span>j<span class="token punctuation">;</span>
+        ans<span class="token operator">+=</span>dis<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        st<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>   <span class="token comment">// 将点 t 加入集合</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>    <span class="token comment">// 更新点到集合的距离</span>
+            dis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span>dis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>mp<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>ans<span class="token operator">&gt;</span>inf<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"impossible"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="6-2-Kruskal"><a href="#6-2-Kruskal" class="headerlink" title="6.2 Kruskal"></a>6.2 Kruskal</h4><p>先将权值边排序，选择端点不在同一集合的边并将两个端点加入集合，直到选择 $n-1$ 条边。若选不到 n-1 条边，说明没有mst</p>
 <p>时间复杂度 $O(mlogn)$ </p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct Edge
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">struct Edge
 {
     int u,v,w;
 }edge[2*N];
@@ -1640,7 +1640,7 @@ void kruskal()
 </blockquote>
 <p>必要性：由已知推出结论</p>
 <p>充分性：由结论推出已知</p>
-<h4 id="7-1-搜索染色染色法"><a href="#7-1-搜索染色染色法" class="headerlink" title="7.1 搜索染色染色法"></a>7.1 搜索染色染色法</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// 将二分图的两个集合一个染 1，一个染 2
+<h4 id="7-1-搜索染色染色法"><a href="#7-1-搜索染色染色法" class="headerlink" title="7.1 搜索染色染色法"></a>7.1 搜索染色染色法</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">// 将二分图的两个集合一个染 1，一个染 2
 bool dfs(int x,int c)  // x 染 c 色
 {
     co[x]=c;
@@ -1684,109 +1684,109 @@ int main()
 <p><strong>二分图的最大匹配</strong>：所有匹配中包含边数最多的一组匹配被称为二分图的最大匹配，其边数即为最大匹配数。</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/863/">二分图的最大匹配</a></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef pair&lt;int,int&gt; pii;
-const int N=505,M=100005,inf=0x3f3f3f3f;
-int n1,n2,m,ans;
-int h[M],e[M],ne[M],idx;
-int match[N];   // 右边女孩 i 已经匹配到左边的 match[i] 了
-bool st[N];
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span> pii<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">505</span><span class="token punctuation">,</span>M<span class="token operator">=</span><span class="token number">100005</span><span class="token punctuation">,</span>inf<span class="token operator">=</span><span class="token number">0x3f3f3f3f</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n1<span class="token punctuation">,</span>n2<span class="token punctuation">,</span>m<span class="token punctuation">,</span>ans<span class="token punctuation">;</span>
+<span class="token keyword">int</span> h<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span>e<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span>ne<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span>idx<span class="token punctuation">;</span>
+<span class="token keyword">int</span> match<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment">// 右边女孩 i 已经匹配到左边的 match[i] 了</span>
+bool st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-void add(int a,int b)
-{
-    e[idx]=b; ne[idx]=h[a]; h[a]=idx++;
-}
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token operator">=</span>b<span class="token punctuation">;</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token operator">=</span>h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">;</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token operator">=</span>idx<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-bool find(int x)
-{
-    for(int i=h[x];i!=-1;i=ne[i])
-    {
-        int y=e[i];
-        if(!st[y])  // 还有机会选择 y
-        {
-            st[y]=1;  // 标记已经尝试了，这次不行的话注定无缘
-            if(match[y]==0||find(match[y]))
-            {
-                match[y]=x;   // x 与 y 匹配成功
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
-int main()
-{
-    scanf("%d%d%d",&amp;n1,&amp;n2,&amp;m);
-    memset(h,-1,sizeof h);
-    while(m--)
-    {
-        int x,y;  scanf("%d%d",&amp;x,&amp;y);
-        add(x,y);   // 只存一条边
-    }
-    for(int i=1;i&lt;=n1;i++)
-    {
-        memset(st,0,sizeof(st));  // 右边每个都有机会与之结对
-        if(find(i))  ans++;
-    }
-    cout&lt;&lt;ans&lt;&lt;endl;
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+bool <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>h<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>i<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">=</span>ne<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> y<span class="token operator">=</span>e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment">// 还有机会选择 y</span>
+        <span class="token punctuation">{</span>
+            st<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// 标记已经尝试了，这次不行的话注定无缘</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>match<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token operator">||</span><span class="token function">find</span><span class="token punctuation">(</span>match<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                match<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span>x<span class="token punctuation">;</span>   <span class="token comment">// x 与 y 匹配成功</span>
+                <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n1<span class="token punctuation">,</span><span class="token operator">&amp;</span>n2<span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">memset</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>m<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>  <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">,</span><span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 只存一条边</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n1<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">memset</span><span class="token punctuation">(</span>st<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>st<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 右边每个都有机会与之结对</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">find</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>  ans<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="第四章-数学"><a href="#第四章-数学" class="headerlink" title="第四章 数学"></a>第四章 数学</h2><h3 id="1-基础数学"><a href="#1-基础数学" class="headerlink" title="1 基础数学"></a>1 基础数学</h3><h4 id="1-1质数"><a href="#1-1质数" class="headerlink" title="1.1质数"></a>1.1质数</h4><p>只能被 1 和本身整除的数。1 不是质数</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 判断是否为质数
-bool is_prime(int x)
-{
-    if(x==1) return 0;
-    for(int i=2;i&lt;=x/i;i++)
-        if(x%i==0) return 0;
-    return 1;
-}
-// 分解质因数
-void divide(int x)
-{
-    for(int i=2;i&lt;=x/i;i++)
-    {
-        if(x%i==0)
-        {
-            int s=0;
-            while(x%i==0)
-            {
-                x/=i;  s++;
-            }
-            printf("%d %d\n",i,s);
-        }
-    }
-    if(x!=1) printf("1 %d",x);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 判断是否为质数</span>
+bool <span class="token function">is_prime</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>x<span class="token operator">/</span>i<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">%</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 分解质因数</span>
+<span class="token keyword">void</span> <span class="token function">divide</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>x<span class="token operator">/</span>i<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">%</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> s<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">%</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                x<span class="token operator">/=</span>i<span class="token punctuation">;</span>  s<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">!=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"1 %d"</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>质数筛: 求[1,n]的质数</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 埃氏筛 nloglogn
-bool p[N]; // p[i]=1 说明不是质数
-void init()
-{
-    p[1]=1;
-    for(int i=2;i&lt;=n;i++)
-        if(!p[i]) // p[i]==0 说明 i 是质数
-            for(int j=2*i;j&lt;=n;j+=i)
-                p[j]=1;
-}
-// 线性筛, n 只会被最小质因子筛掉
-void init()
-{
-    for(int i=2;i&lt;=n;i++)
-    {
-        if(!st[i]) primes[cnt++]=i;
-        for(int j=0;primes[j]&lt;=n/i;j++)  // 从小到大枚举质数
-        {
-            st[primes[j]*i]=1;      // 只会用最小质因子去筛
-            if(i%primes[j]==0) break; 
-// 当枚举到 i 的最小质因子时退出，因为 i×p[j+t]的最小质因子是p[j]
-// i%pj == 0, pj定为i最小质因子，pj也定为pj*i最小质因子
-// i%pj != 0, pj定小于i的所有质因子，所以pj也为pj*i最小质因子
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 埃氏筛 nloglogn</span>
+bool p<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// p[i]=1 说明不是质数</span>
+<span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// p[i]==0 说明 i 是质数</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span>i<span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">+=</span>i<span class="token punctuation">)</span>
+                p<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 线性筛, n 只会被最小质因子筛掉</span>
+<span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> primes<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>primes<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;=</span>n<span class="token operator">/</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>  <span class="token comment">// 从小到大枚举质数</span>
+        <span class="token punctuation">{</span>
+            st<span class="token punctuation">[</span>primes<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">*</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>      <span class="token comment">// 只会用最小质因子去筛</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span>primes<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span> 
+<span class="token comment">// 当枚举到 i 的最小质因子时退出，因为 i×p[j+t]的最小质因子是p[j]</span>
+<span class="token comment">// i%pj == 0, pj定为i最小质因子，pj也定为pj*i最小质因子</span>
+<span class="token comment">// i%pj != 0, pj定小于i的所有质因子，所以pj也为pj*i最小质因子</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>合数一定能被线性筛筛掉：因为合数=p*k,p 是最小质因子，当枚举质数到 i=k 时，就被筛掉了。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int j=0;primes[j]&lt;=n/i;j++)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">for(int j=0;primes[j]&lt;=n/i;j++)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这里不能去掉等号，当去掉等号会误筛掉很多 n 附近的合数。</p>
 <h4 id="1-2-因数（约数）"><a href="#1-2-因数（约数）" class="headerlink" title="1.2 因数（约数）"></a>1.2 因数（约数）</h4><p>==约数个数==   ==约数之和== </p>
 <blockquote>
@@ -1808,13 +1808,13 @@ s(n)=\prod_{i=1}^{k} \sum_{j=0}^{a_i} p_i^j=(p_1^0+p_1^1+···+p_1^{a_1})\times
 <p>假设 d 是 （b，a%b) 的任意一个公约数，a=yd+kb，两边同除 d 得 $\frac{a}{d}=y+\frac{kb}{d}$，所以 y 为正整数，d也是（a，b）的公约数。</p>
 <p>所以 (a, b)和(b, a%b) 的公约数是一样的，自然最大公约数也一样。</p>
 </blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 辗转相除法
-int gcd(int a,int b)
-{
-    return b ? gcd(b, a%b) : a;  // b==0 输出
-}
-// STL函数
-c = __gcd(a,b);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 辗转相除法</span>
+<span class="token keyword">int</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> b <span class="token operator">?</span> <span class="token function">gcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> a<span class="token operator">%</span>b<span class="token punctuation">)</span> <span class="token operator">:</span> a<span class="token punctuation">;</span>  <span class="token comment">// b==0 输出</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// STL函数</span>
+c <span class="token operator">=</span> <span class="token function">__gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>==求 n 以内的含有最多因子的数== （$n\le10^{18}$） </p>
 <p>一个数的因子可以由多个质数相乘得到，由于 n 的范围。</p>
 <blockquote>
@@ -1905,7 +1905,7 @@ a^{phi(n)}\equiv 1\ (mod\ n)</script><p>证明：[1,n]中所有与 n 互质的�
 <script type="math/tex; mode=display">
 a^{p-1}\equiv 1\ (mod\ n)</script></blockquote>
 <h3 id="3-快速幂"><a href="#3-快速幂" class="headerlink" title="3 快速幂"></a>3 快速幂</h3><p>求 $a^k\ \%\ mod$ </p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int qpow(int a,int k)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int qpow(int a,int k)
 {
     int res=1,base=a;
     while(k)
@@ -1942,36 +1942,36 @@ ax+by = gcd(a,b)=gcd(b,\ a\ \%\ b)\\
 比较等式两边可知\ x=y'\ \ \ y=x'-\left \lfloor \frac{a}{b}  \right \rfloor y'</script><script type="math/tex; mode=display">
 \begin{flalign*}
 &通解: \begin{cases}
-&  x=x_0+k\frac{b}{d} \\
-&  y=y_0-k\frac{a}{d}
+  &  x=x_0+k\frac{b}{d} \\
+  &  y=y_0-k\frac{a}{d}
 \end{cases}\\
 证明: &\ \ 将其代回原式， a(x_0+k\frac{b}{d})+b(y_0-k\frac{a}{d})=m\\
 &\ \ 展开得\ \  ax_0+by_0=m ,含有\ k\ 的被消去了\\
 &\ \ 得到的式子和原式一样，证毕&
 \end{flalign*}</script></blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 伴随着欧几里得算法更新 x y 的过程
-void exgcd(int a,int b,int &amp;x,int &amp;y)
-{
-    if(!b)  x=1,y=0;
-    else
-    {
-        exgcd(b,a%b,x,y); 
-        int t=x;  x=y;
-        y=t-a/b*y;   // 对应上面的证明
-    }
-}
-// 省代码
-int exgcd(int a,int b,int &amp;x,int &amp;y)
-{
-    if(!b)
-    {
-        x=1; y=0;
-        return a;
-    }
-    int d=exgcd(b,a%b,y,x); // 调换 x y
-    y-=a/b*x;
-    return d;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 伴随着欧几里得算法更新 x y 的过程</span>
+<span class="token keyword">void</span> <span class="token function">exgcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>x<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>b<span class="token punctuation">)</span>  x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">exgcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        <span class="token keyword">int</span> t<span class="token operator">=</span>x<span class="token punctuation">;</span>  x<span class="token operator">=</span>y<span class="token punctuation">;</span>
+        y<span class="token operator">=</span>t<span class="token operator">-</span>a<span class="token operator">/</span>b<span class="token operator">*</span>y<span class="token punctuation">;</span>   <span class="token comment">// 对应上面的证明</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 省代码</span>
+<span class="token keyword">int</span> <span class="token function">exgcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>x<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>b<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> d<span class="token operator">=</span><span class="token function">exgcd</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>a<span class="token operator">%</span>b<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调换 x y</span>
+    y<span class="token operator">-=</span>a<span class="token operator">/</span>b<span class="token operator">*</span>x<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> d<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Exgcd应用：求解线性同余方程 <span id="linear congruent equation"> </span>  </p>
 <script type="math/tex; mode=display">
 &ax\equiv\ b\ \ \ (mod\ \ m)\\
@@ -1999,7 +1999,7 @@ int exgcd(int a,int b,int &amp;x,int &amp;y)
 </blockquote>
 <h5 id="5-2-扩展欧几里得求逆元"><a href="#5-2-扩展欧几里得求逆元" class="headerlink" title="5.2 扩展欧几里得求逆元"></a>5.2 扩展欧几里得求逆元</h5><p>扩展欧几里得可以求解<a href="#linear congruent equation">线性同余方程</a> $ax\equiv b\ \ (mod\ \ m)$ </p>
 <p>求模 m 意义中 a 的逆相对于求$ax\equiv1\ \ (mod\ \ m)$， ax-my=1。gcd(a,m) 不为1则说明逆元不存在,若为1，则调整结果为x=(x%mod+mod)%mod.</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int exgcd(int a,int b,int &amp;x,int &amp;y)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int exgcd(int a,int b,int &amp;x,int &amp;y)
 {
     if(!b)
     {
@@ -2037,28 +2037,28 @@ else cout&lt;&lt;"No"&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-r
 &注： \frac{a_1a_2}{d}就是\ a_1,a_2\ 的最小公倍数；注意取模。&
 
 \end{flalign*}</script></blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">ll a1,m1;  cin&gt;&gt;a1&gt;&gt;m1; // 第一个方程
-int f=0;
-while(--n)  // 输入第2~n个方程
-{
-    ll a2,m2,k1,k2;  cin&gt;&gt;a2&gt;&gt;m2;
-    ll d=exgcd(a1,a2,k1,k2);
-    if((m2 - m1) % d)  // 不是 d 的倍数无解
-    {
-        cout&lt;&lt;-1&lt;&lt;endl; return 0;
-    }
-    // a1k1+a2k2=d的通解为 k1=k1+k*(a2/d)，k=0， k1是正解中最小的
-    // a1k1+a2k2=m2-m1 的通解为, 所以k1要扩大 (m2-m1)/d 倍
-    k1=k1 * (m2 - m1) / d; 
-    // 但是经过乘了个 m2-m1 可能变负了
-    ll t=a2/d;   // 由通解可知模 t 也是解
-    k1=(k1 % t + t) % t;         
-    // 新的方程 x = k(a2·a1/d)+k1a1+m1
-    m1=k1 * a1 + m1;
-    a1=abs(a1 / d * a2);
-}
-// 最后一个方程是 x=m1 (mod a1), x%a1=m1, m1&lt;a1, 所以m1是一个解
-cout&lt;&lt;m1&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">ll a1<span class="token punctuation">,</span>m1<span class="token punctuation">;</span>  cin<span class="token operator">&gt;&gt;</span>a1<span class="token operator">&gt;&gt;</span>m1<span class="token punctuation">;</span> <span class="token comment">// 第一个方程</span>
+<span class="token keyword">int</span> f<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">--</span>n<span class="token punctuation">)</span>  <span class="token comment">// 输入第2~n个方程</span>
+<span class="token punctuation">{</span>
+    ll a2<span class="token punctuation">,</span>m2<span class="token punctuation">,</span>k1<span class="token punctuation">,</span>k2<span class="token punctuation">;</span>  cin<span class="token operator">&gt;&gt;</span>a2<span class="token operator">&gt;&gt;</span>m2<span class="token punctuation">;</span>
+    ll d<span class="token operator">=</span><span class="token function">exgcd</span><span class="token punctuation">(</span>a1<span class="token punctuation">,</span>a2<span class="token punctuation">,</span>k1<span class="token punctuation">,</span>k2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m2 <span class="token operator">-</span> m1<span class="token punctuation">)</span> <span class="token operator">%</span> d<span class="token punctuation">)</span>  <span class="token comment">// 不是 d 的倍数无解</span>
+    <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// a1k1+a2k2=d的通解为 k1=k1+k*(a2/d)，k=0， k1是正解中最小的</span>
+    <span class="token comment">// a1k1+a2k2=m2-m1 的通解为, 所以k1要扩大 (m2-m1)/d 倍</span>
+    k1<span class="token operator">=</span>k1 <span class="token operator">*</span> <span class="token punctuation">(</span>m2 <span class="token operator">-</span> m1<span class="token punctuation">)</span> <span class="token operator">/</span> d<span class="token punctuation">;</span> 
+    <span class="token comment">// 但是经过乘了个 m2-m1 可能变负了</span>
+    ll t<span class="token operator">=</span>a2<span class="token operator">/</span>d<span class="token punctuation">;</span>   <span class="token comment">// 由通解可知模 t 也是解</span>
+    k1<span class="token operator">=</span><span class="token punctuation">(</span>k1 <span class="token operator">%</span> t <span class="token operator">+</span> t<span class="token punctuation">)</span> <span class="token operator">%</span> t<span class="token punctuation">;</span>         
+    <span class="token comment">// 新的方程 x = k(a2·a1/d)+k1a1+m1</span>
+    m1<span class="token operator">=</span>k1 <span class="token operator">*</span> a1 <span class="token operator">+</span> m1<span class="token punctuation">;</span>
+    a1<span class="token operator">=</span><span class="token function">abs</span><span class="token punctuation">(</span>a1 <span class="token operator">/</span> d <span class="token operator">*</span> a2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 最后一个方程是 x=m1 (mod a1), x%a1=m1, m1&lt;a1, 所以m1是一个解</span>
+cout<span class="token operator">&lt;&lt;</span>m1<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="7-高斯消元"><a href="#7-高斯消元" class="headerlink" title="7 高斯消元"></a>7 高斯消元</h3><h4 id="7-1-线性方程组"><a href="#7-1-线性方程组" class="headerlink" title="7.1 线性方程组"></a>7.1 线性方程组</h4><p>用于求解线性方程组  $ \left\{\begin{matrix}<br>a_{11}x_1+a_{12}x_2+···+a_{1n}x_n=b_1 \\<br>a_{21}x_1+a_{22}x_2+···+a_{2n}x_n=b_2 \\<br>······ \\<br>a_{n1}x_1+a_{n2}x_2+···+a_{nn}x_n=b_n<br>\end{matrix}\right.$ </p>
 <p>矩阵形式为 $Ax=B$，$A=\begin{bmatrix}<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n}\\<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n} \\<br> ··· &amp; ··· &amp; ··· &amp; ···\\<br> a_{11} &amp; a_{12} &amp; ··· &amp; a_{1n}<br>\end{bmatrix}$，$B=\begin{bmatrix}<br> b_1\\<br>b_2\\<br>\vdots  \\<br>b_n<br>\end{bmatrix}$ 。</p>
 <p>将增广矩阵 [AB] 初等变换为化为上三角。高斯消元就是这个过程。</p>
@@ -2073,7 +2073,7 @@ cout&lt;&lt;m1&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><s
 <li>根据R(A),R(AB),n的关系判断解的情况</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">double a[105][105];
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">double a[105][105];
 int gauss()
 {
     int c,r;  // r 是行，计算后也代表矩阵的秩
@@ -2123,7 +2123,7 @@ int gauss()
 <h4 id="7-2-异或方程组"><a href="#7-2-异或方程组" class="headerlink" title="7.2 异或方程组"></a>7.2 异或方程组</h4><p>异或可以看出不进位的加法，同样可通过系数矩阵求解，即初等变换不改变解</p>
 <p>异或方程组 $ \left\{\begin{matrix}<br>a_{11}x_1 \oplus a_{12}x_2\oplus···\oplus a_{1n}x_n=b_1 \\<br>a_{21}x_1\oplus a_{22}x_2\oplus ···\oplus a_{2n}x_n=b_2 \\<br>······ \\<br>a_{n1}x_1\oplus a_{n2}x_2\oplus ···\oplus a_{nn}x_n=b_n<br>\end{matrix}\right.$，$a_{ij}，b_{ij}=0\ \  or\ \ 1$ </p>
 <p>对矩阵增广矩阵 [AB] 操作目标和线性方程组相同，代码这样写的原因也和普通高斯消元类似。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int gauss()
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int gauss()
 {
     int c=0,r=0;
     for(;c&lt;n;c++)
@@ -2198,7 +2198,7 @@ int gauss()
 <p>$C_{a_0}^{b_0}=C_{a\%p}^{b\%p}$，因为转化为p进制的第一位就是对 p 取余得到的</p>
 <p>$C_{a/p}^{b/p}=C_{a_1}^{b_1}\times ···\times C_{a_k}^{b_k}$，p 进制下，将 a，b 右移一位相当于 /p ，和 $C_a^b$ 一样分析，证明这个式子是正确。</p>
 </blockquote>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int c[N][N];
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int c[N][N];
 void init
 {
     for(int i=0;i&lt;N;i++)  // i 代表总的，j 代表 被选的
@@ -2206,35 +2206,35 @@ void init
             if(!j) c[i][j]=0;
     		else  c[i][j]=c[i-1][j]+c[i-1][j-1]%mod;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int c(int a,int b)
-{
-    int m=jc[a],z=(ll)jc[b]*jc[a-b]%mod;// 预处理的阶乘数组
-    return (ll)m*kpow(z,mod-2)%mod;  // 快速幂求逆元
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int lucas(ll a,ll b,int p)
-{
-    if(a&lt;p &amp;&amp; b&lt;p)  return c(a,b,p);
-    return (ll)c(a%p, b%p, p) * lucas(a/p, b/p, p) % p;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> m<span class="token operator">=</span>jc<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span>z<span class="token operator">=</span><span class="token punctuation">(</span>ll<span class="token punctuation">)</span>jc<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token operator">*</span>jc<span class="token punctuation">[</span>a<span class="token operator">-</span>b<span class="token punctuation">]</span><span class="token operator">%</span>mod<span class="token punctuation">;</span><span class="token comment">// 预处理的阶乘数组</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>ll<span class="token punctuation">)</span>m<span class="token operator">*</span><span class="token function">kpow</span><span class="token punctuation">(</span>z<span class="token punctuation">,</span>mod<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">%</span>mod<span class="token punctuation">;</span>  <span class="token comment">// 快速幂求逆元</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">lucas</span><span class="token punctuation">(</span>ll a<span class="token punctuation">,</span>ll b<span class="token punctuation">,</span><span class="token keyword">int</span> p<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">&lt;</span>p <span class="token operator">&amp;&amp;</span> b<span class="token operator">&lt;</span>p<span class="token punctuation">)</span>  <span class="token keyword">return</span> <span class="token function">c</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>ll<span class="token punctuation">)</span><span class="token function">c</span><span class="token punctuation">(</span>a<span class="token operator">%</span>p<span class="token punctuation">,</span> b<span class="token operator">%</span>p<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">lucas</span><span class="token punctuation">(</span>a<span class="token operator">/</span>p<span class="token punctuation">,</span> b<span class="token operator">/</span>p<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>不取模的组合数，高精度+质因子分解</p>
 <p>将阶乘分式约分，消去分母，再将分母质因子分解，答案就是这些质因子的乘积。</p>
 <p>求 n！质因子个数: $num = \frac{n}{p}+\frac{n}{p}+···+\frac{n}{p^k}$ </p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 求质因子及其个数的过程 
-int get(int n,int p)
-{
-    int res=0;
-    while(n)  // num=n/p+n/p^2+···
-    {
-        res+=n/p;
-        n/=p;
-    }
-    return res;
-}
-for(int i=0;i&lt;cnt;i++)   // C(a,b)
- {
-    int p=primes[i]; 
-    sum[i]=get(a,p)-get(a-b,p)-get(b,p); // 统计个数
- }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 求质因子及其个数的过程 </span>
+<span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> p<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> res<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>  <span class="token comment">// num=n/p+n/p^2+···</span>
+    <span class="token punctuation">{</span>
+        res<span class="token operator">+=</span>n<span class="token operator">/</span>p<span class="token punctuation">;</span>
+        n<span class="token operator">/=</span>p<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>cnt<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>   <span class="token comment">// C(a,b)</span>
+ <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> p<span class="token operator">=</span>primes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+    sum<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">get</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token operator">-</span><span class="token function">get</span><span class="token punctuation">(</span>a<span class="token operator">-</span>b<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token operator">-</span><span class="token function">get</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 统计个数</span>
+ <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="9-博弈论"><a href="#9-博弈论" class="headerlink" title="9 博弈论"></a>9 博弈论</h3><p>若一个游戏满足：</p>
 <ol>
 <li>由两名玩家交替行动</li>
@@ -2289,7 +2289,7 @@ for(int i=0;i&lt;cnt;i++)   // C(a,b)
 <p>若 SG(G)=0，则先手必败，否则先手必胜，证明同Nim游戏 </p>
 <p>求SG函数异或和，一般用记忆化搜索的方式：</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/895/">集合-Nim游戏</a>：看成多个有向图，一个数可以变为其他，返回递归求的这个数的SG值</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int sg(int x)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int sg(int x)
 {
     if(g[x]!=-1) return g[x];
     unordered_set&lt;int&gt; se;
@@ -2304,7 +2304,7 @@ for(int i=0;i&lt;cnt;i++)   // C(a,b)
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/896/">拆分-Nim游戏</a>：一堆分成多堆，一个图变成两个图，那么SG(G)=SG(G~1~)^SG(G~2~)。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int sg(int x)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int sg(int x)
 {
     if(g[x]!=-1) return g[x];
     unordered_set&lt;int &gt; se;
@@ -2318,7 +2318,7 @@ for(int i=0;i&lt;cnt;i++)   // C(a,b)
 <p>证明：假设元素 x 在 k 个集合中出现，则被计算的次数为</p>
 <p>$C_k^1 - C_k^2+C_k^3+···+(-1)^{k-1}C_k^k $ ，由二次项展开可知，该式等于 $-(1-1)^k+1=C_k^0=1 $，因此一个元素只被计算一次。</p>
 <p>常常与二进制枚举配合使用</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i=1;i&lt;(1&lt;&lt;m);i++) // 1~1111, 共有 2^n-1种选法
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">for(int i=1;i&lt;(1&lt;&lt;m);i++) // 1~1111, 共有 2^n-1种选法
 {
     int cnt=0;
     for(int j=0;j&lt;m;j++)  // 数组从 0 开始
@@ -2334,7 +2334,7 @@ for(int i=0;i&lt;cnt;i++)   // C(a,b)
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="11-卡特兰数"><a href="#11-卡特兰数" class="headerlink" title="11 卡特兰数"></a>11 卡特兰数</h3><p><strong>卡特兰数</strong>：$C_{2n}^n - C_{2n}^{n-1}=\frac{C_{2n}^n}{n+1}$  </p>
 <p>应用：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/891/">构造01序列</a>，<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/132/">火车进出栈</a>，</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int res=1;
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int res=1;
 for(int i=n+1;i&lt;=2*n;i++) res=(ll)res*i%mod;
 int x,y;
 for(int i=1;i&lt;=n+1;i++)
@@ -2346,23 +2346,23 @@ for(int i=1;i&lt;=n+1;i++)
 <h2 id="第五章-动态规划"><a href="#第五章-动态规划" class="headerlink" title="第五章 动态规划"></a>第五章 动态规划</h2><h3 id="1-背包问题"><a href="#1-背包问题" class="headerlink" title="1 背包问题"></a>1 背包问题</h3><h4 id="1-1-01背包"><a href="#1-1-01背包" class="headerlink" title="1.1 01背包"></a>1.1 01背包</h4><p>有 $N$ 件物品和一个容量是 $V$ 的背包。每件物品只能<strong>使用一次</strong>。第 $i$ 件物品的体积是 $v_i$，价值是 $w_i$。</p>
 <p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，</p>
 <p>且总价值最大。输出最大价值。</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// 二维形式
-for(int i=1;i&lt;=N;i++)
-{
-	for(int j=0;j&lt;=V;j++)
-    {
-        f[i][j]=f[i-1][j];
-        if(j&gt;=v[i])	
-            f[i][j]=max(f[i-1][j],f[i-1][j-v[i]]+w[i]);
-    }
-}
-// 一维优化
-for(int i=1;i&lt;=N;i++)
-    for(int j=V;j&gt;=v[i];j--)
-        f[j]=max(f[j],f[j-v[i]]+w[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 二维形式</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>V<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&gt;=</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>	
+            f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 一维优化</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>V<span class="token punctuation">;</span>j<span class="token operator">&gt;=</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span>
+        f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>j<span class="token operator">-</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-2-完全背包"><a href="#1-2-完全背包" class="headerlink" title="1.2 完全背包"></a>1.2 完全背包</h4><p>有 $N$ 种物品和一个容量是 $V$ 的背包，每种物品都有<strong>无限件可用</strong>。第 $i$ 种物品的体积是 $v_i$，价值是 $w_i$。</p>
 <p>求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">\\三重循环：
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">\\三重循环：
 for(int k = 0 ; k*v[i]&lt;=j ; k++)
     f[i，j] = max(f[i,j], f[i-1,j-k*v[i]]+k*w[i]);
 \* 优化至二重循环
@@ -2407,14 +2407,14 @@ f<span class="token punctuation">[</span>i<span class="token punctuation">]</spa
         <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">&gt;=</span>i<span class="token punctuation">)</span>  f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span>i<span class="token punctuation">]</span> <span class="token operator">%</span> mod<span class="token punctuation">;</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// Amezing!
-for (int i = 1; i &lt;= n; i ++)
-	for (int j = i; j &lt;= n; j ++)
-    	f[j] = f[j] + f[j - i] % mod;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// Amezing!</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> j <span class="token operator">++</span><span class="token punctuation">)</span>
+    	f<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> f<span class="token punctuation">[</span>j <span class="token operator">-</span> i<span class="token punctuation">]</span> <span class="token operator">%</span> mod<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-3-多重背包"><a href="#1-3-多重背包" class="headerlink" title="1.3 多重背包"></a>1.3 多重背包</h4><p>有 $N$ 种物品和一个容量是 $V$ 的背包。</p>
 <p>第 $i$ 种物品<strong>最多有 $s_i$ 件</strong>，每件体积是 $v_i$，价值是 $w_i$。</p>
 <p>求解将哪些物品装入背包，可使物品体积总和不超过背包容量，且价值总和最大。输出最大价值。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">\\ 朴素多重背包，循环 s 次这个物品 O(NVS)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">\\ 朴素多重背包，循环 s 次这个物品 O(NVS)
 for(int i=1;i&lt;=N;i++)
     for(int k=1;k&lt;=s[i];k++)
 	    for(int j=V;j&gt;=v[i];j--)
@@ -2425,19 +2425,19 @@ for(int i=1;i&lt;=N;i++)
 <p>证明：s 可以表示成二进制形式，枚举二进制形式的 1 ，有两种选择方式，选或者不选，通过这两种状态，物品选择范围可以到 0~s 。</p>
 <p>例如 s=9=1001，被拆分为 1，10，100，即 1 2 4 9-7=2。通过这些物品的组合可以凑出选择 s 的所有情况。</p>
 </blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">for(int i=1;i&lt;=N;i++)
-{
-    int num=min(s[i],V/v[i]); // 能选择 i 的最大数量
-    for(int k=1;num&gt;0;k&lt;&lt;=1)  // 划分为 1 2 4 ···
-    {
-        if(k&gt;num) k=num;  // 2^n要大于剩余的
-        num-=k;
-        for(int j=V;j&gt;=k*v[i];j--)
-        {
-            f[j]=max(f[j],f[j-k*v[i]]+k*w[i]);
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> num<span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>V<span class="token operator">/</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 能选择 i 的最大数量</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>num<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;&lt;=</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment">// 划分为 1 2 4 ···</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>k<span class="token operator">&gt;</span>num<span class="token punctuation">)</span> k<span class="token operator">=</span>num<span class="token punctuation">;</span>  <span class="token comment">// 2^n要大于剩余的</span>
+        num<span class="token operator">-=</span>k<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>V<span class="token punctuation">;</span>j<span class="token operator">&gt;=</span>k<span class="token operator">*</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>j<span class="token operator">-</span>k<span class="token operator">*</span>v<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span>k<span class="token operator">*</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-4-分组背包"><a href="#1-4-分组背包" class="headerlink" title="1.4 分组背包"></a>1.4 分组背包</h4><p>有 $N$ 组物品和一个容量是 $V$ 的背包。</p>
 <p>每组物品有 $s_i$ 种，<strong>同一组内的物品最多只能选一个</strong>。每件物品的体积是 $v_{ij}$，价值是 $w_{ij}$，其中 $i$ 是组号，$j$ 是组内编号。</p>
 <p>求解将哪些物品装入背包，可使物品总体积不超过背包容量，且总价值最大。</p>
@@ -2477,7 +2477,7 @@ stk<span class="token punctuation">[</span><span class="token number">0</span><s
 <span class="token punctuation">}</span>
 tt 即为最大长度，stk 为选的数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-2-最长公共子序列"><a href="#2-2-最长公共子序列" class="headerlink" title="2.2 最长公共子序列"></a>2.2 最长公共子序列</h4><p>给定两个长度分别为 $N$ 和 $M$ 的字符串 $A$ 和 $B$，求既是 $A$ 的子序列又是 $B$ 的子序列的字符串长度最长是多少。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i=1;i&lt;=n;i++)
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">for(int i=1;i&lt;=n;i++)
         for(int j=1;j&lt;=m;j++)
             if(a[i]==b[j]) 
                 f[i][j]=max(f[i][j],f[i-1][j-1]+1);
@@ -2492,7 +2492,7 @@ cout&lt;&lt;f[n][m]&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-row
 </ol>
 <p>现在请你求出，将 A 变为 B 至少需要进行多少次操作。</p>
 <p>A → B 的方式：删，增，改，不变</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">// f(i,j) 表示 a 前 i，变成 b 前 j 的距离
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">// f(i,j) 表示 a 前 i，变成 b 前 j 的距离
 int f[N][N];  
 for(int i=1;i&lt;=n;i++) f[i][0]=i;
 for(int i=1;i&lt;=m;i++) f[0][i]=i;
@@ -2509,7 +2509,7 @@ for(int i=1;i&lt;=n;i++)
 cout&lt;&lt;f[n][m]&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-区间DP"><a href="#4-区间DP" class="headerlink" title="4 区间DP"></a>4 区间DP</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/284/">合并石子</a> </p>
 <p>先枚举区间长度，在枚举可行的左端点，对应算出右端点，然后枚举中间点，状态整合。</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">memset(f,0x3f,sizeof(f));
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">memset(f,0x3f,sizeof(f));
 for(int i=1;i&lt;=n;i++) f[i][i]=0;
 for(int len=2;len&lt;=n;len++)      // 枚举区间的长度
 {
@@ -2523,7 +2523,7 @@ for(int len=2;len&lt;=n;len++)      // 枚举区间的长度
 <h3 id="5-数位DP"><a href="#5-数位DP" class="headerlink" title="5 数位DP"></a>5 数位DP</h3><h3 id="6-状态压缩DP"><a href="#6-状态压缩DP" class="headerlink" title="6 状态压缩DP"></a>6 状态压缩DP</h3><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/293/">蒙德里安的梦想</a> </p>
 <p>当放完横向的方格时，竖向的小方格放置情况就唯一且确定了，所以问题转化为只放横向的小方格的方案数量。</p>
 <p>f(i,j) 表示前 i-1 列已摆好，且从 i-1 列伸出到的第 i 列的状态是 j 的所有方案数。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/状压DP" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/honlzl/picgo_public/img/Algorithm/%E7%8A%B6%E5%8E%8BDP" alt="img"></p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/93/">路径最短Hamilton</a> </p>
 <p>用二进制数表示走了哪几个点。</p>
 <p>f(i,j)表示所有从 0 走到 j 的，路过点的情况是 i 的所有路径的花费最小值。</p>
@@ -2540,7 +2540,7 @@ f<span class="token punctuation">[</span><span class="token number">1</span><spa
 ans<span class="token operator">=</span>f<span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>n<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 经过所有点，到达 n-1 点</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="7-树形DP"><a href="#7-树形DP" class="headerlink" title="7 树形DP"></a>7 树形DP</h3><p>在一颗树上进行动态规划。</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/287/">没有直接上司的舞会</a> </p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">f[x][1]  // 表示选了 x 点
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">f[x][1]  // 表示选了 x 点
 f[x][0]  // 表示没选 x 点
 void dp(int x)
 {
