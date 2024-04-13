@@ -473,21 +473,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">9</a></span>
+    <span class="count"><a href="/">19</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">5</a></span>
+    <span class="count"><a href="/categories">7</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">6</a></span>
+    <span class="count"><a href="/tags">11</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -503,21 +503,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">9</a></span>
+    <span class="count"><a href="/">19</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">5</a></span>
+    <span class="count"><a href="/categories">7</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">6</a></span>
+    <span class="count"><a href="/tags">11</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -643,7 +643,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03"]
+            data: ["2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04"]
         },
         yAxis: {
             type: 'value',
@@ -653,7 +653,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                data: [0,0,0,0,0,0,0,0,0,1,0,0,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -695,7 +695,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"其他","value":1},{"name":"算法","value":3},{"name":"题解","value":2},{"name":"英语","value":1},{"name":"深度学习","value":1}],
+                data: [{"name":"其他","value":1},{"name":"算法","value":5},{"name":"题解","value":2},{"name":"英语","value":1},{"name":"深度学习","value":3},{"name":"C++","value":5},{"name":"图形学","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -719,7 +719,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["基础算法","-竞赛 -题解","随笔","-英语","提高算法","-深度学习 -Pytorch"]
+                data: ["C++","基础算法","-竞赛 -题解","深度学习","随笔","其他","-英语","提高算法","-深度学习 -Pytorch","进阶算法"]
             }
         ],
         yAxis: [
@@ -732,7 +732,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [2,2,1,1,1,1],
+                data: [5,2,2,2,1,1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -914,6 +914,12 @@
             
             
             
+            <a href="/tags/%E5%85%B6%E4%BB%96/">
+                <span class="chip center-align waves-effect waves-light chip-default">其他</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E7%AB%9E%E8%B5%9B-%E9%A2%98%E8%A7%A3/">
                 <span class="chip center-align waves-effect waves-light chip-default">-竞赛 -题解</span>
             </a>
@@ -934,6 +940,30 @@
             
             <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-Pytorch/">
                 <span class="chip center-align waves-effect waves-light chip-default">-深度学习 -Pytorch</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E8%BF%9B%E9%98%B6%E7%AE%97%E6%B3%95/">
+                <span class="chip center-align waves-effect waves-light chip-default">进阶算法</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                <span class="chip center-align waves-effect waves-light chip-default">深度学习</span>
+            </a>
+            
+            
+            
+            <a href="/tags/C/">
+                <span class="chip center-align waves-effect waves-light chip-default">C++</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                <span class="chip center-align waves-effect waves-light chip-default">图形学</span>
             </a>
             
             
@@ -1067,7 +1097,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">26.2k</span>&nbsp;字
+                class="white-color">47.8k</span>&nbsp;字
             
             
             
